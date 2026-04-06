@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)file:///C:/Users/Lenovo/Downloads/Planvisning_Mobil_1.html -->
+<html lang="no"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Planvisning">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#1E2761">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,&lt;svg xmlns=&#39;http://www.w3.org/2000/svg&#39; viewBox=&#39;0 0 100 100&#39;&gt;&lt;rect width=&#39;100&#39; height=&#39;100&#39; fill=&#39;%231E2761&#39;/&gt;&lt;text y=&#39;68&#39; x=&#39;50&#39; text-anchor=&#39;middle&#39; font-size=&#39;60&#39; fill=&#39;%23C9A84C&#39;&gt;%E2%98%85&lt;/text&gt;&lt;/svg&gt;">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Design din egen fremtid</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --navy:#1E2761; --gold:#C9A84C; --ice:#CADCFC;
+  --gray:#94a3b8; --green:#22c55e; --amber:#f59e0b;
+}
+body {
+  font-family:'Segoe UI',system-ui,sans-serif;
+  background:linear-gradient(135deg,#0c1230,#1a2a60,#0f172a);
+  background-size:300% 300%;
+  animation:bgS 20s ease infinite;
+  width:100vw; height:100vh; overflow:hidden; color:#fff;
+  user-select:none;
+}
+@keyframes bgS{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+
+/* diagonal overlay */
+body::after{content:'';position:fixed;inset:0;pointer-events:none;
+  background:repeating-linear-gradient(-52deg,transparent,transparent 58px,rgba(201,168,76,0.03) 58px,rgba(201,168,76,0.03) 60px);}
+
+#topbar{position:fixed;top:0;left:0;right:0;height:4px;z-index:100;
+  background:linear-gradient(to right,var(--gold),#f0c060,var(--gold));}
+#progwrap{position:fixed;top:4px;left:0;right:0;height:3px;z-index:100;background:rgba(255,255,255,0.07);}
+#progbar{height:100%;background:rgba(201,168,76,0.45);width:0;transition:width 0.15s linear;}
+
+/* ── SLIDES ── */
+#deck{position:fixed;inset:0;z-index:10;}
+.scene{
+  position:absolute;inset:0;opacity:0;pointer-events:none;
+  transition:opacity 0.6s ease;
+  display:flex;align-items:center;justify-content:center;
+  padding:52px 80px 80px;
+}
+.scene.active{opacity:1;pointer-events:all;}
+.si{max-width:960px;width:100%;display:flex;flex-direction:column;gap:26px;}
+.si.c{align-items:center;text-align:center;}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp   {from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeLeft {from{opacity:0;transform:translateX(60px)}to{opacity:1;transform:translateX(0)}}
+@keyframes fadeRight{from{opacity:0;transform:translateX(-60px)}to{opacity:1;transform:translateX(0)}}
+@keyframes scaleIn  {from{opacity:0;transform:scale(0.8)}to{opacity:1;transform:scale(1)}}
+@keyframes fadeIn   {from{opacity:0}to{opacity:1}}
+@keyframes popIn    {0%{opacity:0;transform:scale(0.4)}70%{transform:scale(1.1)}100%{opacity:1;transform:scale(1)}}
+
+.wa{opacity:0;}
+.au{animation:fadeUp    0.65s cubic-bezier(.22,1,.36,1) both;}
+.al{animation:fadeLeft  0.65s cubic-bezier(.22,1,.36,1) both;}
+.ar{animation:fadeRight 0.65s cubic-bezier(.22,1,.36,1) both;}
+.as{animation:scaleIn   0.55s cubic-bezier(.34,1.56,.64,1) both;}
+.af{animation:fadeIn    0.8s ease both;}
+.ap{animation:popIn     0.6s cubic-bezier(.34,1.56,.64,1) both;}
+
+.d1{animation-delay:.12s}.d2{animation-delay:.26s}.d3{animation-delay:.40s}
+.d4{animation-delay:.54s}.d5{animation-delay:.68s}.d6{animation-delay:.82s}
+.d7{animation-delay:.96s}.d8{animation-delay:1.10s}
+
+/* ── TYPE ── */
+.kicker{font-size:12px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);}
+.h1{font-size:clamp(46px,6.5vw,74px);font-weight:800;line-height:1.06;}
+.h2{font-size:clamp(26px,3.8vw,46px);font-weight:700;line-height:1.15;}
+.h1 em,.h2 em{color:var(--gold);font-style:normal;}
+.blg{font-size:clamp(15px,1.8vw,20px);line-height:1.78;color:rgba(255,255,255,0.72);}
+.blg strong{color:#fff;}
+.bmd{font-size:clamp(13px,1.5vw,17px);line-height:1.75;color:rgba(255,255,255,0.65);}
+.bmd strong{color:#fff;}
+.bsm{font-size:12px;color:rgba(255,255,255,0.38);line-height:1.6;}
+.div{width:56px;height:3px;background:var(--gold);border-radius:2px;}
+.divw{width:120px;height:3px;background:var(--gold);border-radius:2px;}
+
+/* ── LAYOUT ── */
+.row{display:flex;gap:18px;}
+.f1{flex:1;}
+.col{display:flex;flex-direction:column;}
+
+/* ── CARDS ── */
+.card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:24px 22px;}
+.cg{background:rgba(201,168,76,0.09);border-color:rgba(201,168,76,0.28);}
+.cr{background:rgba(185,28,28,0.09);border-color:rgba(185,28,28,0.28);}
+
+/* ── FLOW ── */
+.flow{display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
+  border-radius:16px;padding:30px 20px;}
+.fi{display:flex;flex-direction:column;align-items:center;gap:11px;flex:1;}
+.fic{width:70px;height:70px;background:rgba(201,168,76,0.12);border:2px solid rgba(201,168,76,0.3);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.fic svg{width:36px;height:36px;fill:var(--gold);}
+.fla{font-size:13px;font-weight:700;}
+.far{font-size:24px;color:var(--gold);flex:0;padding:0 6px;margin-bottom:20px;}
+
+/* ── BADGES ── */
+.badge{border-radius:12px;padding:15px 17px;font-size:13.5px;line-height:1.6;color:rgba(255,255,255,0.76);}
+.badge strong{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:5px;}
+.bg{background:rgba(201,168,76,0.10);border:1px solid rgba(201,168,76,0.25);}
+.bg strong{color:var(--gold);}
+.br{background:rgba(185,28,28,0.10);border:1px solid rgba(185,28,28,0.25);}
+.br strong{color:#f87171;}
+
+/* ── HIGHLIGHT ── */
+.hbox{background:rgba(30,39,97,0.65);border:1px solid rgba(201,168,76,0.28);border-radius:14px;padding:30px 38px;text-align:center;}
+.hbox .m{font-size:clamp(16px,2.2vw,22px);font-weight:700;color:var(--gold);margin-bottom:8px;}
+.hbox .s{font-size:clamp(13px,1.5vw,17px);color:var(--ice);line-height:1.7;}
+
+/* ── SCALE ── */
+.scale{display:flex;flex-direction:column;gap:8px;width:100%;}
+.sr{display:flex;align-items:center;gap:12px;}
+.sl{font-size:12px;color:rgba(255,255,255,0.6);min-width:100px;text-align:right;}
+.st{flex:1;height:34px;background:rgba(255,255,255,0.06);border-radius:6px;overflow:hidden;}
+.sf{height:100%;width:0;border-radius:6px;display:flex;align-items:center;padding-left:10px;
+  font-size:12px;font-weight:700;color:#fff;transition:width 1.1s cubic-bezier(.4,0,.2,1);}
+.sv{font-size:12px;font-weight:700;color:rgba(255,255,255,0.55);min-width:36px;}
+
+/* ── BONUS ROW ── */
+.brow{display:flex;align-items:center;gap:10px;padding:9px 13px;
+  background:rgba(255,255,255,0.04);border-radius:8px;}
+.brow .lbl{font-size:13px;color:rgba(255,255,255,0.65);flex:1;}
+.brow .val{font-size:14px;font-weight:700;color:var(--gold);}
+.brow.tot{background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.25);}
+.brow.tot .lbl{color:#fff;font-weight:700;}
+.brow.tot .val{font-size:17px;}
+.brow.ttci{background:rgba(91,33,182,0.12);border:1px solid rgba(91,33,182,0.28);}
+.brow.ttci .val{color:#c4b5fd;}
+
+/* ── PILL ── */
+.pill{display:inline-flex;align-items:center;gap:5px;padding:5px 13px;border-radius:999px;font-size:12px;font-weight:600;}
+.pg{background:rgba(201,168,76,0.12);color:var(--gold);border:1px solid rgba(201,168,76,0.28);}
+
+/* ── CONTROLS ── */
+#ctrl{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);z-index:200;
+  display:flex;align-items:center;gap:13px;
+  background:rgba(0,0,0,0.45);backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,0.1);border-radius:999px;padding:9px 18px;}
+.cb{background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.55);
+  font-size:18px;width:32px;height:32px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+.cb:hover{color:#fff;background:rgba(255,255,255,0.1);}
+#dots{display:flex;gap:7px;align-items:center;}
+.dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.22);cursor:pointer;transition:all 0.3s;}
+.dot.on{background:var(--gold);transform:scale(1.5);}
+#tring svg{transform:rotate(-90deg);}
+#tarc{stroke:var(--gold);stroke-width:3;fill:none;stroke-dasharray:82;stroke-dashoffset:82;stroke-linecap:round;transition:stroke-dashoffset 0.15s linear;}
+#sctr{font-size:11px;color:rgba(255,255,255,0.32);min-width:34px;text-align:center;}
+
+/* ════════════════════════════════
+   MOBIL — iPhone optimalisert
+════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* Padding: mer plass øverst/bunn for notch og kontroller */
+  .scene {
+    padding: 60px 20px 100px !important;
+    align-items: flex-start !important;
+    overflow-y: auto;
+  }
+
+  .si { gap: 16px !important; max-width: 100% !important; }
+  .si.c { align-items: center !important; }
+
+  /* Typografi */
+  .kicker { font-size: 10px !important; letter-spacing: 2px !important; }
+  .h1 { font-size: 32px !important; line-height: 1.1 !important; }
+  .h2 { font-size: 22px !important; line-height: 1.2 !important; }
+  .blg { font-size: 14px !important; line-height: 1.7 !important; }
+  .bmd { font-size: 13px !important; line-height: 1.65 !important; }
+  .bsm { font-size: 11px !important; }
+  .divw { width: 80px !important; }
+
+  /* Rader → kolonner på mobil */
+  .row {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  /* Flow (handelsflyt) — scroll horisontalt */
+  .flow {
+    padding: 16px 8px !important;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start !important;
+    gap: 0 !important;
+  }
+  .fic { width: 52px !important; height: 52px !important; }
+  .fic svg { width: 26px !important; height: 26px !important; }
+  .fla { font-size: 10px !important; }
+  .far { font-size: 16px !important; padding: 0 2px !important; margin-bottom: 14px !important; }
+
+  /* Kort */
+  .card { padding: 14px 14px !important; }
+
+  /* Bonusskala */
+  .sl { min-width: 72px !important; font-size: 10px !important; }
+  .sv { min-width: 28px !important; font-size: 10px !important; }
+  .sf { font-size: 10px !important; }
+  .st { height: 28px !important; }
+
+  /* Bonus rader */
+  .brow { padding: 7px 10px !important; }
+  .brow .lbl { font-size: 11px !important; }
+  .brow .val { font-size: 12px !important; }
+  .brow.tot .val { font-size: 15px !important; }
+
+  /* Hbox */
+  .hbox { padding: 20px 18px !important; }
+  .hbox .m { font-size: 15px !important; }
+  .hbox .s { font-size: 13px !important; }
+
+  /* Org-tre kolonne */
+  #s6 .row { flex-direction: column !important; }
+  #org-tree { padding-top: 0 !important; width: 100% !important; }
+
+  /* Steg-slides: stable vertikalt */
+  #s8a .row, #s8b .row, #s8c .row, #s8d .row,
+  #s9 .row, #s10 .row, #s11 .row {
+    flex-direction: column !important;
+  }
+
+  /* Kontroller */
+  #ctrl {
+    padding: 8px 14px !important;
+    gap: 10px !important;
+    bottom: 16px !important;
+  }
+  .cb { width: 28px !important; height: 28px !important; font-size: 16px !important; }
+  #sctr { font-size: 10px !important; }
+  .dot { width: 6px !important; height: 6px !important; }
+  #tring { width: 26px !important; height: 26px !important; }
+
+  /* Safe area for iPhone notch */
+  #ctrl { padding-bottom: max(8px, env(safe-area-inset-bottom)) !important; }
+  .scene { padding-bottom: max(100px, calc(80px + env(safe-area-inset-bottom))) !important; }
+}
+
+</style>
+
+<script>
+// Register inline service worker for PWA offline support
+if ('serviceWorker' in navigator) {
+  const swCode = `
+    const CACHE = 'planvisning-v1';
+    self.addEventListener('install', e => {
+      self.skipWaiting();
+    });
+    self.addEventListener('fetch', e => {
+      e.respondWith(
+        caches.match(e.request).then(r => r || fetch(e.request))
+      );
+    });
+  `;
+  const blob = new Blob([swCode], {type: 'application/javascript'});
+  const swUrl = URL.createObjectURL(blob);
+  navigator.serviceWorker.register(swUrl).catch(()=>{});
+}
+</script>
+</head>
+<body>
+<div id="topbar"></div>
+<div id="progwrap"><div id="progbar" style="width: 10.5263%;"></div></div>
+<div id="deck">
+
+<!-- S1: TITTEL -->
+<div class="scene" id="s1">
+  <div class="si c">
+    <div class="kicker wa as d1" style="">Forretningsmodell · Presentasjon</div>
+    <div class="h1 wa au d2" style="">Design din <em>egen fremtid</em></div>
+    <div class="divw wa af d4" style=""></div>
+    <div class="blg wa au d5" style="max-width: 580px;">En forretningsmodell for moderne entreprenører.</div>
+  </div>
+</div>
+
+<!-- S2: SPØRSMÅLET -->
+<div class="scene active" id="s2">
+  <div class="si">
+    <div class="kicker wa al d1" style="">Utgangspunktet</div>
+    <div class="h2 wa al d2" style="">Har du noen gang <em>ønsket deg mer?</em></div>
+    <div class="div wa af d3" style=""></div>
+    <div class="blg wa au d4" style="">Ønsker du deg:</div>
+    <div class="bmd wa au d5" style="color: rgba(255, 255, 255, 0.78);">
+      Mer frihet · Større økonomisk spillerom · Å kunne jobbe fra hvor du vil · Å bygge opp noe som kan gi deg en gjentakende inntekt
+    </div>
+    <div class="bmd wa au d6" id="s2-last" style="">De fleste forretningsmodeller krever kapital eller en revolusjonerende idé — ofte begge deler. Felles for alle er at <strong>det tar tid.</strong></div>
+  </div>
+</div>
+
+<!-- S3: LINEÆR VS SKALERBAR -->
+<div class="scene" id="s3">
+  <div class="si">
+    <div class="kicker wa">Det viktige skillet</div>
+    <div class="h2 wa">Ikke all inntekt er <em>skapt på samme måte</em></div>
+    <div class="bmd wa">Du kan enten selge tiden din for penger, eller investere tiden din i å bygge opp noe som genererer inntekt.</div>
+    <div class="row wa">
+      <div class="card cr f1">
+        <div style="font-size:28px;margin-bottom:10px;">⏱️</div>
+        <div style="font-size:16px;font-weight:700;color:#f87171;margin-bottom:8px;">Lineær inntekt</div>
+        <div class="bmd">Jobb 1 time → få betalt for 1 time. Kortsiktig — forsvinner i det månedlige forbruket.</div>
+      </div>
+      <div class="card cg f1">
+        <div style="font-size:28px;margin-bottom:10px;">📈</div>
+        <div style="font-size:16px;font-weight:700;color:var(--gold);margin-bottom:8px;">Skalerbar gjentakende inntekt</div>
+        <div class="bmd">Bygg noe som <strong>GENERERER</strong> inntekt. Vokser over tid — mindre avhengig av din tid.</div>
+      </div>
+    </div>
+    <div class="bmd wa" id="s3-last" style="color:rgba(255,255,255,0.6);font-style:italic;">
+      De aller fleste som bygger verdier som skaper inntekt, gjør dette ved siden av sin vanlige jobb. For mange er dette en trygg og strukturert måte å bygge fremtiden på.
+    </div>
+  </div>
+</div>
+
+<!-- S3b: OVERGANG -->
+<div class="scene" id="s3b">
+  <div class="si c" style="gap:32px;">
+    <div class="kicker wa">En annerledes modell</div>
+    <div class="h2 wa" style="max-width:700px;">Vi skal se på en forretningsmodell som gir deg muligheten til nettopp det — <em>å skape en gjentakende inntekt</em></div>
+    <div class="divw wa"></div>
+    <div class="blg wa" style="max-width:660px;">Modellen er skalerbar, slik at du kan bygge opp inntjeningen din til det nivået du ønsker.</div>
+    <div class="hbox wa">
+      <div class="m">La oss først se på hvordan konvensjonell handel fungerer.</div>
+    </div>
+  </div>
+</div>
+
+<!-- S4: HANDELSFLYT -->
+<div class="scene" id="s4">
+  <div class="si">
+    <div class="kicker wa">Konvensjonell handel</div>
+    <div class="h2 wa">Et produkt skal gjennom en rekke <em>instanser</em> før det når deg som kunde</div>
+    <div class="flow wa" style="gap:0;padding:24px 12px;">
+      <!-- Produsent -->
+      <div class="fi" style="gap:8px;">
+        <div class="fic"><svg viewBox="0 0 96 96"><path d="M74 75 62 75 62 66 74 66 74 75ZM54 75 42 75 42 66 54 66 54 75ZM34 75 22 75 22 66 34 66 34 75ZM55 55 55 41 28 55 25 14 17 14 14 55 14 82 82 82 82 55 82 41 55 55Z"></path></svg></div>
+        <span class="fla" style="font-size:12px;">Produsent</span>
+      </div>
+      <div class="far" style="font-size:18px;padding:0 4px;margin-bottom:18px;">→</div>
+      <!-- Frakt 1 -->
+      <div class="fi" style="gap:8px;">
+        <div class="fic" style="width:58px;height:58px;"><svg viewBox="0 0 96 96"><circle cx="20" cy="66" r="7"></circle><circle cx="78" cy="66" r="7"></circle><rect x="4" y="24" width="56" height="24"></rect><path d="M68 34 74 34C75.8 34 77.4 35.2 77.8 36.9L79.8 43.8 79.9 44 68 44 68 34ZM74 30 64 30 64 66 68 66C68 60.5 72.5 56 78 56 83.5 56 88 60.5 88 66 90.2 66 92 64.2 92 62L92 52C92 50.7 91.4 49.6 90.4 48.8L85.1 44.8C84.4 44.3 83.9 43.5 83.7 42.7L81.7 35.8C80.7 32.4 77.5 30 74 30Z"></path><path d="M60 66 30 66C30 60.5 25.5 56 20 56 14.5 56 10 60.5 10 66L4 66 4 52 60 52 60 66Z"></path></svg></div>
+        <span class="fla" style="font-size:12px;">Frakt</span>
+      </div>
+      <div class="far" style="font-size:18px;padding:0 4px;margin-bottom:18px;">→</div>
+      <!-- Grossist -->
+      <div class="fi" style="gap:8px;">
+        <div class="fic" style="width:58px;height:58px;">
+          <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg"><path d="M80 28H16L8 52v4h4v20h24V60h16v16h24V56h4v-4L80 28zM44 72H16V56h28v16zm36 0H52V56h28v16zM12 52l6-20h60l6 20H12z"></path></svg>
+        </div>
+        <span class="fla" style="font-size:12px;">Grossist</span>
+      </div>
+      <div class="far" style="font-size:18px;padding:0 4px;margin-bottom:18px;">→</div>
+      <!-- Frakt 2 -->
+      <div class="fi" style="gap:8px;">
+        <div class="fic" style="width:58px;height:58px;"><svg viewBox="0 0 96 96"><circle cx="20" cy="66" r="7"></circle><circle cx="78" cy="66" r="7"></circle><rect x="4" y="24" width="56" height="24"></rect><path d="M68 34 74 34C75.8 34 77.4 35.2 77.8 36.9L79.8 43.8 79.9 44 68 44 68 34ZM74 30 64 30 64 66 68 66C68 60.5 72.5 56 78 56 83.5 56 88 60.5 88 66 90.2 66 92 64.2 92 62L92 52C92 50.7 91.4 49.6 90.4 48.8L85.1 44.8C84.4 44.3 83.9 43.5 83.7 42.7L81.7 35.8C80.7 32.4 77.5 30 74 30Z"></path><path d="M60 66 30 66C30 60.5 25.5 56 20 56 14.5 56 10 60.5 10 66L4 66 4 52 60 52 60 66Z"></path></svg></div>
+        <span class="fla" style="font-size:12px;">Frakt</span>
+      </div>
+      <div class="far" style="font-size:18px;padding:0 4px;margin-bottom:18px;">→</div>
+      <!-- Butikk -->
+      <div class="fi" style="gap:8px;">
+        <div class="fic" style="width:58px;height:58px;"><svg viewBox="0 0 96 96"><path d="M76 44C76 46.2 74.2 48 72 48 69.8 48 68 46.2 68 44L68 40 66 20 74 20 76 40 76 44ZM60 44C60 46.2 58.2 48 56 48 53.8 48 52 46.2 52 44L52 40 51 20 59 20 60 40 60 44ZM44 40 44 44C44 46.2 42.2 48 40 48 37.8 48 36 46.2 36 44L36 40 37 20 45 20 44 40ZM40 72 24 72 24 56 40 56 40 72ZM20 44 20 40 22 20 30 20 28 40 28 44C28 46.2 26.2 48 24 48 21.8 48 20 46.2 20 44ZM80 14 16 14 12 40 12 44C12 46.2 13.8 48 16 48L16 82 50 82 50 56 72 56 72 82 80 82 80 48C82.2 48 84 46.2 84 44L84 40 80 14Z"></path></svg></div>
+        <span class="fla" style="font-size:12px;">Butikk</span>
+      </div>
+      <div class="far" style="font-size:18px;padding:0 4px;margin-bottom:18px;">→</div>
+      <!-- Kunde -->
+      <div class="fi" style="gap:8px;">
+        <div class="fic" style="width:58px;height:58px;"><svg viewBox="0 0 96 96"><circle cx="48" cy="11" r="8"></circle><path d="M69.8 52.2 64.2 28.4C64 27.6 63.6 26.8 63 26.2 60.6 24.2 57.8 22.8 54.6 21.8 52.4 21.4 50.2 21 48 21 45.8 21 43.6 21.4 41.4 22 38.2 22.8 35.4 24.4 33 26.4 32.4 27 32 27.8 31.8 28.6L26.2 52.4C26.2 52.6 26 53 26 53.4 26 55.6 27.8 57.4 30 57.4 31.8 57.4 33.4 56 33.8 54.4L38 37 38 93 46 93 46 57 50 57 50 93 58 93 58 36.8 62.2 54.2C62.6 55.8 64.2 57.2 66 57.2 68.2 57.2 70 55.4 70 53.2 70 52.8 69.8 52.4 69.8 52.2Z"></path></svg></div>
+        <span class="fla" style="font-size:12px;">Kunde</span>
+      </div>
+    </div>
+    <div class="row wa">
+      <div class="badge bg f1"><strong>Du betaler for alle ledd</strong>Du betaler for alle steg i kjeden + lønn og insentiver til ansatte. Butikker kan gi opptil 70% avslag ved sesjongsalg — det forteller noe om avansen.</div>
+      <div class="badge br f1"><strong>Butikkenes skjulte kostnader</strong>Reklame · Lager · Husleie · Fordringer · Lønn — alt priset inn i det du kjøper.</div>
+    </div>
+  </div>
+</div>
+
+<!-- S5b: MODELLEN VÅR -->
+<div class="scene" id="s5b">
+  <div class="si" style="gap:24px;">
+    <div class="kicker wa">Vår forretningsmodell</div>
+    <div class="h2 wa">Forretningseier — <em>uten de tradisjonelle kostnadene</em></div>
+    <div class="blg wa">Modellen vi jobber med gir oss muligheten til å være forretningseiere, men uten de samme kostnadene vi ser i tradisjonell forretningsdrift. I tillegg kan vi handle varer til innkjøpspriser fordi vi kutter ut fordyrende mellomledd.</div>
+    <div class="card cg wa">
+      <div style="font-size:14px;font-weight:700;color:var(--gold);margin-bottom:10px;">🤝 Samarbeidet med Amway</div>
+      <div class="bmd">Selskapet vi samarbeider med er Amway, og de utbetaler bonuser og insentiver basert på omsetningen vi bidrar til å generere gjennom deres nettbutikk. Dette gjør vi ved å presentere forretningsmuligheten og introdusere andre for å handle på samme sted — enten som forretningseiere eller som kunder.</div>
+    </div>
+    <div class="row wa" style="gap:14px;">
+      <div class="card f1" style="padding:16px 18px;background:rgba(34,197,94,0.08);border-color:rgba(34,197,94,0.25);text-align:center;">
+        <div style="font-size:22px;margin-bottom:6px;">🏪</div>
+        <div style="font-size:13px;font-weight:700;color:#4ade80;margin-bottom:4px;">Ingen fysisk butikk</div>
+        <div class="bsm">Ingen husleie, lager eller ansatte</div>
+      </div>
+      <div class="card f1" style="padding:16px 18px;background:rgba(34,197,94,0.08);border-color:rgba(34,197,94,0.25);text-align:center;">
+        <div style="font-size:22px;margin-bottom:6px;">💰</div>
+        <div style="font-size:13px;font-weight:700;color:#4ade80;margin-bottom:4px;">Innkjøpspriser</div>
+        <div class="bsm">Kutter ut fordyrende mellomledd</div>
+      </div>
+      <div class="card f1" style="padding:16px 18px;background:rgba(34,197,94,0.08);border-color:rgba(34,197,94,0.25);text-align:center;">
+        <div style="font-size:22px;margin-bottom:6px;">📈</div>
+        <div style="font-size:13px;font-weight:700;color:#4ade80;margin-bottom:4px;">Bonuser &amp; insentiver</div>
+        <div class="bsm">Basert på omsetningen du genererer</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S5: ANBEFALINGER + GIG ECONOMY -->
+<div class="scene" id="s5">
+  <div class="si">
+    <div class="kicker wa">Kraften i anbefalinger</div>
+    <div class="h2 wa">Venners råd slår reklame <em>20–30 ganger</em></div>
+    <div class="div wa"></div>
+    <div class="blg wa">Undersøkelser viser at anbefalinger fra venner virker <strong>20–30 ganger sterkere</strong> enn reklame — og effekten varer lenger. Norstat bekrefter dette, og hos yngre er virkningen enda sterkere.</div>
+    <div class="row wa">
+      <div class="card f1" style="background:rgba(13,148,136,0.09);border-color:rgba(13,148,136,0.28);text-align:center;padding:18px 14px;">
+        <div style="font-size:26px;margin-bottom:6px;">🚗</div>
+        <div style="font-size:13px;font-weight:700;color:#2dd4bf;margin-bottom:4px;">Uber</div>
+        <div class="bsm">Eier ingen biler — verdens største taxiselskap</div>
+      </div>
+      <div class="card f1" style="background:rgba(13,148,136,0.09);border-color:rgba(13,148,136,0.28);text-align:center;padding:18px 14px;">
+        <div style="font-size:26px;margin-bottom:6px;">🏨</div>
+        <div style="font-size:13px;font-weight:700;color:#2dd4bf;margin-bottom:4px;">Airbnb</div>
+        <div class="bsm">Eier ingen hoteller — 8,2 mill. overnattingsplasser</div>
+      </div>
+      <div class="card f1" style="background:rgba(13,148,136,0.09);border-color:rgba(13,148,136,0.28);text-align:center;padding:18px 14px;">
+        <div style="font-size:26px;margin-bottom:6px;">🛍️</div>
+        <div style="font-size:13px;font-weight:700;color:#2dd4bf;margin-bottom:4px;">Etsy</div>
+        <div class="bsm">Eier ingen varer — millioner av selgere globalt</div>
+      </div>
+      <div class="card cg f1" style="text-align:center;padding:18px 14px;">
+        <div style="font-size:26px;margin-bottom:6px;">🏆</div>
+        <div style="font-size:13px;font-weight:700;color:var(--gold);margin-bottom:4px;">Amway</div>
+        <div class="bsm">Samme prinsipp — du er plattformen</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- S6: STØTTEAPPARAT + ORG-TRE -->
+<div class="scene" id="s6">
+  <div class="si" style="gap:20px;">
+    <div class="kicker wa">Ditt støtteapparat</div>
+    <div class="h2 wa">Du står <em>ikke alene</em></div>
+    <div class="row wa" style="align-items:flex-start;gap:24px;">
+      <!-- Tre kort -->
+      <div class="col f1" style="gap:10px;">
+        <div class="card cg" style="padding:16px 18px;">
+          <div style="font-size:18px;margin-bottom:6px;">🏢</div>
+          <div style="font-size:13px;font-weight:700;color:var(--gold);margin-bottom:4px;">Amway</div>
+          <div class="bmd" style="font-size:12px;">Plattform, produkter og frakt. Betaler bonuser direkte til deg. Startet 1959 — ~7,5 mrd USD i omsetning.</div>
+        </div>
+        <div class="card" style="padding:16px 18px;background:rgba(91,33,182,0.1);border-color:rgba(91,33,182,0.28);">
+          <div style="font-size:18px;margin-bottom:6px;">🌍</div>
+          <div style="font-size:13px;font-weight:700;color:#c4b5fd;margin-bottom:4px;">Yager Group</div>
+          <div class="bmd" style="font-size:12px;">Siden 1963 — verdens største nettverksorg. Titusenvis av mentorer. Podcasts, eventer og hands-on opplæring.</div>
+        </div>
+        <div class="card" style="padding:16px 18px;">
+          <div style="font-size:18px;margin-bottom:6px;">🤝</div>
+          <div style="font-size:13px;font-weight:700;color:var(--ice);margin-bottom:4px;">Din sponsor</div>
+          <div class="bmd" style="font-size:12px;">Introduserte deg for muligheten og hjelper deg å lykkes med erfaring og materiell.</div>
+        </div>
+      </div>
+      <!-- Org-tre -->
+      <div id="org-tree" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:0;padding-top:8px;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- S7: BONUSSKALA -->
+<div class="scene" id="s7">
+  <div class="si">
+    <div class="kicker wa">Inntjeningsmodellen</div>
+    <div class="h2 wa">Bonusskalaen — <em>omsetningsbasert</em></div>
+    <div class="bmd wa">Amway opererer i ~100 land og bruker poengverdi (PV) knyttet til lokal valuta. I Norge er <strong>1 PV = 27 kr</strong>. Bonusen er basert på omsetningen du faktisk er årsak til.</div>
+    <div class="scale wa" id="bscale"></div>
+    <div class="bsm wa" style="text-align:center;">Jo høyere volum i din organisasjon → jo høyere bonusprosent → jo høyere inntekt</div>
+  </div>
+</div>
+
+<!-- S8a: STEG 1 — DU ALENE -->
+<div class="scene" id="s8a">
+  <div class="si" style="gap:20px;">
+    <div class="kicker wa">Amways salgs og markedsføringsplan · Steg 1</div>
+    <div class="h2 wa">Du alene — <em>200 PV · 3%</em></div>
+    <div class="row wa" style="gap:16px;align-items:flex-start;">
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;" id="tree-s1"></div>
+      <div class="col f1" style="gap:5px;">
+        <div style="font-size:11px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Din inntjening</div>
+        <div class="brow"><span class="lbl">Prestasjonsbonus (200 PV × 27 × 3%)</span><span class="val">162 kr</span></div>
+        <div class="brow"><span class="lbl">Differansebonus</span><span class="val">0 kr</span></div>
+        <div class="brow"><span class="lbl">Salgsavanse (20% av FV)</span><span class="val">1 080 kr</span></div>
+        <div class="brow tot"><span class="lbl">TOTAL</span><span class="val">1 242 kr/mnd</span></div>
+        <div class="brow" style="background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.15);margin-top:8px;">
+          <span class="lbl" style="color:rgba(255,255,255,0.5);">ABOer i strukturen</span>
+          <span class="val" style="font-size:18px;">1</span>
+        </div>
+        <div class="brow" style="background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.15);">
+          <span class="lbl" style="color:rgba(255,255,255,0.5);">Total GPV</span>
+          <span class="val" style="font-size:18px;">200 PV</span>
+        </div>
+        <div class="card" style="margin-top:8px;padding:14px 16px;background:rgba(34,197,94,0.08);border-color:rgba(34,197,94,0.25);">
+          <div style="font-size:11px;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">🎁 Velkomstfordeler</div>
+          <div class="bsm" style="color:rgba(255,255,255,0.7);line-height:1.7;">
+            Som ny ABO får du <strong style="color:#fff;">4 startkuponger à 200 kr</strong> å handle varer for neste måned.<br>
+            De <strong style="color:#fff;">4 første månedene</strong> får du i tillegg <strong style="color:#fff;">2 startkuponger à 200 kr</strong> for hver 100 PV du bestiller.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S8b: STEG 2 — DU + 6 FL -->
+<div class="scene" id="s8b">
+  <div class="si" style="gap:20px;">
+    <div class="kicker wa">Amways salgs og markedsføringsplan · Steg 2</div>
+    <div class="h2 wa">Du sponser 6 — <em>1 400 PV · 9% + BFI</em></div>
+    <div class="row wa" style="gap:16px;align-items:flex-start;">
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;" id="tree-s2"></div>
+      <div class="col f1" style="gap:5px;">
+        <div style="font-size:11px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Din inntjening</div>
+        <div class="brow"><span class="lbl">Prestasjonsbonus (200 × 27 × 9%)</span><span class="val">486 kr</span></div>
+        <div class="brow"><span class="lbl">Differansebonus (9%−3%) × 6 × 200</span><span class="val">1 944 kr</span></div>
+        <div class="brow"><span class="lbl">BFI — Bronze Foundation Incentive (30%)</span><span class="val">729 kr</span></div>
+        <div class="brow"><span class="lbl">Salgsavanse</span><span class="val">1 080 kr</span></div>
+        <div class="brow tot"><span class="lbl">TOTAL</span><span class="val">4 239 kr/mnd</span></div>
+        <div class="brow" style="background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.15);margin-top:8px;">
+          <span class="lbl" style="color:rgba(255,255,255,0.5);">ABOer i strukturen</span>
+          <span class="val" style="font-size:18px;">7</span>
+        </div>
+        <div class="brow" style="background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.15);">
+          <span class="lbl" style="color:rgba(255,255,255,0.5);">Total GPV</span>
+          <span class="val" style="font-size:18px;">1 400 PV</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S8c: STEG 3 — FL SPONSER 4 -->
+<div class="scene" id="s8c">
+  <div class="si" style="gap:20px;">
+    <div class="kicker wa">Amways salgs og markedsføringsplan · Steg 3</div>
+    <div class="h2 wa">FL sponser 4 — <em>6 200 PV · 15% + BFI + BBI</em></div>
+    <div class="row wa" style="gap:16px;align-items:flex-start;">
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;" id="tree-s3"></div>
+      <div class="col f1" style="gap:5px;">
+        <div style="font-size:11px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Din inntjening</div>
+        <div class="brow"><span class="lbl">Prestasjonsbonus (200 × 27 × 15%)</span><span class="val">810 kr</span></div>
+        <div class="brow"><span class="lbl">Differansebonus (15%−9%) × 6 × 1 000</span><span class="val">14 580 kr</span></div>
+        <div class="brow"><span class="lbl">BFI — Bronze Foundation Incentive (30%)</span><span class="val">4 617 kr</span></div>
+        <div class="brow"><span class="lbl">BBI — Bronze Builder Incentive (40%)</span><span class="val">6 156 kr</span></div>
+        <div class="brow"><span class="lbl">Salgsavanse</span><span class="val">1 080 kr</span></div>
+        <div class="brow tot"><span class="lbl">TOTAL</span><span class="val">27 243 kr/mnd</span></div>
+        <div class="brow" style="background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.15);margin-top:8px;">
+          <span class="lbl" style="color:rgba(255,255,255,0.5);">ABOer i strukturen</span>
+          <span class="val" style="font-size:18px;">49</span>
+        </div>
+        <div class="brow" style="background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.15);">
+          <span class="lbl" style="color:rgba(255,255,255,0.5);">Total GPV</span>
+          <span class="val" style="font-size:18px;">6 200 PV</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S8d: STEG 4 — LAG 2 SPONSER 2 -->
+<div class="scene" id="s8d">
+  <div class="si" style="gap:20px;">
+    <div class="kicker wa">Amways salgs og markedsføringsplan · Steg 4 · Silver</div>
+    <div class="h2 wa">Lag 2 sponser 2 — <em>15 800 PV · 21%</em></div>
+    <div class="row wa" style="gap:16px;align-items:flex-start;">
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;" id="tree-s4"></div>
+      <div class="col f1" style="gap:5px;">
+        <div style="font-size:11px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Din inntjening</div>
+        <div class="brow"><span class="lbl">Prestasjonsbonus (200 × 27 × 21%)</span><span class="val">1 134 kr</span></div>
+        <div class="brow"><span class="lbl">Differansebonus (21%−12%) × 6 × 2 600</span><span class="val">37 908 kr</span></div>
+        <div class="brow"><span class="lbl">BFI — Bronze Foundation Incentive (30%)</span><span class="val">11 713 kr</span></div>
+        <div class="brow"><span class="lbl">BBI — Bronze Builder Incentive (40%)</span><span class="val">15 617 kr</span></div>
+        <div class="brow"><span class="lbl">Salgsavanse</span><span class="val">1 080 kr</span></div>
+        <div class="brow tot"><span class="lbl">TOTAL</span><span class="val">67 451 kr/mnd</span></div>
+        <div class="brow ttci" style="margin-top:4px;"><span class="lbl">TTCI Platinum (engangsbetaling)</span><span class="val">40 500 kr</span></div>
+        <div class="brow" style="background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.15);margin-top:4px;">
+          <span class="lbl" style="color:rgba(255,255,255,0.5);">ABOer i strukturen</span>
+          <span class="val" style="font-size:18px;">79</span>
+        </div>
+        <div class="brow" style="background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.15);">
+          <span class="lbl" style="color:rgba(255,255,255,0.5);">Total GPV</span>
+          <span class="val" style="font-size:18px;">15 800 PV</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S9: RUBY -->
+<div class="scene" id="s9">
+  <div class="si">
+    <div class="kicker wa">Vekststeg 1</div>
+    <div class="h2 wa">Fra 15 800 PV <em>til Ruby</em></div>
+    <div class="bmd wa">6 frontline-ben vokser til Bronze Builder (15%) — organisasjonen tar et hopp til <strong>24 200 PV</strong> og Ruby-bonus aktiveres.</div>
+    <div class="row wa" style="gap:16px;align-items:flex-start;">
+      <div id="org-ruby" style="flex:1;display:flex;flex-direction:column;align-items:center;"></div>
+      <div class="col f1" style="gap:5px;">
+        <div class="brow"><span class="lbl">Prestasjonsbonus (21%)</span><span class="val">1 134 kr</span></div>
+        <div class="brow"><span class="lbl">Diff. (21%−15%) × 6 × 4 000</span><span class="val">38 880 kr</span></div>
+        <div class="brow"><span class="lbl">BFI (30%)</span><span class="val">12 004 kr</span></div>
+        <div class="brow"><span class="lbl">BBI (40%)</span><span class="val">16 006 kr</span></div>
+        <div class="brow"><span class="lbl">Ruby-bonus (2% RPV)</span><span class="val" style="color:var(--amber);">13 068 kr</span></div>
+        <div class="brow"><span class="lbl">Salgsavanse</span><span class="val">1 080 kr</span></div>
+        <div class="brow tot"><span class="lbl">TOTAL</span><span class="val">82 172 kr/mnd</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S10: EMERALD -->
+<div class="scene" id="s10">
+  <div class="si">
+    <div class="kicker wa">Vekststeg 2</div>
+    <div class="h2 wa">3 ben bryter 21% — <em>Emerald</em></div>
+    <div class="bmd wa">3 frontline-ben når 21% og bryter ut (breakaway). De resterende 3 er på 18% (7 000 PV) og gir Ruby sidevolum.</div>
+    <div class="row wa" style="gap:16px;align-items:flex-start;">
+      <div id="org-emerald" style="flex:1;display:flex;flex-direction:column;align-items:center;"></div>
+      <div class="col f1" style="gap:5px;">
+        <div class="brow"><span class="lbl">Prestasjonsbonus (21%)</span><span class="val">1 134 kr</span></div>
+        <div class="brow"><span class="lbl">Lederbonus 6% × 3 BA × 10 000</span><span class="val">48 600 kr</span></div>
+        <div class="brow"><span class="lbl">Diff. (21%−18%) × 3 × 7 000</span><span class="val">17 010 kr</span></div>
+        <div class="brow"><span class="lbl">Ruby-bonus (RPV 21 200)</span><span class="val" style="color:var(--amber);">11 448 kr</span></div>
+        <div class="brow"><span class="lbl">LPI (20%)</span><span class="val">13 122 kr</span></div>
+        <div class="brow"><span class="lbl">Salgsavanse</span><span class="val">1 080 kr</span></div>
+        <div class="brow tot"><span class="lbl">TOTAL (eks. BFI/BBI)</span><span class="val">106 199 kr/mnd</span></div>
+        <div class="brow ttci"><span class="lbl">TTCI Emerald (engangsbetaling)</span><span class="val">143 500 kr</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S11: DIAMOND -->
+<div class="scene" id="s11">
+  <div class="si">
+    <div class="kicker wa">Vekststeg 3</div>
+    <div class="h2 wa">Alle 6 ben på 21% — <em>Diamond</em></div>
+    <div class="bmd wa">Alle 6 frontline-ben er 21% og bryter ut. I tillegg 3 ben på 18% som gir Ruby sidevolum. Lederbonus på 6 breakaway-ben.</div>
+    <div class="row wa" style="gap:16px;align-items:flex-start;">
+      <div id="org-diamond" style="flex:1;display:flex;flex-direction:column;align-items:center;"></div>
+      <div class="col f1" style="gap:5px;">
+        <div class="brow"><span class="lbl">Prestasjonsbonus (21%)</span><span class="val">1 134 kr</span></div>
+        <div class="brow"><span class="lbl">Lederbonus 6% × 6 BA × 10 000</span><span class="val">97 200 kr</span></div>
+        <div class="brow"><span class="lbl">Diff. (21%−18%) × 3 × 7 000</span><span class="val">17 010 kr</span></div>
+        <div class="brow"><span class="lbl">Ruby-bonus (RPV 21 200)</span><span class="val" style="color:var(--amber);">11 448 kr</span></div>
+        <div class="brow"><span class="lbl">LPI (20%)</span><span class="val">22 842 kr</span></div>
+        <div class="brow"><span class="lbl">Salgsavanse</span><span class="val">1 080 kr</span></div>
+        <div class="brow tot"><span class="lbl">TOTAL løpende</span><span class="val">150 714 kr/mnd</span></div>
+        <div class="brow ttci"><span class="lbl">TTCI Diamond</span><span class="val">224 000 kr</span></div>
+        <div class="brow ttci"><span class="lbl">TTCI Founders Diamond</span><span class="val">269 000 kr</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S12: PASSIV INNTEKT -->
+<div class="scene" id="s12">
+  <div class="si">
+    <div class="kicker wa">Den store forskjellen</div>
+    <div class="h2 wa">Du har bygget noe som <em>genererer inntekt</em></div>
+    <div class="div wa"></div>
+    <div class="blg wa">Som alt annet som er godt betalt kreves det jobbing og målrettet fokus. Den store forskjellen er at man her har skapt <strong>månedlig, gjentakende inntekt</strong> — oppnådd frihet.</div>
+    <div class="row wa">
+      <div class="card cg f1" style="text-align:center;"><div style="font-size:34px;font-weight:800;color:var(--gold);">~70 år</div><div class="bmd" style="margin-top:5px;">Amway har eksistert i snart 70 år</div></div>
+      <div class="card cg f1" style="text-align:center;"><div style="font-size:34px;font-weight:800;color:var(--gold);">73 mrd</div><div class="bmd" style="margin-top:5px;">USD betalt ut i bonuser siden starten</div></div>
+      <div class="card cg f1" style="text-align:center;"><div style="font-size:34px;font-weight:800;color:var(--gold);">~100</div><div class="bmd" style="margin-top:5px;">Land og territorier Amway er tilstede i</div></div>
+    </div>
+    <div class="bmd wa" style="color:rgba(255,255,255,0.5);">Yager Group startet i 1963 av Dex og Birdie Yager — drives i dag av Doyle, Jeff og Steve Yager. Verdens desidert største og mest suksessrike nettverksorganisasjon.</div>
+  </div>
+</div>
+
+<!-- S13: NORGE OG TEAMET -->
+<div class="scene" id="s13">
+  <div class="si">
+    <div class="kicker wa">Vår posisjon i Norge</div>
+    <div class="h2 wa">Vi er i en <em>særstilling</em></div>
+    <div class="div wa"></div>
+    <div class="blg wa">Vi er direkte knyttet til Yager-familien via bekjentskap og mentorskap.</div>
+    <div class="card wa" style="background:rgba(255,255,255,0.04);">
+      <div class="bmd">Våre ledende mentorer for Norge, <strong>Johan og Julia Nilsson</strong>, som er direkte sponset av Yager-familien, er unge fremgangsrike forretningseiere i flere land. For oss i Norge og Skandinavia er de en uvurderlig ressurs med sine erfaringer og kontakter.</div>
+    </div>
+    <div class="row wa" style="gap:10px;flex-wrap:wrap;">
+      <span class="pill pg">✓ Direkte Yager-tilknytning</span>
+      <span class="pill pg">✓ Internasjonal vekst</span>
+      <span class="pill pg">✓ Personlig coaching</span>
+    </div>
+  </div>
+</div>
+
+<!-- S14: NESTE STEG -->
+<div class="scene" id="s14">
+  <div class="si c">
+    <div class="kicker wa">Neste steg</div>
+    <div class="h1 wa">Er du <em>klar?</em></div>
+    <div class="divw wa"></div>
+    <div class="blg wa" style="max-width:620px;">Vi booker møtet med en gang — har du en partner bør vi møtes alle sammen. Du får lenker til videoer som viser hva Amway er.</div>
+    <div class="hbox wa">
+      <div class="m">Møte 1: Svar på spørsmål og detaljer om hvordan vi jobber</div>
+      <div class="s">Evt. registrering og planlegging av oppstarten</div>
+    </div>
+    <div class="bmd wa" style="color:rgba(255,255,255,0.4);font-style:italic;">Vi skal ikke «ha med» noen — vi er på utkikk etter folk som tør å forfølge det de drømmer om.</div>
+  </div>
+</div>
+
+</div><!-- end deck -->
+
+<div id="ctrl">
+  <button class="cb" id="bp">‹</button>
+  <div id="dots"><div class="dot"></div><div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+  <div id="tring"><svg width="30" height="30" viewBox="0 0 30 30"><circle cx="15" cy="15" r="13" stroke="rgba(255,255,255,0.1)" stroke-width="3" fill="none"></circle><circle id="tarc" cx="15" cy="15" r="13" style="stroke-dashoffset: 16.3057;"></circle></svg></div>
+  <button class="cb" id="bplay">⏸</button>
+  <div id="sctr">2/19</div>
+  <button class="cb" id="bn">›</button>
+</div>
+
+<script>
+const SCENES = document.querySelectorAll('.scene');
+const N = SCENES.length;
+const DUR = [10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000];
+
+let cur=0, playing=true, elapsed=0, lastT=null, raf=null;
+const arc = document.getElementById('tarc');
+const CIRC = 82;
+
+// DOTS
+const dotsEl = document.getElementById('dots');
+for(let i=0;i<N;i++){
+  const d=document.createElement('div'); d.className='dot';
+  d.onclick=()=>go(i); dotsEl.appendChild(d);
+}
+
+// ANIM CONFIGS per scene index
+const ACFG = [
+  [['.kicker','as','d1'],['.h1','au','d2'],['.divw','af','d4'],['.blg','au','d5']],          // 0  s1
+  [['.kicker','al','d1'],['.h2','al','d2'],['.div','af','d3'],['.blg','au','d4'],['.bmd','au','d5'],['#s2-last','au','d6']], // 1  s2
+  [['.kicker','au','d1'],['.h2','au','d2'],['.bmd','au','d3'],['.row','au','d4'],['#s3-last','af','d6']], // 2  s3
+  [['.kicker','au','d1'],['.h2','au','d2'],['.divw','af','d3'],['.blg','au','d4'],['.hbox','ap','d6']], // 3  s3b
+  [['.kicker','au','d1'],['.h2','au','d2'],['.flow','au','d3'],['.row','au','d5']],           // 4  s4
+  [['.kicker','al','d1'],['.h2','al','d2'],['.blg','au','d3'],['.card','au','d4'],['.row','au','d6']], // 5  s5b modellen
+  [['.kicker','ar','d1'],['.h2','au','d2'],['.div','af','d3'],['.blg','au','d4'],['.row','au','d5']], // 6  s5 anbefalinger
+  [['.kicker','al','d1'],['.h2','al','d2'],['.row','au','d3']],                               // 7  s6 støtteapparat
+  [['.kicker','au','d1'],['.h2','au','d2'],['.bmd','au','d3'],['.scale','au','d4'],['.bsm','af','d7']], // 8  s7 bonusskala
+  [['.kicker','ar','d1'],['.h2','ar','d2'],['.row','au','d4']],  // 9  s8a steg1
+  [['.kicker','au','d1'],['.h2','au','d2'],['.row','au','d4']],  // 10 s8b steg2
+  [['.kicker','al','d1'],['.h2','al','d2'],['.row','au','d4']],  // 11 s8c steg3
+  [['.kicker','ar','d1'],['.h2','ar','d2'],['.row','au','d4']],  // 12 s8d steg4
+  [['.kicker','au','d1'],['.h2','au','d2'],['.bmd','af','d3'],['.row','au','d4']],  // 13 s9 ruby
+  [['.kicker','al','d1'],['.h2','al','d2'],['.bmd','af','d3'],['.row','au','d4']],  // 14 s10 emerald
+  [['.kicker','as','d1'],['.h2','as','d2'],['.bmd','af','d3'],['.row','au','d4']],  // 15 s11 diamond
+  [['.kicker','au','d1'],['.h2','au','d2'],['.div','af','d3'],['.blg','au','d4'],['.row','au','d5'],['.bmd','af','d7']], // 16 s12
+  [['.kicker','al','d1'],['.h2','al','d2'],['.div','af','d3'],['.blg','au','d4'],['.card','au','d5'],['.row','au','d6']], // 17 s13
+  [['.kicker','as','d1'],['.h1','as','d2'],['.divw','af','d3'],['.blg','au','d4'],['.hbox','ap','d5'],['.bmd','af','d7']], // 18 s14
+];
+
+// POP-IN circle builder — uses inline style only, no class dependency for opacity
+function cir(txt,bc,cc,bg,delay,sz=48,fs=10){
+  return `<div style="
+    width:${sz}px;height:${sz}px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:${fs}px;font-weight:700;text-align:center;line-height:1.25;
+    border:2px solid ${bc};color:${cc};background:${bg};
+    opacity:0;animation:popIn 0.42s cubic-bezier(.34,1.56,.64,1) ${delay}s forwards;
+  ">${txt}</div>`;
+}
+function vl(h=18){return `<div style="width:2px;height:${h}px;background:rgba(201,168,76,0.28);margin:0 auto;"></div>`;}
+function hl(w='100%'){return `<div style="height:2px;background:rgba(201,168,76,0.2);width:${w};"></div>`;}
+
+// S6: Amway + Yager → Sponsor → DU
+function drawOrg(){
+  const el=document.getElementById('org-tree'); if(!el)return;
+  el.innerHTML=`
+    <div style="display:flex;gap:24px;justify-content:center;">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:5px;">
+        ${cir('Amway','#C9A84C','#C9A84C','rgba(201,168,76,0.14)',0.2,66,11)}
+        <span style="font-size:10px;color:rgba(255,255,255,0.35);">Plattform</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:5px;">
+        ${cir('Yager<br>Group','#c4b5fd','#c4b5fd','rgba(91,33,182,0.14)',0.35,66,11)}
+        <span style="font-size:10px;color:rgba(255,255,255,0.35);">Organisasjon</span>
+      </div>
+    </div>
+    ${vl(20)}
+    <div style="display:flex;flex-direction:column;align-items:center;gap:5px;">
+      ${cir('Din<br>Sponsor','#CADCFC','#CADCFC','rgba(202,220,252,0.09)',0.55,60,11)}
+      <span style="font-size:10px;color:rgba(255,255,255,0.35);">Din mentor</span>
+    </div>
+    ${vl(20)}
+    <div style="display:flex;flex-direction:column;align-items:center;gap:5px;">
+      ${cir('DU','#C9A84C','#C9A84C','rgba(201,168,76,0.22)',0.75,72,13)}
+      <span style="font-size:10px;color:#C9A84C;font-weight:700;">Din forretning</span>
+    </div>`;
+}
+
+// Steg 1-4: tegner organisasjonstre som vokser
+function drawStep(steg){
+  const ids=['tree-s1','tree-s2','tree-s3','tree-s4'];
+  const el=document.getElementById(ids[steg-1]); if(!el)return;
+
+  const you=cir('DU<br><span style="font-size:7px;opacity:.7">200 PV</span>','#C9A84C','#C9A84C','rgba(201,168,76,0.22)',0.1,56,10);
+
+  // 6 FL
+  const fls=[1,2,3,4,5,6].map((n,i)=>
+    `<div style="flex:1;display:flex;justify-content:center;">
+      ${cir(`FL${n}`,'#C9A84C','rgba(201,168,76,0.85)','rgba(201,168,76,0.1)',0.3+i*0.09,36,8)}
+    </div>`).join('');
+
+  // 4 L2 under FL1
+  const l2s=[1,2,3,4].map((n,i)=>{
+    const d=0.9+i*0.1;
+    return `<div style="flex:1;display:flex;flex-direction:column;align-items:center;">
+      ${cir('L2','#6495ED','#6495ED','rgba(100,149,237,0.12)',d,28,7.5)}
+      ${steg>=4?vl(6)+'<div style="display:flex;gap:2px;">'+
+        cir('L3','rgba(100,149,237,0.5)','rgba(100,149,237,0.7)','rgba(100,149,237,0.07)',d+0.2,18,6.5)+
+        cir('L3','rgba(100,149,237,0.5)','rgba(100,149,237,0.7)','rgba(100,149,237,0.07)',d+0.25,18,6.5)+
+      '</div>':''}
+    </div>`;
+  }).join('<div style="width:2px;"></div>');
+
+  let html = you;
+
+  if(steg>=2){
+    html += vl(10)+hl('88%')+
+      `<div style="display:flex;width:88%;gap:3px;">${fls}</div>`;
+  }
+  if(steg>=3){
+    html += `<div style="font-size:10px;color:rgba(255,255,255,0.3);margin:6px 0 4px;align-self:flex-start;padding-left:6%;">FL1 viser 4 × lag 2:</div>`+
+      hl('52%')+
+      `<div style="display:flex;gap:3px;">${l2s}</div>`;
+  }
+  if(steg>=4){
+    html += `<div style="font-size:10px;color:rgba(255,255,255,0.3);margin-top:4px;">(lag 3 vises under lag 2 i FL1)</div>`;
+  }
+
+  el.innerHTML=html;
+}
+
+// S9: Ruby org
+function drawRuby(){
+  const el=document.getElementById('org-ruby'); if(!el)return;
+  const you=cir('DU<br>21%','#C9A84C','#C9A84C','rgba(201,168,76,0.2)',0.1,54,10);
+  const fls=[1,2,3,4,5,6].map((n,i)=>
+    `<div style="flex:1;display:flex;justify-content:center;">
+      ${cir(`FL${n}<br>15%`,'rgba(201,168,76,0.55)','rgba(201,168,76,0.8)','rgba(201,168,76,0.09)',0.28+i*0.1,36,8)}
+    </div>`).join('');
+  el.innerHTML=`
+    <div style="font-size:10px;color:var(--gray);margin-bottom:6px;letter-spacing:1px;font-weight:600;">STRUKTUR 24 200 PV</div>
+    ${you}${vl(10)}${hl('90%')}
+    <div style="display:flex;width:90%;gap:3px;">${fls}</div>
+    <div style="margin-top:10px;padding:9px 13px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.25);border-radius:8px;width:90%;">
+      <span style="font-size:12px;font-weight:700;color:#fbbf24;">Ruby aktivert ✓ &nbsp;</span>
+      <span style="font-size:12px;color:rgba(255,255,255,0.5);">RPV = 24 200 PV</span>
+    </div>`;
+}
+
+// S10: Emerald org
+function drawEmerald(){
+  const el=document.getElementById('org-emerald'); if(!el)return;
+  const you=cir('DU<br>21%','#C9A84C','#C9A84C','rgba(201,168,76,0.2)',0.1,54,10);
+  const ba=[1,2,3].map((n,i)=>`<div style="flex:1;display:flex;justify-content:center;">${cir(`BA${n}<br>21%`,'#22c55e','#4ade80','rgba(34,197,94,0.12)',0.28+i*0.12,36,8)}</div>`).join('');
+  const fl=[4,5,6].map((n,i)=>`<div style="flex:1;display:flex;justify-content:center;">${cir(`FL${n}<br>18%`,'#f59e0b','#fbbf24','rgba(245,158,11,0.12)',0.64+i*0.12,36,8)}</div>`).join('');
+  el.innerHTML=`
+    <div style="font-size:10px;color:var(--gray);margin-bottom:6px;letter-spacing:1px;font-weight:600;">STRUKTUR EMERALD</div>
+    ${you}${vl(10)}${hl('90%')}
+    <div style="display:flex;width:90%;gap:3px;">${ba}${fl}</div>
+    <div style="margin-top:10px;display:flex;flex-direction:column;gap:5px;width:90%;">
+      <div style="padding:7px 12px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.22);border-radius:6px;font-size:12px;color:#4ade80;">✓ 3 breakaway-ben → Lederbonus</div>
+      <div style="padding:7px 12px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.22);border-radius:6px;font-size:12px;color:#fbbf24;">✓ 3 × 7 000 PV sidevolum → Ruby-bonus</div>
+    </div>`;
+}
+
+// S11: Diamond org
+function drawDiamond(){
+  const el=document.getElementById('org-diamond'); if(!el)return;
+  const you=cir('DU<br>21%','#C9A84C','#C9A84C','rgba(201,168,76,0.2)',0.1,54,10);
+  const ba=[1,2,3,4,5,6].map((n,i)=>`<div style="flex:1;display:flex;justify-content:center;">${cir(`BA${n}`,  '#22c55e','#4ade80','rgba(34,197,94,0.12)',0.2+i*0.09,32,7.5)}</div>`).join('');
+  const fl=[7,8,9].map((n,i)=>    `<div style="flex:1;display:flex;justify-content:center;">${cir(`FL${n}`,  '#f59e0b','#fbbf24','rgba(245,158,11,0.12)',0.74+i*0.09,32,7.5)}</div>`).join('');
+  el.innerHTML=`
+    <div style="font-size:10px;color:var(--gray);margin-bottom:6px;letter-spacing:1px;font-weight:600;">STRUKTUR DIAMOND</div>
+    ${you}${vl(10)}${hl('95%')}
+    <div style="display:flex;width:95%;gap:2px;">${ba}${fl}</div>
+    <div style="margin-top:10px;display:flex;flex-direction:column;gap:5px;width:95%;">
+      <div style="padding:7px 12px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.22);border-radius:6px;font-size:12px;color:#4ade80;">✓ 6 breakaway-ben → Lederbonus 97 200 kr/mnd</div>
+      <div style="padding:7px 12px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.22);border-radius:6px;font-size:12px;color:#fbbf24;">✓ 3 × 7 000 PV sidevolum → Ruby-bonus</div>
+    </div>`;
+}
+
+// Bonus scale
+const scaleData=[
+  {l:'200 PV',p:'3%',w:14,c:'#3B82F6'},{l:'600 PV',p:'6%',w:28,c:'#6366F1'},
+  {l:'1 200 PV',p:'9%',w:42,c:'#8B5CF6'},{l:'2 400 PV',p:'12%',w:57,c:'#A855F7'},
+  {l:'4 000 PV',p:'15%',w:71,c:'#C084FC'},{l:'7 000 PV',p:'18%',w:85,c:'#D97706'},
+  {l:'10 000 PV',p:'21%',w:100,c:'#C9A84C'},
+];
+
+function animScale(){
+  const el = document.getElementById('bscale');
+  el.innerHTML = '';
+  scaleData.forEach(d=>{
+    el.innerHTML+=`<div class="sr">
+      <div class="sl">${d.l}</div>
+      <div class="st"><div class="sf" data-w="${d.w}%" style="background:${d.c};">${d.p}</div></div>
+      <div class="sv">${d.p}</div>
+    </div>`;
+  });
+  document.querySelectorAll('#bscale .sf').forEach((b,i)=>{
+    setTimeout(()=>b.style.width=b.dataset.w, i*120);
+  });
+}
+
+// ANIMATE SCENE IN
+function animIn(idx){
+  const sc=SCENES[idx];
+  // reset .wa elements
+  sc.querySelectorAll('.wa').forEach(el=>{
+    el.style.opacity='0';
+    el.className=el.className.replace(/\b(au|al|ar|as|af|ap|d[1-9])\b/g,'').trim();
+  });
+  const cfg=ACFG[idx]||[];
+  cfg.forEach(([sel,cls,del])=>{
+    const el=sc.querySelector(sel); if(!el)return;
+    void el.offsetWidth;
+    el.classList.add(cls,del);
+    el.style.opacity='';
+  });
+  // special draws
+  if(idx===7)  setTimeout(drawOrg,    350);  // s6
+  if(idx===8)  setTimeout(animScale,  500);  // s7 bonusskala
+  if(idx===9)  setTimeout(()=>drawStep(1), 350); // s8a
+  if(idx===10) setTimeout(()=>drawStep(2), 350); // s8b
+  if(idx===11) setTimeout(()=>drawStep(3), 350); // s8c
+  if(idx===12) setTimeout(()=>drawStep(4), 350); // s8d
+  if(idx===13) setTimeout(drawRuby,   350); // s9
+  if(idx===14) setTimeout(drawEmerald,350); // s10
+  if(idx===15) setTimeout(drawDiamond,350); // s11
+}
+
+function go(idx){
+  cur=Math.max(0,Math.min(N-1,idx));
+  SCENES.forEach((s,i)=>{
+    s.classList.toggle('active',i===cur);
+    if(i===cur) animIn(i);
+  });
+  document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('on',i===cur));
+  document.getElementById('sctr').textContent=`${cur+1}/${N}`;
+  document.getElementById('progbar').style.width=`${(cur+1)/N*100}%`;
+  elapsed=0;
+  arc.style.strokeDashoffset=CIRC;
+}
+
+function tick(ts){
+  if(!playing){lastT=null;return;}
+  if(lastT===null)lastT=ts;
+  const dt=ts-lastT; lastT=ts; elapsed+=dt;
+  const pct=Math.min(elapsed/DUR[cur],1);
+  arc.style.strokeDashoffset=CIRC-(CIRC*pct);
+  if(elapsed>=DUR[cur]){go((cur+1)%N);lastT=ts;}
+  raf=requestAnimationFrame(tick);
+}
+function startPlay(){playing=true;document.getElementById('bplay').textContent='⏸';lastT=null;raf=requestAnimationFrame(tick);}
+function pausePlay(){playing=false;document.getElementById('bplay').textContent='▶';if(raf)cancelAnimationFrame(raf);}
+
+document.getElementById('bplay').onclick=()=>playing?pausePlay():startPlay();
+document.getElementById('bp').onclick=()=>{go(cur-1);lastT=null;};
+document.getElementById('bn').onclick=()=>{go(cur+1);lastT=null;};
+
+document.addEventListener('keydown',e=>{
+  if(['ArrowRight',' '].includes(e.key)){e.preventDefault();go(cur+1);lastT=null;}
+  if(e.key==='ArrowLeft'){e.preventDefault();go(cur-1);lastT=null;}
+  if(e.key==='p'||e.key==='P') playing?pausePlay():startPlay();
+});
+
+let tx=0;
+document.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
+document.addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-tx;
+  if(Math.abs(dx)>50){dx<0?go(cur+1):go(cur-1);lastT=null;}
+});
+document.getElementById('deck').addEventListener('click',e=>{
+  if(!e.target.closest('#ctrl'))go(cur+1);lastT=null;
+});
+
+go(0);
+setTimeout(startPlay,900);
+
+// Auto fullscreen
+document.addEventListener('click', function tryFS() {
+  const el = document.documentElement;
+  if (el.requestFullscreen) el.requestFullscreen();
+  else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+  else if (el.mozRequestFullScreen) el.mozRequestFullScreen();
+  document.removeEventListener('click', tryFS);
+}, { once: true });
+</script>
+
+<div id="install-hint" style="
+  display:none;position:fixed;bottom:80px;left:50%;transform:translateX(-50%);
+  background:rgba(30,39,97,0.97);border:1px solid rgba(201,168,76,0.4);
+  border-radius:14px;padding:14px 20px;z-index:999;
+  font-family:&#39;Segoe UI&#39;,system-ui,sans-serif;
+  text-align:center;max-width:300px;width:90%;
+  box-shadow:0 8px 32px rgba(0,0,0,0.4);
+">
+  <div style="font-size:13px;font-weight:700;color:#C9A84C;margin-bottom:6px;">📱 Legg til på hjemskjermen</div>
+  <div style="font-size:12px;color:rgba(255,255,255,0.75);line-height:1.6;">
+    Trykk på <strong style="color:#fff;">Del-ikonet</strong> (□↑) nederst i Safari,<br>
+    velg <strong style="color:#fff;">«Legg til på hjemskjerm»</strong>
+  </div>
+  <div style="margin-top:10px;">
+    <button onclick="document.getElementById(&#39;install-hint&#39;).style.display=&#39;none&#39;" style="background:rgba(201,168,76,0.2);border:1px solid rgba(201,168,76,0.4);
+      color:#C9A84C;padding:6px 18px;border-radius:999px;font-size:12px;cursor:pointer;">
+      OK, skjønner!
+    </button>
+  </div>
+</div>
+<script>
+// Show install hint on iOS Safari if not already installed
+const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+const isStandalone = window.navigator.standalone;
+if (isIOS && !isStandalone) {
+  setTimeout(() => {
+    document.getElementById('install-hint').style.display = 'block';
+  }, 3000);
+}
+</script>
+
+
+</body></html>
