@@ -2,9 +2,6 @@
 <html lang="no">
 <head>
 <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-fullscreen">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Design din egen fremtid</title>
 <style>
@@ -39,29 +36,6 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
   transition:opacity 0.6s ease;
   display:flex;align-items:flex-start;justify-content:center;
   padding:52px 80px 80px;
-}
-@media(max-width:768px){
-  .scene{padding:56px 18px 90px;}
-  .si{gap:12px !important;}
-  .h1{font-size:clamp(22px,6vw,42px) !important;}
-  .h2{font-size:clamp(16px,4.5vw,32px) !important;}
-  .blg{font-size:clamp(13px,3.5vw,18px) !important;}
-  .bmd{font-size:clamp(12px,3vw,15px) !important;}
-  .bsm{font-size:clamp(11px,2.8vw,13px) !important;}
-  .row{flex-direction:column !important;gap:12px !important;}
-  .col{gap:6px !important;}
-  .brow{padding:6px 10px !important;}
-  .brow .lbl{font-size:11px !important;}
-  .brow .val{font-size:13px !important;}
-  svg{max-width:100% !important;}
-  #ctrl{padding:6px 12px !important;gap:6px !important;}
-  #sctr{font-size:11px !important;}
-  .card{padding:12px !important;}
-  .scale .bar{height:22px !important;}
-  [style*="width:240px"]{width:100% !important;}
-  [style*="width:260px"]{width:100% !important;}
-  [style*="flex-shrink:0"]{flex-shrink:1 !important;max-width:100% !important;}
-  [style*="display:flex;gap:0;align-items:center;justify-content:space-between"]{flex-direction:column !important;gap:14px !important;}
 }
 .scene.active{opacity:1;pointer-events:all;}
 .si{max-width:960px;width:100%;display:flex;flex-direction:column;gap:20px;}
@@ -560,29 +534,29 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
 
 <!-- S8d: STEG 4 — SILVER / PLATINUM-KVALIFISERING -->
 <div class="scene" id="s8d">
-  <div class="si">
+  <div class="si" style="gap:12px;">
     <div class="kicker wa">Hvordan bygge effektivt · Steg 2</div>
     <div class="h2 wa">Du hjelper andre til å bli BF og BB — <em>du blir Silver</em></div>
     <div class="bmd wa" style="max-width:680px;">Du sponser 3 nye og hjelper disse til Bronze Foundation. Samtidig hjelper du dine tidligere frontlines til å bli Bronze Builder. Du er nå Silver på 21%.</div>
     <div style="display:flex;gap:0;align-items:center;justify-content:space-between;width:100%;opacity:0;animation:fadeUp 0.6s 0.4s both;">
       <div id="diag-s8d" style="flex-shrink:0;"></div>
       <div style="flex:1;"></div>
-      <div style="display:flex;flex-direction:column;gap:6px;width:240px;flex-shrink:0;">
+      <div style="display:flex;flex-direction:column;gap:4px;width:240px;flex-shrink:0;">
         <div style="font-size:10px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px;">16 400 PV · 21% · BFI + BBI</div>
-        <div class="brow"><span class="lbl" style="font-size:12px;">Prestasjonsbonus</span><span class="val">1 134 kr</span></div>
-        <div class="brow"><span class="lbl" style="font-size:12px;">Diff (21%−9%) × 3 × 1 400</span><span class="val">13 608 kr</span></div>
-        <div class="brow"><span class="lbl" style="font-size:12px;">Diff (21%−15%) × 3 × 4 000</span><span class="val">19 440 kr</span></div>
-        <div class="brow"><span class="lbl" style="font-size:12px;">BFI (30%)</span><span class="val">10 255 kr</span></div>
-        <div class="brow"><span class="lbl" style="font-size:12px;">BBI (40%)</span><span class="val">13 673 kr</span></div>
-        <div class="brow" style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.25);">
-          <span class="lbl" style="font-size:12px;">🎁 Startkuponger</span><span class="val" style="color:#4ade80;">800 kr</span>
+        <div class="brow" style="padding:5px 10px;"><span class="lbl" style="font-size:11px;">Prestasjonsbonus</span><span class="val" style="font-size:13px;">1 134 kr</span></div>
+        <div class="brow" style="padding:5px 10px;"><span class="lbl" style="font-size:11px;">Diff (21%−9%) × 3 × 1 400</span><span class="val" style="font-size:13px;">13 608 kr</span></div>
+        <div class="brow" style="padding:5px 10px;"><span class="lbl" style="font-size:11px;">Diff (21%−15%) × 3 × 4 000</span><span class="val" style="font-size:13px;">19 440 kr</span></div>
+        <div class="brow" style="padding:5px 10px;"><span class="lbl" style="font-size:11px;">BFI (30%)</span><span class="val" style="font-size:13px;">10 255 kr</span></div>
+        <div class="brow" style="padding:5px 10px;"><span class="lbl" style="font-size:11px;">BBI (40%)</span><span class="val" style="font-size:13px;">13 673 kr</span></div>
+        <div class="brow" style="padding:5px 10px;background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.25);">
+          <span class="lbl" style="font-size:11px;">🎁 Startkuponger</span><span class="val" style="color:#4ade80;font-size:13px;">800 kr</span>
         </div>
-        <div class="brow tot"><span class="lbl">TOTAL</span><span class="val">58 909 kr</span></div>
-        <div class="brow ttci" style="margin-top:4px;">
-          <span class="lbl" style="font-size:11px;">Gold Producer TTCI (etter 3 mnd)</span>
-          <span class="val" style="color:#c4b5fd;">13 500 kr</span>
+        <div class="brow tot" style="padding:6px 10px;"><span class="lbl">TOTAL</span><span class="val">58 909 kr</span></div>
+        <div class="brow ttci" style="padding:5px 10px;">
+          <span class="lbl" style="font-size:10px;">Gold Producer TTCI (etter 3 mnd)</span>
+          <span class="val" style="color:#c4b5fd;font-size:12px;">13 500 kr</span>
         </div>
-        <div class="bsm" style="color:rgba(255,255,255,0.35);">Platinum = 6 kvalifiserte måneder som Silver</div>
+        <div class="bsm" style="color:rgba(255,255,255,0.35);font-size:10px;">Platinum = 6 kvalifiserte måneder som Silver</div>
       </div>
     </div>
   </div>
@@ -929,7 +903,7 @@ function drawNetDiag(){
   });
 
   el.innerHTML = `
-  <svg width="100%" height="auto" viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg">
+  <svg width="100%" height="380" viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
         <path d="M0,0 L0,6 L8,3 z" fill="rgba(201,168,76,0.8)"/>
@@ -1018,7 +992,7 @@ function drawS8h(){
   });
 
   el.innerHTML=`
-  <svg width="100%" height="auto" viewBox="0 0 430 310" preserveAspectRatio="xMidYMid meet" style="max-width:430px" viewBox="0 0 430 310" xmlns="http://www.w3.org/2000/svg">
+  <svg width="430" height="310" viewBox="0 0 430 310" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <marker id="arr9" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
         <path d="M0,0 L0,6 L7,3 z" fill="rgba(45,212,191,0.8)"/>
@@ -1092,7 +1066,7 @@ function drawS8g(){
   });
 
   el.innerHTML=`
-  <svg width="100%" height="auto" viewBox="0 0 430 310" preserveAspectRatio="xMidYMid meet" style="max-width:430px" viewBox="0 0 430 310" xmlns="http://www.w3.org/2000/svg">
+  <svg width="430" height="310" viewBox="0 0 430 310" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <marker id="arr8" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
         <path d="M0,0 L0,6 L7,3 z" fill="rgba(45,212,191,0.8)"/>
@@ -1173,7 +1147,7 @@ function drawS8f(){
   });
 
   el.innerHTML=`
-  <svg width="100%" height="auto" viewBox="0 0 430 310" preserveAspectRatio="xMidYMid meet" style="max-width:430px" viewBox="0 0 430 310" xmlns="http://www.w3.org/2000/svg">
+  <svg width="430" height="310" viewBox="0 0 430 310" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <marker id="arr7" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
         <path d="M0,0 L0,6 L7,3 z" fill="rgba(45,212,191,0.8)"/>
@@ -1256,7 +1230,7 @@ function drawS8e(){
   });
 
   el.innerHTML=`
-  <svg width="100%" height="auto" viewBox="0 0 430 310" preserveAspectRatio="xMidYMid meet" style="max-width:430px" viewBox="0 0 430 310" xmlns="http://www.w3.org/2000/svg">
+  <svg width="430" height="310" viewBox="0 0 430 310" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <marker id="arr6" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
         <path d="M0,0 L0,6 L7,3 z" fill="rgba(45,212,191,0.8)"/>
@@ -1389,7 +1363,7 @@ function drawS8c(){
   const el=document.getElementById('diag-s8c'); if(!el)return;
   el.style.cssText='flex-shrink:0;';
   el.innerHTML=`
-  <svg width="100%" height="auto" viewBox="0 0 300 230" preserveAspectRatio="xMidYMid meet" style="max-width:300px" viewBox="0 0 300 230" xmlns="http://www.w3.org/2000/svg">
+  <svg width="300" height="230" viewBox="0 0 300 230" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <marker id="arr4" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
         <path d="M0,0 L0,6 L7,3 z" fill="rgba(201,168,76,0.8)"/>
@@ -1467,7 +1441,7 @@ function drawS8b(){
   // L2-3: (260, 195)
 
   el.innerHTML=`
-  <svg width="100%" height="auto" viewBox="0 0 300 230" preserveAspectRatio="xMidYMid meet" style="max-width:300px" viewBox="0 0 300 230" xmlns="http://www.w3.org/2000/svg">
+  <svg width="300" height="230" viewBox="0 0 300 230" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <marker id="arr3" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
         <path d="M0,0 L0,6 L7,3 z" fill="rgba(201,168,76,0.8)"/>
@@ -1658,6 +1632,7 @@ function drawGrowthTree(){
   // Fyll bonusskala på høyre side
   const scaleEl = document.getElementById('scale-s7b');
   if(scaleEl){
+    scaleEl.innerHTML = ''; // tøm før ny fylling
     scale.forEach((s,i) => {
       const row = document.createElement('div');
       row.style.cssText='display:flex;align-items:center;gap:8px;';
