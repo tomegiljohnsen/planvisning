@@ -1,0 +1,1926 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-fullscreen">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Создай своё будущее</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --navy:#1E2761; --gold:#C9A84C; --ice:#CADCFC;
+  --gray:#94a3b8; --green:#22c55e; --amber:#f59e0b;
+}
+body {
+  font-family:'Segoe UI',system-ui,sans-serif;
+  background:linear-gradient(135deg,#0c1230,#1a2a60,#0f172a);
+  background-size:300% 300%;
+  animation:bgS 20s ease infinite;
+  width:100vw; height:100vh; overflow:hidden; color:#fff;
+  user-select:none;
+}
+@keyframes bgS{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+
+/* diagonal overlay */
+body::after{content:'';position:fixed;inset:0;pointer-events:none;
+  background:repeating-linear-gradient(-52deg,transparent,transparent 58px,rgba(201,168,76,0.03) 58px,rgba(201,168,76,0.03) 60px);}
+
+#topbar{position:fixed;top:0;left:0;right:0;height:4px;z-index:100;
+  background:linear-gradient(to right,var(--gold),#f0c060,var(--gold));}
+#progwrap{position:fixed;top:4px;left:0;right:0;height:3px;z-index:100;background:rgba(255,255,255,0.07);}
+#progbar{height:100%;background:rgba(201,168,76,0.45);width:0;transition:width 0.15s linear;}
+
+/* ── SLIDES ── */
+#deck{position:fixed;inset:0;z-index:10;}
+.scene{
+  position:absolute;inset:0;opacity:0;pointer-events:none;
+  transition:opacity 0.6s ease;
+  display:flex;align-items:flex-start;justify-content:center;
+  padding:48px 80px 55px;
+  overflow:hidden;
+}
+.scene.active{opacity:1;pointer-events:all;}
+.si{max-width:960px;width:100%;display:flex;flex-direction:column;gap:20px;}
+.si.c{align-items:center;text-align:center;}
+.kicker{margin-top:0;}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp   {from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeLeft {from{opacity:0;transform:translateX(60px)}to{opacity:1;transform:translateX(0)}}
+@keyframes fadeRight{from{opacity:0;transform:translateX(-60px)}to{opacity:1;transform:translateX(0)}}
+@keyframes scaleIn  {from{opacity:0;transform:scale(0.8)}to{opacity:1;transform:scale(1)}}
+@keyframes fadeIn   {from{opacity:0}to{opacity:1}}
+@keyframes popIn    {0%{opacity:0;transform:scale(0.4)}70%{transform:scale(1.1)}100%{opacity:1;transform:scale(1)}}
+
+.wa{opacity:0;}
+.au{animation:fadeUp    0.65s cubic-bezier(.22,1,.36,1) both;}
+.al{animation:fadeLeft  0.65s cubic-bezier(.22,1,.36,1) both;}
+.ar{animation:fadeRight 0.65s cubic-bezier(.22,1,.36,1) both;}
+.as{animation:scaleIn   0.55s cubic-bezier(.34,1.56,.64,1) both;}
+.af{animation:fadeIn    0.8s ease both;}
+.ap{animation:popIn     0.6s cubic-bezier(.34,1.56,.64,1) both;}
+
+.d1{animation-delay:.12s}.d2{animation-delay:.26s}.d3{animation-delay:.40s}
+.d4{animation-delay:.54s}.d5{animation-delay:.68s}.d6{animation-delay:.82s}
+.d7{animation-delay:.96s}.d8{animation-delay:1.10s}
+
+/* ── TYPE ── */
+.kicker{font-size:12px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);}
+.h1{font-size:clamp(46px,6.5vw,74px);font-weight:800;line-height:1.06;}
+.h2{font-size:clamp(26px,3.8vw,46px);font-weight:700;line-height:1.15;}
+.h1 em,.h2 em{color:var(--gold);font-style:normal;}
+.blg{font-size:clamp(15px,1.8vw,20px);line-height:1.78;color:rgba(255,255,255,0.72);}
+.blg strong{color:#fff;}
+.bmd{font-size:clamp(13px,1.5vw,17px);line-height:1.75;color:rgba(255,255,255,0.65);}
+.bmd strong{color:#fff;}
+.bsm{font-size:12px;color:rgba(255,255,255,0.38);line-height:1.6;}
+.div{width:56px;height:3px;background:var(--gold);border-radius:2px;}
+.divw{width:120px;height:3px;background:var(--gold);border-radius:2px;}
+
+/* ── LAYOUT ── */
+.row{display:flex;gap:18px;}
+.f1{flex:1;}
+.col{display:flex;flex-direction:column;}
+
+/* ── CARDS ── */
+.card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:24px 22px;}
+.cg{background:rgba(201,168,76,0.09);border-color:rgba(201,168,76,0.28);}
+.cr{background:rgba(185,28,28,0.09);border-color:rgba(185,28,28,0.28);}
+
+/* ── FLOW ── */
+.flow{display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
+  border-radius:16px;padding:30px 20px;}
+.fi{display:flex;flex-direction:column;align-items:center;gap:11px;flex:1;}
+.fic{width:70px;height:70px;background:rgba(201,168,76,0.12);border:2px solid rgba(201,168,76,0.3);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.fic svg{width:36px;height:36px;fill:var(--gold);}
+.fla{font-size:13px;font-weight:700;}
+.far{font-size:24px;color:var(--gold);flex:0;padding:0 6px;margin-bottom:20px;}
+
+/* ── BADGES ── */
+.badge{border-radius:12px;padding:15px 17px;font-size:13.5px;line-height:1.6;color:rgba(255,255,255,0.76);}
+.badge strong{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:5px;}
+.bg{background:rgba(201,168,76,0.10);border:1px solid rgba(201,168,76,0.25);}
+.bg strong{color:var(--gold);}
+.br{background:rgba(185,28,28,0.10);border:1px solid rgba(185,28,28,0.25);}
+.br strong{color:#f87171;}
+
+/* ── HIGHLIGHT ── */
+.hbox{background:rgba(30,39,97,0.65);border:1px solid rgba(201,168,76,0.28);border-radius:14px;padding:30px 38px;text-align:center;}
+.hbox .m{font-size:clamp(16px,2.2vw,22px);font-weight:700;color:var(--gold);margin-bottom:8px;}
+.hbox .s{font-size:clamp(13px,1.5vw,17px);color:var(--ice);line-height:1.7;}
+
+/* ── SCALE ── */
+.scale{display:flex;flex-direction:column;gap:8px;width:100%;}
+.sr{display:flex;align-items:center;gap:12px;}
+.sl{font-size:12px;color:rgba(255,255,255,0.6);min-width:100px;text-align:right;}
+.st{flex:1;height:34px;background:rgba(255,255,255,0.06);border-radius:6px;overflow:hidden;}
+.sf{height:100%;width:0;border-radius:6px;display:flex;align-items:center;padding-left:10px;
+  font-size:12px;font-weight:700;color:#fff;transition:width 1.1s cubic-bezier(.4,0,.2,1);}
+.sv{font-size:12px;font-weight:700;color:rgba(255,255,255,0.55);min-width:36px;}
+
+/* ── BONUS ROW ── */
+.brow{display:flex;align-items:center;gap:10px;padding:9px 13px;
+  background:rgba(255,255,255,0.04);border-radius:8px;}
+.brow .lbl{font-size:13px;color:rgba(255,255,255,0.65);flex:1;}
+.brow .val{font-size:14px;font-weight:700;color:var(--gold);}
+.brow.tot{background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.25);}
+.brow.tot .lbl{color:#fff;font-weight:700;}
+.brow.tot .val{font-size:17px;}
+.brow.ttci{background:rgba(91,33,182,0.12);border:1px solid rgba(91,33,182,0.28);}
+.brow.ttci .val{color:#c4b5fd;}
+
+/* ── PILL ── */
+.pill{display:inline-flex;align-items:center;gap:5px;padding:5px 13px;border-radius:999px;font-size:12px;font-weight:600;}
+.pg{background:rgba(201,168,76,0.12);color:var(--gold);border:1px solid rgba(201,168,76,0.28);}
+
+/* ── CONTROLS ── */
+#ctrl{position:fixed;bottom:10px;left:50%;transform:translateX(-50%);z-index:200;
+  display:flex;align-items:center;gap:8px;
+  background:rgba(0,0,0,0.35);backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,0.08);border-radius:999px;padding:6px 12px;
+  opacity:0.4;transition:opacity 0.3s;}
+#ctrl:hover{opacity:1;}
+.cb{background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.55);
+  font-size:16px;width:28px;height:28px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+.cb:hover{color:#fff;background:rgba(255,255,255,0.1);}
+#dots{display:flex;gap:5px;align-items:center;}
+.dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.22);cursor:pointer;transition:all 0.3s;}
+.dot.on{background:var(--gold);transform:scale(1.5);}
+#tring svg{transform:rotate(-90deg);}
+#tarc{stroke:var(--gold);stroke-width:3;fill:none;stroke-dasharray:82;stroke-dashoffset:82;stroke-linecap:round;transition:stroke-dashoffset 0.15s linear;}
+#sctr{font-size:11px;color:rgba(255,255,255,0.32);min-width:34px;text-align:center;}
+
+/* ===== MOBIL ===== */
+@media(max-width:900px){
+  .scene{padding:44px 16px 65px !important;overflow-y:auto;}
+  .si{gap:10px !important;}
+  .h1{font-size:clamp(20px,6vw,38px) !important;}
+  .h2{font-size:clamp(14px,4vw,26px) !important;line-height:1.2;}
+  .blg,.bmd,.bsm{font-size:clamp(11px,3vw,14px) !important;}
+  .kicker{font-size:clamp(9px,2.5vw,12px) !important;}
+  /* Rad → kolonne */
+  .row{flex-direction:column !important;gap:8px !important;}
+  .card{padding:10px 12px !important;}
+  .brow{padding:5px 8px !important;}
+  .brow .lbl{font-size:10px !important;}
+  .brow .val{font-size:12px !important;}
+  /* Diagrammer og utregningsbokser */
+  [style*="justify-content:space-between"]{flex-direction:column !important;gap:10px !important;}
+  [style*="width:240px"]{width:100% !important;}
+  [style*="width:260px"]{width:100% !important;}
+  [style*="flex-shrink:0"]{flex-shrink:1 !important;}
+  svg{max-width:100% !important;height:auto !important;}
+  /* Традиционная торговля — gjør flow mindre */
+  .flow{padding:12px 6px !important;gap:0 !important;flex-wrap:nowrap !important;}
+  .fi{gap:4px !important;flex:1 !important;min-width:0 !important;}
+  .fic{width:38px !important;height:38px !important;}
+  .fic svg{width:20px !important;height:20px !important;}
+  .fla{font-size:9px !important;}
+  .far{font-size:12px !important;padding:0 2px !important;margin-bottom:10px !important;}
+  /* Kontrollbar */
+  #ctrl{bottom:6px !important;padding:5px 10px !important;gap:6px !important;opacity:0.5;}
+  #dots{display:none !important;}
+  #sctr{font-size:10px !important;}
+  .cb{width:32px !important;height:32px !important;font-size:16px !important;}
+  #timer-ring{display:none !important;}
+  /* Шкала бонусов */
+  .scale{max-width:100% !important;}
+}
+</style>
+</head>
+<body>
+<div id="topbar"></div>
+<div id="progwrap"><div id="progbar"></div></div>
+<div id="deck">
+
+<!-- S1: TITTEL -->
+<div class="scene" id="s1">
+  <div class="si c">
+    <div class="kicker wa">Бизнес-модель · Презентация</div>
+    <div class="h1 wa">Создай <em>своё будущее</em></div>
+    <div class="divw wa"></div>
+    <div class="blg wa" style="max-width:580px;">Бизнес-модель для современных предпринимателей.</div>
+  </div>
+</div>
+
+<!-- S2: SPØRSMÅLET -->
+<div class="scene" id="s2">
+  <div class="si">
+    <div class="kicker wa">Отправная точка</div>
+    <div class="h2 wa">Ты когда-нибудь <em>хотел большего?</em></div>
+    <div class="div wa"></div>
+    <div class="blg wa">Ты хочешь:</div>
+    <div class="bmd wa" style="color:rgba(255,255,255,0.78);">
+      Больше свободы · Больше финансовых возможностей · Работать откуда угодно · Создать то, что приносит постоянный доход
+    </div>
+    <div class="bmd wa" id="s2-last">Большинство бизнес-моделей требуют капитала или революционной идеи — зачастую и того, и другого. Общее для всех — <strong>это требует времени.</strong></div>
+  </div>
+</div>
+
+<!-- S3: LINEÆR VS SKALERBAR -->
+<div class="scene" id="s3">
+  <div class="si">
+    <div class="kicker wa">Ключевое различие</div>
+    <div class="h2 wa">Не все доходы <em>созданы одинаково</em></div>
+    <div class="bmd wa">Ты можешь либо продавать своё время за деньги, либо инвестировать время в создание того, что генерирует доход.</div>
+    <div class="row wa">
+      <div class="card cr f1">
+        <div style="font-size:28px;margin-bottom:10px;">⏱️</div>
+        <div style="font-size:16px;font-weight:700;color:#f87171;margin-bottom:8px;">Линейный доход</div>
+        <div class="bmd">Работаешь 1 час → получаешь за 1 час. Краткосрочный — исчезает в ежемесячных расходах.</div>
+      </div>
+      <div class="card cg f1">
+        <div style="font-size:28px;margin-bottom:10px;">📈</div>
+        <div style="font-size:16px;font-weight:700;color:var(--gold);margin-bottom:8px;">Масштабируемый пассивный доход</div>
+        <div class="bmd">Создай то, что <strong>ГЕНЕРИРУЕТ</strong> доход. Растёт со временем — меньше зависит от твоего времени.</div>
+      </div>
+    </div>
+    <div class="bmd wa" id="s3-last" style="color:rgba(255,255,255,0.6);font-style:italic;">
+      Подавляющее большинство людей, создающих активы, приносящие доход, делают это параллельно с основной работой. Для многих это безопасный и структурированный способ строить будущее.
+    </div>
+  </div>
+</div>
+
+<!-- S3b: OVERGANG -->
+<div class="scene" id="s3b">
+  <div class="si c" style="gap:32px;">
+    <div class="kicker wa">Другая модель</div>
+    <div class="h2 wa" style="max-width:700px;">Мы рассмотрим бизнес-модель, которая даёт тебе возможность сделать именно это — <em>создать постоянный доход</em></div>
+    <div class="divw wa"></div>
+    <div class="blg wa" style="max-width:660px;">Модель масштабируема, поэтому ты можешь развивать свой доход до любого уровня.</div>
+    <div class="hbox wa">
+      <div class="m">Сначала давайте посмотрим, как работает традиционная торговля.</div>
+    </div>
+  </div>
+</div>
+
+<!-- S4: HANDELSFLYT -->
+<div class="scene" id="s4">
+  <div class="si">
+    <div class="kicker wa">Традиционная торговля</div>
+    <div class="h2 wa">Продукт проходит через ряд <em>посредников</em>, прежде чем попасть к тебе как покупателю</div>
+    <div class="flow wa" style="gap:0;padding:24px 12px;">
+      <!-- Производитель -->
+      <div class="fi" style="gap:8px;">
+        <div class="fic"><svg viewBox="0 0 96 96"><path d="M74 75 62 75 62 66 74 66 74 75ZM54 75 42 75 42 66 54 66 54 75ZM34 75 22 75 22 66 34 66 34 75ZM55 55 55 41 28 55 25 14 17 14 14 55 14 82 82 82 82 55 82 41 55 55Z"/></svg></div>
+        <span class="fla" style="font-size:12px;">Производитель</span>
+      </div>
+      <div class="far" style="font-size:18px;padding:0 4px;margin-bottom:18px;">→</div>
+      <!-- Доставка 1 -->
+      <div class="fi" style="gap:8px;">
+        <div class="fic" style="width:58px;height:58px;"><svg viewBox="0 0 96 96"><circle cx="20" cy="66" r="7"/><circle cx="78" cy="66" r="7"/><rect x="4" y="24" width="56" height="24"/><path d="M68 34 74 34C75.8 34 77.4 35.2 77.8 36.9L79.8 43.8 79.9 44 68 44 68 34ZM74 30 64 30 64 66 68 66C68 60.5 72.5 56 78 56 83.5 56 88 60.5 88 66 90.2 66 92 64.2 92 62L92 52C92 50.7 91.4 49.6 90.4 48.8L85.1 44.8C84.4 44.3 83.9 43.5 83.7 42.7L81.7 35.8C80.7 32.4 77.5 30 74 30Z"/><path d="M60 66 30 66C30 60.5 25.5 56 20 56 14.5 56 10 60.5 10 66L4 66 4 52 60 52 60 66Z"/></svg></div>
+        <span class="fla" style="font-size:12px;">Доставка</span>
+      </div>
+      <div class="far" style="font-size:18px;padding:0 4px;margin-bottom:18px;">→</div>
+      <!-- Оптовик -->
+      <div class="fi" style="gap:8px;">
+        <div class="fic" style="width:58px;height:58px;">
+          <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg"><path d="M80 28H16L8 52v4h4v20h24V60h16v16h24V56h4v-4L80 28zM44 72H16V56h28v16zm36 0H52V56h28v16zM12 52l6-20h60l6 20H12z"/></svg>
+        </div>
+        <span class="fla" style="font-size:12px;">Оптовик</span>
+      </div>
+      <div class="far" style="font-size:18px;padding:0 4px;margin-bottom:18px;">→</div>
+      <!-- Доставка 2 -->
+      <div class="fi" style="gap:8px;">
+        <div class="fic" style="width:58px;height:58px;"><svg viewBox="0 0 96 96"><circle cx="20" cy="66" r="7"/><circle cx="78" cy="66" r="7"/><rect x="4" y="24" width="56" height="24"/><path d="M68 34 74 34C75.8 34 77.4 35.2 77.8 36.9L79.8 43.8 79.9 44 68 44 68 34ZM74 30 64 30 64 66 68 66C68 60.5 72.5 56 78 56 83.5 56 88 60.5 88 66 90.2 66 92 64.2 92 62L92 52C92 50.7 91.4 49.6 90.4 48.8L85.1 44.8C84.4 44.3 83.9 43.5 83.7 42.7L81.7 35.8C80.7 32.4 77.5 30 74 30Z"/><path d="M60 66 30 66C30 60.5 25.5 56 20 56 14.5 56 10 60.5 10 66L4 66 4 52 60 52 60 66Z"/></svg></div>
+        <span class="fla" style="font-size:12px;">Доставка</span>
+      </div>
+      <div class="far" style="font-size:18px;padding:0 4px;margin-bottom:18px;">→</div>
+      <!-- Магазин -->
+      <div class="fi" style="gap:8px;">
+        <div class="fic" style="width:58px;height:58px;"><svg viewBox="0 0 96 96"><path d="M76 44C76 46.2 74.2 48 72 48 69.8 48 68 46.2 68 44L68 40 66 20 74 20 76 40 76 44ZM60 44C60 46.2 58.2 48 56 48 53.8 48 52 46.2 52 44L52 40 51 20 59 20 60 40 60 44ZM44 40 44 44C44 46.2 42.2 48 40 48 37.8 48 36 46.2 36 44L36 40 37 20 45 20 44 40ZM40 72 24 72 24 56 40 56 40 72ZM20 44 20 40 22 20 30 20 28 40 28 44C28 46.2 26.2 48 24 48 21.8 48 20 46.2 20 44ZM80 14 16 14 12 40 12 44C12 46.2 13.8 48 16 48L16 82 50 82 50 56 72 56 72 82 80 82 80 48C82.2 48 84 46.2 84 44L84 40 80 14Z"/></svg></div>
+        <span class="fla" style="font-size:12px;">Магазин</span>
+      </div>
+      <div class="far" style="font-size:18px;padding:0 4px;margin-bottom:18px;">→</div>
+      <!-- Покупатель -->
+      <div class="fi" style="gap:8px;">
+        <div class="fic" style="width:58px;height:58px;"><svg viewBox="0 0 96 96"><circle cx="48" cy="11" r="8"/><path d="M69.8 52.2 64.2 28.4C64 27.6 63.6 26.8 63 26.2 60.6 24.2 57.8 22.8 54.6 21.8 52.4 21.4 50.2 21 48 21 45.8 21 43.6 21.4 41.4 22 38.2 22.8 35.4 24.4 33 26.4 32.4 27 32 27.8 31.8 28.6L26.2 52.4C26.2 52.6 26 53 26 53.4 26 55.6 27.8 57.4 30 57.4 31.8 57.4 33.4 56 33.8 54.4L38 37 38 93 46 93 46 57 50 57 50 93 58 93 58 36.8 62.2 54.2C62.6 55.8 64.2 57.2 66 57.2 68.2 57.2 70 55.4 70 53.2 70 52.8 69.8 52.4 69.8 52.2Z"/></svg></div>
+        <span class="fla" style="font-size:12px;">Покупатель</span>
+      </div>
+    </div>
+    <div class="row wa">
+      <div class="badge bg f1"><strong>Ты платишь за каждое звено</strong>Ты платишь за каждый этап цепочки + зарплаты и премии сотрудников. Магазины могут давать до 70% скидки на сезонных распродажах — это говорит о размере наценки.</div>
+      <div class="badge br f1"><strong>Скрытые расходы магазинов</strong>Реклама · Склад · Аренда · Дебиторская задолженность · Зарплаты — всё заложено в цену того, что ты покупаешь.</div>
+    </div>
+  </div>
+</div>
+
+<!-- S5b: MODELLEN VÅR -->
+<div class="scene" id="s5b">
+  <div class="si">
+    <div class="kicker wa">Наша бизнес-модель</div>
+    <div class="h2 wa">Владелец бизнеса — <em>без традиционных затрат</em></div>
+    <div class="blg wa">Модель, с которой мы работаем, даёт нам возможность быть владельцами бизнеса, но без тех же затрат, что в традиционном бизнесе. Мы также можем покупать товары по оптовым ценам, устраняя дорогостоящих посредников.</div>
+    <div class="card cg wa">
+      <div style="font-size:14px;font-weight:700;color:var(--gold);margin-bottom:10px;">🤝 Партнёрство с Amway</div>
+      <div class="bmd">Компания, с которой мы сотрудничаем, — Amway. Они выплачивают бонусы и вознаграждения на основе товарооборота, который мы помогаем генерировать через их интернет-магазин. Мы делаем это, представляя бизнес-возможность и знакомя других с покупками в том же месте — как в качестве владельцев бизнеса, так и в качестве клиентов.</div>
+    </div>
+    <div class="row wa" style="gap:14px;">
+      <div class="card f1" style="padding:16px 18px;background:rgba(34,197,94,0.08);border-color:rgba(34,197,94,0.25);text-align:center;">
+        <div style="font-size:22px;margin-bottom:6px;">🏪</div>
+        <div style="font-size:13px;font-weight:700;color:#4ade80;margin-bottom:4px;">Нет физического магазина</div>
+        <div class="bsm">Никакой аренды, склада или сотрудников</div>
+      </div>
+      <div class="card f1" style="padding:16px 18px;background:rgba(34,197,94,0.08);border-color:rgba(34,197,94,0.25);text-align:center;">
+        <div style="font-size:22px;margin-bottom:6px;">💰</div>
+        <div style="font-size:13px;font-weight:700;color:#4ade80;margin-bottom:4px;">Оптовые цены</div>
+        <div class="bsm">Устраняет дорогостоящих посредников</div>
+      </div>
+      <div class="card f1" style="padding:16px 18px;background:rgba(34,197,94,0.08);border-color:rgba(34,197,94,0.25);text-align:center;">
+        <div style="font-size:22px;margin-bottom:6px;">📈</div>
+        <div style="font-size:13px;font-weight:700;color:#4ade80;margin-bottom:4px;">Бонусы и вознаграждения</div>
+        <div class="bsm">На основе генерируемого тобой товарооборота</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S5: ANBEFALINGER + GIG ECONOMY -->
+<div class="scene" id="s5">
+  <div class="si">
+    <div class="kicker wa">Сила рекомендаций</div>
+    <div class="h2 wa">Личные рекомендации превосходят рекламу <em>в 20–30 раз</em></div>
+    <div class="div wa"></div>
+    <div class="blg wa">Исследования показывают, что рекомендации друзей работают <strong>в 20–30 раз сильнее</strong> рекламы — и эффект длится дольше. Это подтверждают данные исследований, а у молодёжи влияние ещё сильнее.</div>
+    <div class="row wa">
+      <div class="card f1" style="background:rgba(13,148,136,0.09);border-color:rgba(13,148,136,0.28);text-align:center;padding:18px 14px;">
+        <div style="font-size:26px;margin-bottom:6px;">🚗</div>
+        <div style="font-size:13px;font-weight:700;color:#2dd4bf;margin-bottom:4px;">Uber</div>
+        <div class="bsm">Не владеет автомобилями — крупнейшая такси-компания в мире</div>
+      </div>
+      <div class="card f1" style="background:rgba(13,148,136,0.09);border-color:rgba(13,148,136,0.28);text-align:center;padding:18px 14px;">
+        <div style="font-size:26px;margin-bottom:6px;">🏨</div>
+        <div style="font-size:13px;font-weight:700;color:#2dd4bf;margin-bottom:4px;">Airbnb</div>
+        <div class="bsm">Не владеет отелями — 8,2 млн мест для ночлега</div>
+      </div>
+      <div class="card f1" style="background:rgba(13,148,136,0.09);border-color:rgba(13,148,136,0.28);text-align:center;padding:18px 14px;">
+        <div style="font-size:26px;margin-bottom:6px;">🛍️</div>
+        <div style="font-size:13px;font-weight:700;color:#2dd4bf;margin-bottom:4px;">Etsy</div>
+        <div class="bsm">Не владеет товарами — миллионы продавцов по всему миру</div>
+      </div>
+      <div class="card cg f1" style="text-align:center;padding:18px 14px;">
+        <div style="font-size:26px;margin-bottom:6px;">🏆</div>
+        <div style="font-size:13px;font-weight:700;color:var(--gold);margin-bottom:4px;">Amway</div>
+        <div class="bsm">Тот же принцип — ты являешься платформой</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- S5c: SLIK VIRKER MODELLEN -->
+<div class="scene" id="s5c">
+  <div class="si">
+    <div class="kicker wa">Как работает модель</div>
+    <div class="h2 wa">Мы устраняем посредников — <em>и строим сеть</em></div>
+    <div class="row wa" style="gap:16px;">
+      <div class="card f1" style="padding:20px 18px;text-align:center;">
+        <div style="font-size:30px;margin-bottom:10px;">🏭</div>
+        <div style="font-size:13px;font-weight:700;color:var(--gold);margin-bottom:8px;">Ты покупаешь напрямую</div>
+        <div class="bmd">Мы устраняем всех посредников и покупаем напрямую у Amway — по оптовой цене. Никаких оптовиков, никаких магазинов.</div>
+      </div>
+      <div class="card f1" style="padding:20px 18px;text-align:center;background:rgba(34,197,94,0.08);border-color:rgba(34,197,94,0.25);">
+        <div style="font-size:30px;margin-bottom:10px;">🤝</div>
+        <div style="font-size:13px;font-weight:700;color:#4ade80;margin-bottom:8px;">Ты находишь других</div>
+        <div class="bmd">Ты находишь других, кто хочет участвовать в бизнес-модели, и спонсируешь их. Они также покупают напрямую у Amway.</div>
+      </div>
+      <div class="card f1" style="padding:20px 18px;text-align:center;background:rgba(91,33,182,0.1);border-color:rgba(91,33,182,0.28);">
+        <div style="font-size:30px;margin-bottom:10px;">🌐</div>
+        <div style="font-size:13px;font-weight:700;color:#c4b5fd;margin-bottom:8px;">Сеть растёт</div>
+        <div class="bmd">Так мы строим сеть людей, которые <strong>экономят деньги</strong> — и одновременно получают возможность <strong>зарабатывать деньги</strong>.</div>
+      </div>
+    </div>
+    <div class="hbox wa">
+      <div class="m">Amway выплачивает бонусы на основе товарооборота, генерируемого всей твоей сетью</div>
+      <div class="s">Чем больше сеть — тем выше объём — тем выше процент бонуса</div>
+    </div>
+  </div>
+</div>
+
+<!-- S5d: NETTVERKSDIAGRAM ANIMERT -->
+<div class="scene" id="s5d">
+  <div class="si c" style="gap:16px;">
+    <div class="kicker wa">Как это выглядит на практике</div>
+    <div class="h2 wa">Ты и Amway — <em>и твоя сеть</em></div>
+    <div style="width:100%;position:relative;height:380px;" id="netdiag"></div>
+  </div>
+</div>
+
+<!-- S6: STØTTEAPPARAT + ORG-TRE -->
+<div class="scene" id="s6">
+  <div class="si">
+    <div class="kicker wa">Твоя система поддержки</div>
+    <div class="h2 wa">Ты <em>не один</em></div>
+    <div class="row wa" style="align-items:flex-start;gap:24px;">
+      <!-- Tre kort -->
+      <div class="col f1" style="gap:10px;">
+        <div class="card cg" style="padding:16px 18px;">
+          <div style="font-size:18px;margin-bottom:6px;">🏢</div>
+          <div style="font-size:13px;font-weight:700;color:var(--gold);margin-bottom:4px;">Amway</div>
+          <div class="bmd" style="font-size:12px;">Платформа, продукты и доставка. Выплачивает бонусы напрямую тебе. Основана в 1959 году — ~7,5 млрд долл. США выручки.</div>
+        </div>
+        <div class="card" style="padding:16px 18px;background:rgba(91,33,182,0.1);border-color:rgba(91,33,182,0.28);">
+          <div style="font-size:18px;margin-bottom:6px;">🌍</div>
+          <div style="font-size:13px;font-weight:700;color:#c4b5fd;margin-bottom:4px;">Yager Group</div>
+          <div class="bmd" style="font-size:12px;">С 1963 года — крупнейшая сетевая организация в мире. Десятки тысяч наставников. Подкасты, мероприятия и практическое обучение.</div>
+        </div>
+        <div class="card" style="padding:16px 18px;">
+          <div style="font-size:18px;margin-bottom:6px;">🤝</div>
+          <div style="font-size:13px;font-weight:700;color:var(--ice);margin-bottom:4px;">Твой спонсор</div>
+          <div class="bmd" style="font-size:12px;">Познакомил тебя с возможностью и помогает добиться успеха с помощью опыта и материалов.</div>
+        </div>
+      </div>
+      <!-- Org-tre -->
+      <div id="org-tree" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:0;padding-top:8px;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- S7: BONUSSKALA -->
+<div class="scene" id="s7">
+  <div class="si">
+    <div class="kicker wa">Модель дохода</div>
+    <div class="h2 wa">Шкала бонусов — <em>на основе товарооборота</em></div>
+    <div class="bmd wa">Amway работает в ~100 странах и использует балльную стоимость (PV), привязанную к местной валюте. <strong>1 PV = местная стоимость</strong>. Бонус основан на товарообороте, который ты фактически генерируешь.</div>
+    <div class="scale wa" id="bscale"></div>
+    <div class="bsm wa" style="text-align:center;">Чем выше объём в твоей организации → тем выше процент бонуса → тем выше доход</div>
+  </div>
+</div>
+
+<!-- S7b: NETTVERKET VOKSER -->
+<div class="scene" id="s7b">
+  <div class="si">
+    <div class="kicker wa">Как растёт сеть</div>
+    <div class="h2 wa">Дупликация — <em>сила экспоненциального роста</em></div>
+    <div class="row wa" style="gap:16px;align-items:flex-start;">
+      <!-- Venstre: org-tre + utregninger -->
+      <div class="col" style="flex:1.3;gap:10px;">
+        <div id="growth-tree"></div>
+        <div style="display:flex;flex-direction:column;gap:5px;">
+          <div class="brow" style="background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.2);">
+            <span class="lbl">Шаг 1 · 200 PV · 3% · 1 ABO</span>
+            <span class="val" style="color:#60a5fa;">1 242 kr</span>
+          </div>
+          <div class="brow" style="background:rgba(139,92,246,0.08);border:1px solid rgba(139,92,246,0.2);">
+            <span class="lbl">Шаг 2 · 1 200 PV · 9% · 7 ABO</span>
+            <span class="val" style="color:#a78bfa;">4 239 kr</span>
+          </div>
+          <div class="brow" style="background:rgba(192,132,252,0.08);border:1px solid rgba(192,132,252,0.2);">
+            <span class="lbl">Шаг 3 · 6 200 PV · 15% · 31 ABO</span>
+            <span class="val" style="color:#c084fc;">27 243 kr</span>
+          </div>
+          <div class="brow tot">
+            <span class="lbl">Шаг 4 · 15 800 PV · 21% · 79 ABO</span>
+            <span class="val">67 451 kr</span>
+          </div>
+        </div>
+      </div>
+      <!-- Høyre: bonusskala -->
+      <div class="col f1" style="gap:8px;">
+        <div class="card" style="padding:14px 16px;background:rgba(255,255,255,0.04);">
+          <div style="font-size:10px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">Шкала бонусов</div>
+          <div id="scale-s7b" style="display:flex;flex-direction:column;gap:7px;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S8a: HVORDAN STARTE EFFEKTIVT — STEG 1 -->
+<div class="scene" id="s8a">
+  <div class="si">
+    <div class="kicker wa">Как эффективно начать · Шаг 1</div>
+    <div class="h2 wa">Ты начинаешь — <em>твой первый заказ</em></div>
+    <div class="row wa" style="gap:20px;align-items:flex-start;">
+      <!-- Venstre: animert diagram -->
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;" id="diag-s8a"></div>
+      <!-- Høyre: info og utregning -->
+      <div class="col f1" style="gap:8px;">
+        <div class="card" style="padding:14px 16px;background:rgba(255,255,255,0.04);">
+          <div style="font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Приветственные преимущества</div>
+          <div class="brow"><span class="lbl">Свыше 50 PV</span><span class="val" style="color:#4ade80;">Бесплатная регистрация</span></div>
+          <div class="brow"><span class="lbl">200 PV</span><span class="val" style="color:#4ade80;">4 стартовых купона</span></div>
+        </div>
+        <div style="font-size:11px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:1px;">Твой заработок — 200 PV · 3%</div>
+        <div class="brow"><span class="lbl">Бонус за результаты (200 × стоимость × 3%)</span><span class="val">162 kr</span></div>
+        <div class="brow" style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.25);">
+          <span class="lbl">🎁 Стартовые купоны (4 × стоимость)</span><span class="val" style="color:#4ade80;">800 kr</span>
+        </div>
+        <div class="brow tot"><span class="lbl">TOTAL</span><span class="val">962 kr</span></div>
+        <div class="bsm" style="color:rgba(255,255,255,0.35);margin-top:4px;">* Купоны используются для заказа следующего месяца</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S8b: STEG 2 — ТЫ SPONSER 3, HVER SPONSER 1 -->
+<div class="scene" id="s8b">
+  <div class="si">
+    <div class="kicker wa">Как эффективно начать · Шаг 2</div>
+    <div class="h2 wa">Твоя первая цель: спонсируй 3, каждый из которых спонсирует 1 — <em>Bronze Foundation</em></div>
+    <div class="bmd wa" style="max-width:620px;">Ты спонсируешь 3, каждый из которых спонсирует 1 — все с 200 PV. Всего 7 ABO и 1 400 GPV. Ты на уровне 9% и активируется BFI.</div>
+    <div id="s8b-wrap" style="display:flex;gap:0;align-items:center;justify-content:space-between;width:100%;opacity:0;animation:fadeUp 0.6s 0.4s both;">
+      <!-- SVG diagram -->
+      <div id="diag-s8b" style="flex-shrink:0;"></div>
+      <!-- Spacer -->
+      <div style="flex:1;"></div>
+      <!-- Utregning — helt til høyre -->
+      <div style="display:flex;flex-direction:column;gap:6px;width:240px;flex-shrink:0;">
+        <div style="font-size:10px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px;">1 400 PV · 9% · BFI</div>
+        <div class="brow"><span class="lbl" style="font-size:12px;">Бонус за результаты</span><span class="val">486 kr</span></div>
+        <div class="brow"><span class="lbl" style="font-size:12px;">Дифференциальный бонус</span><span class="val">1 944 kr</span></div>
+        <div class="brow"><span class="lbl" style="font-size:12px;">BFI (30%)</span><span class="val">729 kr</span></div>
+        <div class="brow" style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.25);">
+          <span class="lbl" style="font-size:12px;">🎁 Стартовые купоны</span><span class="val" style="color:#4ade80;">800 kr</span>
+        </div>
+        <div class="brow tot"><span class="lbl">TOTAL</span><span class="val">3 959 kr</span></div>
+        <div class="brow" style="background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.15);">
+          <span class="lbl" style="font-size:11px;color:rgba(255,255,255,0.5);">7 ABO · 1 400 PV</span>
+          <span class="val"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S8c: STEG 3 -->
+<div class="scene" id="s8c">
+  <div class="si">
+    <div class="kicker wa">Как эффективно строить · Шаг 1</div>
+    <div class="h2 wa">Твоя 2-я цель: помоги первым достичь BF — <em>ты Bronze Builder</em></div>
+    <div style="display:flex;gap:0;align-items:center;justify-content:space-between;width:100%;opacity:0;animation:fadeUp 0.6s 0.4s both;">
+      <div id="diag-s8c" style="flex-shrink:0;"></div>
+      <div style="flex:1;"></div>
+      <div style="display:flex;flex-direction:column;gap:6px;width:240px;flex-shrink:0;">
+        <div style="font-size:10px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px;">4 400 PV · 15% · BFI + BBI</div>
+        <div class="brow"><span class="lbl" style="font-size:12px;">Бонус за результаты</span><span class="val">810 kr</span></div>
+        <div class="brow"><span class="lbl" style="font-size:12px;">Дифференциальный бонус (15%−9%)</span><span class="val">6 804 kr</span></div>
+        <div class="brow"><span class="lbl" style="font-size:12px;">BFI (30%)</span><span class="val">2 284 kr</span></div>
+        <div class="brow"><span class="lbl" style="font-size:12px;">BBI (40%)</span><span class="val">3 046 kr</span></div>
+        <div class="brow" style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.25);">
+          <span class="lbl" style="font-size:12px;">🎁 Стартовые купоны</span><span class="val" style="color:#4ade80;">800 kr</span>
+        </div>
+        <div class="brow tot"><span class="lbl">TOTAL</span><span class="val">13 744 kr</span></div>
+        <div class="brow" style="background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.15);">
+          <span class="lbl" style="font-size:11px;color:rgba(255,255,255,0.5);">22 ABO · 4 400 PV</span>
+          <span class="val"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S8d: STEG 4 — SILVER / PLATINUM-KVALIFISERING -->
+<div class="scene" id="s8d">
+  <div class="si" style="gap:12px;">
+    <div class="kicker wa">Как эффективно строить · Шаг 2</div>
+    <div class="h2 wa">Ты помогаешь другим стать BF и BB — <em>ты становишься Silver</em></div>
+    <div class="bmd wa" style="max-width:680px;">Ты спонсируешь 3 новых человека и помогаешь им достичь Bronze Foundation. Одновременно помогаешь своим прежним фронтлайнам стать Bronze Builder. Теперь ты Silver на уровне 21%.</div>
+    <div style="display:flex;gap:0;align-items:center;justify-content:space-between;width:100%;opacity:0;animation:fadeUp 0.6s 0.4s both;">
+      <div id="diag-s8d" style="flex-shrink:0;"></div>
+      <div style="flex:1;"></div>
+      <div style="display:flex;flex-direction:column;gap:4px;width:240px;flex-shrink:0;">
+        <div style="font-size:10px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px;">16 400 PV · 21% · BFI + BBI</div>
+        <div class="brow" style="padding:5px 10px;"><span class="lbl" style="font-size:11px;">Бонус за результаты</span><span class="val" style="font-size:13px;">1 134 kr</span></div>
+        <div class="brow" style="padding:5px 10px;"><span class="lbl" style="font-size:11px;">Диф (21%−9%) × 3 × 1 400</span><span class="val" style="font-size:13px;">13 608 kr</span></div>
+        <div class="brow" style="padding:5px 10px;"><span class="lbl" style="font-size:11px;">Диф (21%−15%) × 3 × 4 000</span><span class="val" style="font-size:13px;">19 440 kr</span></div>
+        <div class="brow" style="padding:5px 10px;"><span class="lbl" style="font-size:11px;">BFI (30%)</span><span class="val" style="font-size:13px;">10 255 kr</span></div>
+        <div class="brow" style="padding:5px 10px;"><span class="lbl" style="font-size:11px;">BBI (40%)</span><span class="val" style="font-size:13px;">13 673 kr</span></div>
+        <div class="brow" style="padding:5px 10px;background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.25);">
+          <span class="lbl" style="font-size:11px;">🎁 Стартовые купоны</span><span class="val" style="color:#4ade80;font-size:13px;">800 kr</span>
+        </div>
+        <div class="brow tot" style="padding:6px 10px;"><span class="lbl">TOTAL</span><span class="val">58 909 kr</span></div>
+        <div class="brow ttci" style="padding:5px 10px;">
+          <span class="lbl" style="font-size:10px;">Gold Producer TTCI (после 3 месяцев)</span>
+          <span class="val" style="color:#c4b5fd;font-size:12px;">13 500 kr</span>
+        </div>
+        <div class="bsm" style="color:rgba(255,255,255,0.35);font-size:10px;">Platinum = 6 квалификационных месяцев как Silver</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S8e: STEG 5 — RUBY -->
+<div class="scene" id="s8e">
+  <div class="si">
+    <div class="kicker wa">Как эффективно строить · Шаг 3</div>
+    <div class="h2 wa">Ты помогаешь большему числу людей вырасти до BB, спонсируешь 3 новых BF — <em>ты Ruby</em></div>
+    <div style="display:flex;gap:0;align-items:center;justify-content:space-between;width:100%;opacity:0;animation:fadeUp 0.6s 0.4s both;">
+      <div id="diag-s8e" style="flex-shrink:0;"></div>
+      <div style="flex:1;"></div>
+      <div style="display:flex;flex-direction:column;gap:5px;width:240px;flex-shrink:0;">
+        <div style="font-size:10px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px;">38 000 PV · 21% · BFI + BBI + Ruby</div>
+        <div class="brow"><span class="lbl" style="font-size:12px;">Бонус за результаты</span><span class="val">1 134 kr</span></div>
+        <div class="brow"><span class="lbl" style="font-size:12px;">Диф (21%−18%) × 3 × 7 000</span><span class="val">17 010 kr</span></div>
+        <div class="brow"><span class="lbl" style="font-size:12px;">Диф (21%−15%) × 3 × 4 200</span><span class="val">20 412 kr</span></div>
+        <div class="brow"><span class="lbl" style="font-size:12px;">Диф (21%−9%) × 3 × 1 400</span><span class="val">13 608 kr</span></div>
+        <div class="brow"><span class="lbl" style="font-size:12px;">BFI (30%)</span><span class="val">15 649 kr</span></div>
+        <div class="brow"><span class="lbl" style="font-size:12px;">BBI (40%)</span><span class="val">20 866 kr</span></div>
+        <div class="brow" style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);">
+          <span class="lbl" style="font-size:12px;">💎 Бонус Ruby (2% × 38 000 PV)</span><span class="val" style="color:#f87171;">20 520 kr</span>
+        </div>
+        <div class="brow tot"><span class="lbl">TOTAL</span><span class="val">109 199 kr</span></div>
+        <div class="brow ttci" style="margin-top:2px;">
+          <span class="lbl" style="font-size:11px;">TTCI Platinum (2 × 40 500)</span>
+          <span class="val" style="color:#c4b5fd;">81 000 kr</span>
+        </div>
+        <div class="brow" style="background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.15);">
+          <span class="lbl" style="font-size:11px;color:rgba(255,255,255,0.5);">9 веток · 38 000 PV</span>
+          <span class="val"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S8f: STEG 6 — EMERALD -->
+<div class="scene" id="s8f">
+  <div class="si">
+    <div class="kicker wa">Как эффективно строить · Шаг 4</div>
+    <div class="h2 wa">Твои лидеры достигают 21% — <em>ты Emerald с 3 × 21% ветками</em></div>
+    <div style="display:flex;gap:0;align-items:center;justify-content:space-between;width:100%;opacity:0;animation:fadeUp 0.6s 0.4s both;">
+      <div id="diag-s8f" style="flex-shrink:0;"></div>
+      <div style="flex:1;"></div>
+      <div style="display:flex;flex-direction:column;gap:5px;width:240px;flex-shrink:0;">
+        <div style="font-size:10px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px;">83 000 PV · 21% · Emerald · BFI/BBI завершены</div>
+        <div class="brow"><span class="lbl" style="font-size:12px;">Бонус за результаты</span><span class="val">1 134 kr</span></div>
+        <div class="brow"><span class="lbl" style="font-size:12px;">Диф (21%−18%) × 3 × 7 000</span><span class="val">17 010 kr</span></div>
+        <div class="brow"><span class="lbl" style="font-size:12px;">Диф (21%−15%) × 3 × 4 200</span><span class="val">20 412 kr</span></div>
+        <div class="brow" style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.25);">
+          <span class="lbl" style="font-size:12px;">Бонус лидера (6%) × 3 × 16 400</span><span class="val" style="color:var(--gold);">79 704 kr</span>
+        </div>
+        <div class="brow"><span class="lbl" style="font-size:12px;">Бонус Ruby (2% × 33 800 PV)</span><span class="val" style="color:#f87171;">18 252 kr</span></div>
+        <div class="brow"><span class="lbl" style="font-size:12px;">Бонус глубины (1% × 49 200 PV)</span><span class="val" style="color:#c4b5fd;">13 284 kr</span></div>
+        <div class="brow tot"><span class="lbl">Итого/мес.</span><span class="val">149 796 kr</span></div>
+        <div class="brow ttci" style="margin-top:2px;">
+          <span class="lbl" style="font-size:11px;">TTCI Emerald (2 × 143 500)</span>
+          <span class="val" style="color:#c4b5fd;">287 000 kr</span>
+        </div>
+        <div class="brow" style="background:rgba(52,211,153,0.08);border:1px solid rgba(52,211,153,0.3);margin-top:4px;">
+          <span class="lbl" style="font-size:12px;color:#34d399;">🏆 Годовой доход с TTCI</span>
+          <span class="val" style="color:#34d399;font-size:15px;">2 084 552 kr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S8g: STEG 7 — DIAMOND -->
+<div class="scene" id="s8g">
+  <div class="si">
+    <div class="kicker wa">Как эффективно строить · Шаг 5</div>
+    <div class="h2 wa">Мы продолжаем строить путь к финансовой свободе — <em>ты Diamond</em></div>
+    <div style="display:flex;gap:0;align-items:center;justify-content:space-between;width:100%;opacity:0;animation:fadeUp 0.6s 0.4s both;">
+      <div id="diag-s8g" style="flex-shrink:0;"></div>
+      <div style="flex:1;"></div>
+      <div style="display:flex;flex-direction:column;gap:5px;width:240px;flex-shrink:0;">
+        <div style="font-size:10px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px;">141 200 PV · 21% · Diamond</div>
+        <div class="brow"><span class="lbl" style="font-size:12px;">Бонус за результаты</span><span class="val">1 134 kr</span></div>
+        <div class="brow" style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.25);">
+          <span class="lbl" style="font-size:12px;">Бонус лидера (6%) × 6 × 20 000</span><span class="val" style="color:var(--gold);">194 400 kr</span>
+        </div>
+        <div class="brow"><span class="lbl" style="font-size:12px;">Диф (21%−18%) × 3 × 7 000</span><span class="val">17 010 kr</span></div>
+        <div class="brow"><span class="lbl" style="font-size:12px;">Бонус Ruby (2% × 21 200 PV)</span><span class="val" style="color:#f87171;">11 448 kr</span></div>
+        <div class="brow"><span class="lbl" style="font-size:12px;">Бонус глубины (1% × 120 000 PV)</span><span class="val" style="color:#c4b5fd;">32 400 kr</span></div>
+        <div class="brow tot"><span class="lbl">Итого/мес.</span><span class="val">256 392 kr</span></div>
+        <div class="brow ttci" style="margin-top:2px;">
+          <span class="lbl" style="font-size:11px;">TTCI Diamond (2 × 224 000)</span>
+          <span class="val" style="color:#c4b5fd;">448 000 kr</span>
+        </div>
+        <div class="brow" style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.35);margin-top:4px;">
+          <span class="lbl" style="font-size:12px;color:var(--gold);">💎 Годовой доход с TTCI</span>
+          <span class="val" style="color:var(--gold);font-size:15px;">3 524 704 kr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S8h: STEG 8 — EDC -->
+<div class="scene" id="s8h">
+  <div class="si">
+    <div class="kicker wa">Как эффективно строить · Шаг 6</div>
+    <div class="h2 wa">Организация растёт — <em>ты Executive Diamond</em></div>
+    <div class="bmd wa" style="max-width:680px;">У тебя 9 веток, все выше уровня Ruby. Организацию Amway может унаследовать следующее поколение — ты создаёшь долгосрочное, семейное благосостояние.</div>
+    <div style="display:flex;gap:0;align-items:center;justify-content:space-between;width:100%;opacity:0;animation:fadeUp 0.6s 0.5s both;">
+      <div id="diag-s8h" style="flex-shrink:0;"></div>
+      <div style="flex:1;"></div>
+      <div style="display:flex;flex-direction:column;gap:5px;width:240px;flex-shrink:0;">
+        <div style="font-size:10px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px;">435 200 PV · 21% · EDC</div>
+        <div class="brow"><span class="lbl" style="font-size:12px;">Бонус за результаты</span><span class="val">1 134 kr</span></div>
+        <div class="brow" style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.25);">
+          <span class="lbl" style="font-size:12px;">Бонус лидера (6%) × 435 000 PV</span><span class="val" style="color:var(--gold);">704 700 kr</span>
+        </div>
+        <div class="brow"><span class="lbl" style="font-size:12px;">Бонус глубины (1%) × 435 000 PV</span><span class="val" style="color:#c4b5fd;">117 450 kr</span></div>
+        <div class="brow tot"><span class="lbl">Итого/мес.</span><span class="val">823 392 kr</span></div>
+        <div class="brow ttci" style="margin-top:2px;">
+          <span class="lbl" style="font-size:11px;">GAR Executive Diamond</span>
+          <span class="val" style="color:#c4b5fd;">470 000 kr</span>
+        </div>
+        <div class="brow" style="background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.4);margin-top:4px;">
+          <span class="lbl" style="font-size:12px;color:var(--gold);">💎 Годовой доход с GAR</span>
+          <span class="val" style="color:var(--gold);font-size:14px;">10 350 704 kr</span>
+        </div>
+        <div class="bmd" style="color:rgba(255,255,255,0.4);margin-top:6px;font-size:11px;">Организация может быть унаследована следующим поколением при наличии квалификации</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S11b: TTCI OVERSIKT -->
+<div class="scene" id="s11b">
+  <div class="si">
+    <div class="kicker wa">Единовременные выплаты</div>
+    <div class="h2 wa">TTCI — выплачивается <em>дважды</em> за уровень</div>
+    <div class="row wa" style="gap:16px;align-items:flex-start;">
+      <div class="col f1" style="gap:5px;">
+        <div style="font-size:11px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">TTCI — Gold Producer → Founders Diamond</div>
+        <div class="brow"><span class="lbl">Gold Producer</span><span class="val">13 500 kr × 2 = 27 000 kr</span></div>
+        <div class="brow"><span class="lbl">Platinum</span><span class="val">40 500 kr × 2 = 81 000 kr</span></div>
+        <div class="brow"><span class="lbl">Founders Platinum</span><span class="val">71 500 kr × 2 = 143 000 kr</span></div>
+        <div class="brow"><span class="lbl">Sapphire</span><span class="val">71 500 kr × 2 = 143 000 kr</span></div>
+        <div class="brow"><span class="lbl">Founders Sapphire</span><span class="val">107 500 kr × 2 = 215 000 kr</span></div>
+        <div class="brow"><span class="lbl">Emerald</span><span class="val">143 500 kr × 2 = 287 000 kr</span></div>
+        <div class="brow"><span class="lbl">Founders Emerald</span><span class="val">179 000 kr × 2 = 358 000 kr</span></div>
+        <div class="brow"><span class="lbl">Diamond</span><span class="val">224 000 kr × 2 = 448 000 kr</span></div>
+        <div class="brow"><span class="lbl">Founders Diamond</span><span class="val">269 000 kr × 2 = 538 000 kr</span></div>
+        <div class="brow tot"><span class="lbl">TTCI итого (все уровни)</span><span class="val">2 240 000 kr</span></div>
+      </div>
+      <div class="col f1" style="gap:5px;">
+        <div style="font-size:11px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">GAR — Executive Diamond и выше</div>
+        <div class="brow ttci"><span class="lbl">Executive Diamond</span><span class="val">470 000 kr</span></div>
+        <div class="brow ttci"><span class="lbl">Double Diamond</span><span class="val">670 000 kr</span></div>
+        <div class="brow ttci"><span class="lbl">Triple Diamond</span><span class="val">1 210 000 kr</span></div>
+        <div class="brow ttci"><span class="lbl">Crown</span><span class="val">2 160 000 kr</span></div>
+        <div class="brow ttci"><span class="lbl">Crown Ambassador</span><span class="val">3 230 000 kr</span></div>
+        <div class="brow ttci"><span class="lbl">Founders Crown Amb.</span><span class="val">3 770 000 kr</span></div>
+        <div style="font-size:11px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin:8px 0 4px;">LPI — Leadership Plus Incentive</div>
+        <div class="brow"><span class="lbl">Поддерживай FQ</span><span class="val">20% лидера+глубины</span></div>
+        <div class="brow"><span class="lbl">Добавь 1–5 FQ</span><span class="val">40% лидера+глубины</span></div>
+        <div class="brow"><span class="lbl">Добавь 6+ FQ</span><span class="val">50% лидера+глубины</span></div>
+        <div class="brow tot"><span class="lbl">LPI макс. выплата/год</span><span class="val">1 020 000 kr</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S12: PASSIV INNTEKT -->
+<div class="scene" id="s12">
+  <div class="si">
+    <div class="kicker wa">Большая разница</div>
+    <div class="h2 wa">Ты создал то, что <em>генерирует доход</em></div>
+    <div class="div wa"></div>
+    <div class="blg wa">Как и всё, что хорошо оплачивается, это требует работы и целенаправленного фокуса. Большая разница в том, что здесь ты создал <strong>ежемесячный, постоянный доход</strong> — достигнутую свободу.</div>
+    <div class="row wa">
+      <div class="card cg f1" style="text-align:center;"><div style="font-size:34px;font-weight:800;color:var(--gold);">~70 лет</div><div class="bmd" style="margin-top:5px;">Amway существует почти 70 лет</div></div>
+      <div class="card cg f1" style="text-align:center;"><div style="font-size:34px;font-weight:800;color:var(--gold);">73 млрд</div><div class="bmd" style="margin-top:5px;">долл. США выплачено бонусами с момента основания</div></div>
+      <div class="card cg f1" style="text-align:center;"><div style="font-size:34px;font-weight:800;color:var(--gold);">~100</div><div class="bmd" style="margin-top:5px;">Стран и территорий, где работает Amway</div></div>
+    </div>
+    <div class="bmd wa" style="color:rgba(255,255,255,0.5);">Yager Group основана в 1963 году Дексом и Берди Йегер — сегодня руководят Дойл, Джефф и Стив Йегер. Крупнейшая и наиболее успешная сетевая организация в мире.</div>
+  </div>
+</div>
+
+<!-- S13: NORGE OG TEAMET -->
+<div class="scene" id="s13">
+  <div class="si">
+    <div class="kicker wa">Наша позиция</div>
+    <div class="h2 wa">Мы занимаем <em>особое положение</em></div>
+    <div class="div wa"></div>
+    <div class="blg wa">Мы напрямую связаны с семьёй Йегер через личные знакомства и наставничество.</div>
+    <div class="card wa" style="background:rgba(255,255,255,0.04);">
+      <div class="bmd">Наши ведущие наставники, <strong>Йохан и Юлия Нильссон</strong>, напрямую спонсируемые семьёй Йегер, — молодые успешные предприниматели в нескольких странах. Они являются для нас бесценным ресурсом благодаря своему опыту и связям.</div>
+    </div>
+    <div class="row wa" style="gap:10px;flex-wrap:wrap;">
+      <span class="pill pg">✓ Прямая связь с Йегер</span>
+      <span class="pill pg">✓ Международный рост</span>
+      <span class="pill pg">✓ Личный коучинг</span>
+    </div>
+  </div>
+</div>
+
+<!-- S14: NESTE STEG -->
+<div class="scene" id="s14">
+  <div class="si c">
+    <div class="kicker wa">Следующий шаг</div>
+    <div class="h1 wa">Ты <em>готов?</em></div>
+    <div class="divw wa"></div>
+    <div class="blg wa" style="max-width:620px;">Мы назначаем встречу сразу — если у тебя есть партнёр, нам стоит встретиться всем вместе. Ты получишь ссылки на видео о том, что такое Amway.</div>
+    <div class="hbox wa">
+      <div class="m">Встреча 1: Ответы на вопросы и детали о том, как мы работаем</div>
+      <div class="s">Возможная регистрация и планирование старта</div>
+    </div>
+    <div class="bmd wa" style="color:rgba(255,255,255,0.4);font-style:italic;">Мы не хотим никого «вербовать» — мы ищем людей, которые осмелятся следовать своей мечте.</div>
+  </div>
+</div>
+
+</div><!-- end deck -->
+
+<div id="ctrl">
+  <button class="cb" id="bp">‹</button>
+  <div id="dots"></div>
+  <div id="tring"><svg width="30" height="30" viewBox="0 0 30 30"><circle cx="15" cy="15" r="13" stroke="rgba(255,255,255,0.1)" stroke-width="3" fill="none"/><circle id="tarc" cx="15" cy="15" r="13"/></svg></div>
+  <button class="cb" id="bplay">⏸</button>
+  <div id="sctr">1/14</div>
+  <button class="cb" id="bn">›</button>
+</div>
+
+<script>
+const SCENES = document.querySelectorAll('.scene');
+const N = SCENES.length;
+const ТЫR = [10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000];
+
+let cur=0, playing=true, elapsed=0, lastT=null, raf=null;
+const arc = document.getElementById('tarc');
+const CIRC = 82;
+
+// DOTS
+const dotsEl = document.getElementById('dots');
+for(let i=0;i<N;i++){
+  const d=document.createElement('div'); d.className='dot';
+  d.onclick=()=>go(i); dotsEl.appendChild(d);
+}
+
+// ANIM CONFIGS per scene index
+const ACFG = [
+  [['.kicker','as','d1'],['.h1','au','d2'],['.divw','af','d4'],['.blg','au','d5']],          // 0  s1
+  [['.kicker','al','d1'],['.h2','al','d2'],['.div','af','d3'],['.blg','au','d4'],['.bmd','au','d5'],['#s2-last','au','d6']], // 1  s2
+  [['.kicker','au','d1'],['.h2','au','d2'],['.bmd','au','d3'],['.row','au','d4'],['#s3-last','af','d6']], // 2  s3
+  [['.kicker','au','d1'],['.h2','au','d2'],['.divw','af','d3'],['.blg','au','d4'],['.hbox','ap','d6']], // 3  s3b
+  [['.kicker','au','d1'],['.h2','au','d2'],['.flow','au','d3'],['.row','au','d5']],           // 4  s4
+  [['.kicker','al','d1'],['.h2','al','d2'],['.blg','au','d3'],['.card','au','d4'],['.row','au','d6']], // 5  s5b modellen
+  [['.kicker','ar','d1'],['.h2','au','d2'],['.div','af','d3'],['.blg','au','d4'],['.row','au','d5']], // 6  s5 anbefalinger
+  [['.kicker','au','d1'],['.h2','au','d2'],['.row','au','d3'],['.hbox','ap','d5']],                  // 7  s5c modellen virker
+  [['.kicker','au','d1'],['.h2','au','d2']],                                                         // 8  s5d nettverksdiagram
+  [['.kicker','al','d1'],['.h2','al','d2'],['.row','au','d3']],                               // 9  s6 støtteapparat
+  [['.kicker','au','d1'],['.h2','au','d2'],['.bmd','au','d3'],['.scale','au','d4'],['.bsm','af','d7']], // 10 s7 bonusskala
+  [['.kicker','au','d1'],['.h2','au','d2'],['.row','au','d3']],                                        // 11 s7b vekst
+  [['.kicker','au','d1'],['.h2','au','d2'],['.row','au','d3']],                                        // 12 s8a steg1
+  [['.kicker','al','d1'],['.h2','al','d2']],                                                            // 13 s8b steg2
+  [['.kicker','au','d1'],['.h2','au','d2']],                                                            // 14 s8c steg3
+  [['.kicker','ar','d1'],['.h2','ar','d2']],                                                            // 15 s8d steg4
+  [['.kicker','au','d1'],['.h2','au','d2']],                                                            // 16 s8e steg5 ruby
+  [['.kicker','al','d1'],['.h2','al','d2']],                                                            // 17 s8f steg6 emerald
+  [['.kicker','au','d1'],['.h2','au','d2']],                                                            // 18 s8g diamond
+  [['.kicker','ar','d1'],['.h2','ar','d2'],['.bmd','af','d3']],                                         // 19 s8h edc
+  [['.kicker','au','d1'],['.h2','au','d2'],['.row','au','d3']],                    // 10 s11b TTCI
+  [['.kicker','au','d1'],['.h2','au','d2'],['.div','af','d3'],['.blg','au','d4'],['.row','au','d5'],['.bmd','af','d7']], // 16 s12
+  [['.kicker','al','d1'],['.h2','al','d2'],['.div','af','d3'],['.blg','au','d4'],['.card','au','d5'],['.row','au','d6']], // 17 s13
+  [['.kicker','as','d1'],['.h1','as','d2'],['.divw','af','d3'],['.blg','au','d4'],['.hbox','ap','d5'],['.bmd','af','d7']], // 18 s14
+];
+
+// POP-IN circle builder — uses inline style only, no class dependency for opacity
+function cir(txt,bc,cc,bg,delay,sz=48,fs=10){
+  return `<div style="
+    width:${sz}px;height:${sz}px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:${fs}px;font-weight:700;text-align:center;line-height:1.25;
+    border:2px solid ${bc};color:${cc};background:${bg};
+    opacity:0;animation:popIn 0.42s cubic-bezier(.34,1.56,.64,1) ${delay}s forwards;
+  ">${txt}</div>`;
+}
+function vl(h=18){return `<div style="width:2px;height:${h}px;background:rgba(201,168,76,0.28);margin:0 auto;"></div>`;}
+function hl(w='100%'){return `<div style="height:2px;background:rgba(201,168,76,0.2);width:${w};"></div>`;}
+
+// S6: Amway + Yager → Sponsor → ТЫ
+function drawOrg(){
+  const el=document.getElementById('org-tree'); if(!el)return;
+  el.innerHTML=`
+    <div style="display:flex;gap:24px;justify-content:center;">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:5px;">
+        ${cir('Amway','#C9A84C','#C9A84C','rgba(201,168,76,0.14)',0.2,66,11)}
+        <span style="font-size:10px;color:rgba(255,255,255,0.35);">Plattform</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:5px;">
+        ${cir('Yager<br>Group','#c4b5fd','#c4b5fd','rgba(91,33,182,0.14)',0.35,66,11)}
+        <span style="font-size:10px;color:rgba(255,255,255,0.35);">Organisasjon</span>
+      </div>
+    </div>
+    ${vl(20)}
+    <div style="display:flex;flex-direction:column;align-items:center;gap:5px;">
+      ${cir('Твой<br>Спонсор','#CADCFC','#CADCFC','rgba(202,220,252,0.09)',0.55,60,11)}
+      <span style="font-size:10px;color:rgba(255,255,255,0.35);">Din mentor</span>
+    </div>
+    ${vl(20)}
+    <div style="display:flex;flex-direction:column;align-items:center;gap:5px;">
+      ${cir('ТЫ','#C9A84C','#C9A84C','rgba(201,168,76,0.22)',0.75,72,13)}
+      <span style="font-size:10px;color:#C9A84C;font-weight:700;">Твой бизнес</span>
+    </div>`;
+}
+
+// S5d: Nettverksdiagram — Amway + ABO + 6 downline
+function drawNetDiag(){
+  const el=document.getElementById('netdiag'); if(!el)return;
+
+  const nodes = [
+    {cx:110, cy:275, delay:1.8},
+    {cx:218, cy:285, delay:2.0},
+    {cx:326, cy:290, delay:2.2},
+    {cx:474, cy:290, delay:2.4},
+    {cx:582, cy:285, delay:2.6},
+    {cx:690, cy:275, delay:2.8},
+  ];
+
+  let dlSvg = '';
+  nodes.forEach((p, i) => {
+    const ax1 = (p.cx + (400-p.cx)*0.28).toFixed(1);
+    const ay1 = (p.cy + (185-p.cy)*0.28).toFixed(1);
+    const ax2 = (p.cx + (400-p.cx)*0.72).toFixed(1);
+    const ay2 = (p.cy + (185-p.cy)*0.72).toFixed(1);
+    const dx1 = (p.cx + (400-p.cx)*0.22).toFixed(1);
+    const dy1 = (p.cy + (60-p.cy)*0.22).toFixed(1);
+    const dx2 = (p.cx + (400-p.cx)*0.78).toFixed(1);
+    const dy2 = (p.cy + (60-p.cy)*0.78).toFixed(1);
+    const d = p.delay;
+    dlSvg += `
+      <circle cx="${p.cx}" cy="${p.cy}" r="34" fill="rgba(34,197,94,0.1)" stroke="#4ade80" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.5s ${d}s both"/>
+      <text x="${p.cx}" y="${p.cy-5}" text-anchor="middle" fill="#4ade80" font-size="11" font-weight="700" opacity="0" style="animation:fadeIn 0.5s ${d+0.1}s both">ABO</text>
+      <text x="${p.cx}" y="${p.cy+9}" text-anchor="middle" fill="rgba(74,222,128,0.5)" font-size="9" opacity="0" style="animation:fadeIn 0.5s ${d+0.1}s both">${i+1}</text>
+      <line x1="${ax1}" y1="${ay1}" x2="${ax2}" y2="${ay2}" stroke="rgba(201,168,76,0.65)" stroke-width="1.5" marker-end="url(#arr)" opacity="0" style="animation:fadeIn 0.4s ${d+0.15}s both"/>
+      <line x1="${dx1}" y1="${dy1}" x2="${dx2}" y2="${dy2}" stroke="rgba(201,168,76,0.25)" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arrd)" opacity="0" style="animation:fadeIn 0.4s ${d+0.25}s both"/>
+    `;
+  });
+
+  el.innerHTML = `
+  <svg width="100%" height="380" viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="rgba(201,168,76,0.8)"/>
+      </marker>
+      <marker id="arrd" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="rgba(201,168,76,0.35)"/>
+      </marker>
+    </defs>
+    <circle cx="400" cy="55" r="48" fill="rgba(201,168,76,0.15)" stroke="#C9A84C" stroke-width="2" opacity="0" style="animation:fadeIn 0.6s 0.2s both"/>
+    <text x="400" y="50" text-anchor="middle" fill="#C9A84C" font-size="13" font-weight="700" opacity="0" style="animation:fadeIn 0.6s 0.3s both">Amway</text>
+    <text x="400" y="67" text-anchor="middle" fill="rgba(201,168,76,0.6)" font-size="10" opacity="0" style="animation:fadeIn 0.6s 0.3s both">Интернет-магазин</text>
+    <circle cx="400" cy="175" r="44" fill="rgba(202,220,252,0.12)" stroke="#CADCFC" stroke-width="2" opacity="0" style="animation:fadeIn 0.6s 0.9s both"/>
+    <text x="400" y="171" text-anchor="middle" fill="#CADCFC" font-size="13" font-weight="700" opacity="0" style="animation:fadeIn 0.6s 1.0s both">ABO</text>
+    <text x="400" y="187" text-anchor="middle" fill="rgba(202,220,252,0.55)" font-size="10" opacity="0" style="animation:fadeIn 0.6s 1.0s both">Ты</text>
+    <line x1="400" y1="131" x2="400" y2="105" stroke="rgba(201,168,76,0.8)" stroke-width="2" marker-end="url(#arr)" opacity="0" style="animation:fadeIn 0.5s 1.4s both"/>
+    <text x="416" y="121" fill="rgba(201,168,76,0.6)" font-size="9" opacity="0" style="animation:fadeIn 0.5s 1.5s both">покупает</text>
+    ${dlSvg}
+    <line x1="20" y1="362" x2="55" y2="362" stroke="rgba(201,168,76,0.7)" stroke-width="1.5" marker-end="url(#arr)" opacity="0" style="animation:fadeIn 0.5s 3.2s both"/>
+    <text x="62" y="366" fill="rgba(255,255,255,0.5)" font-size="10" opacity="0" style="animation:fadeIn 0.5s 3.2s both">Спонсируется тобой — объём считается для тебя</text>
+    <line x1="260" y1="362" x2="295" y2="362" stroke="rgba(201,168,76,0.3)" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arrd)" opacity="0" style="animation:fadeIn 0.5s 3.3s both"/>
+    <text x="302" y="366" fill="rgba(255,255,255,0.5)" font-size="10" opacity="0" style="animation:fadeIn 0.5s 3.3s both">Покупает напрямую у Amway</text>
+  </svg>`;
+}
+// S8a: Steg 1 — Amway + ABO
+// S8e: Steg 5 — Ruby, 12 ben (3 ledere 18% + 6 BB 15% + 3 BF 9%)
+// S8f: Steg 6 — Emerald, 3 BA (21%) + 3 BB (18%) + 3 BB (15%)
+// S8g: Diamond — 6 BA (21%) + 3 BB (18%)
+// S8h: EDC — 3 Emerald + 3 Ruby stor + 3 Ruby liten
+function drawS8h(){
+  const el=document.getElementById('diag-s8h'); if(!el)return;
+  el.style.cssText='flex-shrink:0;';
+
+  const cx=210, cy=145, r_abo=34, r_fl=100;
+
+  function pos(cx,cy,r,deg){
+    const rad=(deg-90)*Math.PI/180;
+    return [+(cx+r*Math.cos(rad)).toFixed(0), +(cy+r*Math.sin(rad)).toFixed(0)];
+  }
+
+  // 3 Ветка Emerald (grønn, øverst): 340°, 20°, 60°
+  // 3 Ruby stor (rød, høyre): 100°, 140°, 180°
+  // 3 Ruby liten (lys-rød, ned): 220°, 260°, 300°
+  const em_angs  = [{deg:340,n:'EM1'},{deg:20,n:'EM2'},{deg:60,n:'EM3'}];
+  const r1_angs  = [{deg:100,n:'RB1'},{deg:140,n:'RB2'},{deg:180,n:'RB3'}];
+  const r2_angs  = [{deg:220,n:'RB4'},{deg:260,n:'RB5'},{deg:300,n:'RB6'}];
+
+  let svg='';
+
+  // Ветка Emerald
+  em_angs.forEach(({deg,n},i)=>{
+    const [fx,fy]=pos(cx,cy,r_fl,deg);
+    const [x1,y1]=pos(cx,cy,r_abo+3,deg);
+    const [x2,y2]=pos(cx,cy,r_fl-27,deg);
+    const d=0.7+i*0.15;
+    svg+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="rgba(52,211,153,0.45)" stroke-width="2" opacity="0" style="animation:fadeIn 0.3s ${d}s both"/>
+    <circle cx="${fx}" cy="${fy}" r="25" fill="rgba(52,211,153,0.1)" stroke="#34d399" stroke-width="2.2" opacity="0" style="animation:popIn 0.4s ${d+0.1}s both"/>
+    <text x="${fx}" y="${fy-5}" text-anchor="middle" fill="#34d399" font-size="8" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">${n}</text>
+    <text x="${fx}" y="${fy+5}" text-anchor="middle" fill="rgba(52,211,153,0.7)" font-size="7" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">Emerald</text>
+    <text x="${fx}" y="${fy+14}" text-anchor="middle" fill="rgba(52,211,153,0.45)" font-size="6.5" opacity="0" style="animation:fadeIn 0.3s ${d+0.25}s both">83 000 PV</text>`;
+  });
+
+  // Ruby store
+  r1_angs.forEach(({deg,n},i)=>{
+    const [fx,fy]=pos(cx,cy,r_fl,deg);
+    const [x1,y1]=pos(cx,cy,r_abo+3,deg);
+    const [x2,y2]=pos(cx,cy,r_fl-24,deg);
+    const d=1.5+i*0.15;
+    svg+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="rgba(239,68,68,0.45)" stroke-width="1.8" opacity="0" style="animation:fadeIn 0.3s ${d}s both"/>
+    <circle cx="${fx}" cy="${fy}" r="22" fill="rgba(239,68,68,0.1)" stroke="#f87171" stroke-width="2" opacity="0" style="animation:popIn 0.4s ${d+0.1}s both"/>
+    <text x="${fx}" y="${fy-4}" text-anchor="middle" fill="#f87171" font-size="8" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">${n}</text>
+    <text x="${fx}" y="${fy+5}" text-anchor="middle" fill="rgba(248,113,113,0.7)" font-size="7" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">Ruby</text>
+    <text x="${fx}" y="${fy+14}" text-anchor="middle" fill="rgba(248,113,113,0.45)" font-size="6.5" opacity="0" style="animation:fadeIn 0.3s ${d+0.25}s both">38 000 PV</text>`;
+  });
+
+  // Ruby mindre
+  r2_angs.forEach(({deg,n},i)=>{
+    const [fx,fy]=pos(cx,cy,r_fl,deg);
+    const [x1,y1]=pos(cx,cy,r_abo+3,deg);
+    const [x2,y2]=pos(cx,cy,r_fl-22,deg);
+    const d=2.3+i*0.15;
+    svg+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="rgba(252,165,165,0.4)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s ${d}s both"/>
+    <circle cx="${fx}" cy="${fy}" r="20" fill="rgba(252,165,165,0.08)" stroke="#fca5a5" stroke-width="1.8" opacity="0" style="animation:popIn 0.4s ${d+0.1}s both"/>
+    <text x="${fx}" y="${fy-4}" text-anchor="middle" fill="#fca5a5" font-size="8" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">${n}</text>
+    <text x="${fx}" y="${fy+5}" text-anchor="middle" fill="rgba(252,165,165,0.7)" font-size="7" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">Ruby</text>
+    <text x="${fx}" y="${fy+14}" text-anchor="middle" fill="rgba(252,165,165,0.45)" font-size="6.5" opacity="0" style="animation:fadeIn 0.3s ${d+0.25}s both">24 000 PV</text>`;
+  });
+
+  el.innerHTML=`
+  <svg width="100%" height="auto" style="max-width:430px" viewBox="0 0 430 310" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="arr9" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L7,3 z" fill="rgba(45,212,191,0.8)"/>
+      </marker>
+    </defs>
+    <circle cx="38" cy="32" r="26" fill="rgba(45,212,191,0.15)" stroke="#2dd4bf" stroke-width="2" opacity="0" style="animation:popIn 0.5s 0.2s both"/>
+    <text x="38" y="28" text-anchor="middle" fill="#2dd4bf" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 0.3s both">Amway</text>
+    <text x="38" y="41" text-anchor="middle" fill="rgba(45,212,191,0.6)" font-size="8" opacity="0" style="animation:fadeIn 0.3s 0.3s both">Интернет-магазин</text>
+    <line x1="${cx-r_abo-2}" y1="${cy-r_abo+10}" x2="60" y2="54" stroke="rgba(45,212,191,0.5)" stroke-width="1.5" marker-end="url(#arr9)" opacity="0" style="animation:fadeIn 0.4s 0.5s both"/>
+    <!-- ABO EDC — diamant-gull -->
+    <circle cx="${cx}" cy="${cy}" r="${r_abo}" fill="rgba(201,168,76,0.15)" stroke="#C9A84C" stroke-width="2.5" opacity="0" style="animation:popIn 0.5s 0.4s both"/>
+    <text x="${cx}" y="${cy-7}" text-anchor="middle" fill="#C9A84C" font-size="10" font-weight="700" opacity="0" style="animation:fadeIn 0.4s 0.5s both">ABO</text>
+    <text x="${cx}" y="${cy+5}" text-anchor="middle" fill="rgba(201,168,76,0.9)" font-size="8" font-weight="700" opacity="0" style="animation:fadeIn 0.4s 0.5s both">💎 EDC</text>
+    <text x="${cx}" y="${cy+16}" text-anchor="middle" fill="rgba(201,168,76,0.55)" font-size="7" opacity="0" style="animation:fadeIn 0.4s 0.55s both">21% · 435 200 PV</text>
+    ${svg}
+    <!-- Legend -->
+    <rect x="2" y="296" width="76" height="11" rx="4" fill="rgba(52,211,153,0.1)" stroke="rgba(52,211,153,0.35)" stroke-width="1" opacity="0" style="animation:fadeIn 0.4s 3.2s both"/>
+    <text x="40" y="305" text-anchor="middle" fill="#34d399" font-size="7" opacity="0" style="animation:fadeIn 0.4s 3.3s both">Ветка Emerald</text>
+    <rect x="84" y="296" width="76" height="11" rx="4" fill="rgba(239,68,68,0.1)" stroke="rgba(239,68,68,0.35)" stroke-width="1" opacity="0" style="animation:fadeIn 0.4s 3.3s both"/>
+    <text x="122" y="305" text-anchor="middle" fill="#f87171" font-size="7" opacity="0" style="animation:fadeIn 0.4s 3.4s both">Ruby большая (38K)</text>
+    <rect x="166" y="296" width="76" height="11" rx="4" fill="rgba(252,165,165,0.08)" stroke="rgba(252,165,165,0.3)" stroke-width="1" opacity="0" style="animation:fadeIn 0.4s 3.4s both"/>
+    <text x="204" y="305" text-anchor="middle" fill="#fca5a5" font-size="7" opacity="0" style="animation:fadeIn 0.4s 3.5s both">Ruby малая (24K)</text>
+  </svg>`;
+}
+
+function drawS8g(){
+  const el=document.getElementById('diag-s8g'); if(!el)return;
+  el.style.cssText='flex-shrink:0;';
+
+  const cx=210, cy=150, r_abo=34, r_fl=100;
+
+  function pos(cx,cy,r,deg){
+    const rad=(deg-90)*Math.PI/180;
+    return [+(cx+r*Math.cos(rad)).toFixed(0), +(cy+r*Math.sin(rad)).toFixed(0)];
+  }
+
+  // 6 BA jevnt spredt (unngår venstre sektor), 3 BB i gaps
+  const ba_angs = [
+    {deg:330,n:'BA1'},{deg:10,n:'BA2'},{deg:50,n:'BA3'},
+    {deg:90,n:'BA4'},{deg:130,n:'BA5'},{deg:170,n:'BA6'}
+  ];
+  const bb_angs = [
+    {deg:220,n:'BB1'},{deg:260,n:'BB2'},{deg:300,n:'BB3'}
+  ];
+
+  let svg='';
+
+  // BA-ben — diamant-blå/hvit, 20 000 PV, 21%
+  ba_angs.forEach(({deg,n},i)=>{
+    const [fx,fy]=pos(cx,cy,r_fl,deg);
+    const [x1,y1]=pos(cx,cy,r_abo+3,deg);
+    const [x2,y2]=pos(cx,cy,r_fl-27,deg);
+    const d=0.7+i*0.15;
+    svg+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="rgba(148,163,184,0.5)" stroke-width="2" opacity="0" style="animation:fadeIn 0.3s ${d}s both"/>
+    <circle cx="${fx}" cy="${fy}" r="24" fill="rgba(148,163,184,0.12)" stroke="#94a3b8" stroke-width="2.2" opacity="0" style="animation:popIn 0.4s ${d+0.1}s both"/>
+    <text x="${fx}" y="${fy-4}" text-anchor="middle" fill="#e2e8f0" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">${n}</text>
+    <text x="${fx}" y="${fy+6}" text-anchor="middle" fill="rgba(226,232,240,0.65)" font-size="7" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">21%</text>
+    <text x="${fx}" y="${fy+15}" text-anchor="middle" fill="rgba(226,232,240,0.45)" font-size="6.5" opacity="0" style="animation:fadeIn 0.3s ${d+0.25}s both">20 000 PV</text>`;
+  });
+
+  // BB-ben — amber, 7 000 PV, 18%
+  bb_angs.forEach(({deg,n},i)=>{
+    const [fx,fy]=pos(cx,cy,r_fl,deg);
+    const [x1,y1]=pos(cx,cy,r_abo+3,deg);
+    const [x2,y2]=pos(cx,cy,r_fl-23,deg);
+    const d=1.8+i*0.15;
+    svg+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="rgba(251,191,36,0.45)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s ${d}s both"/>
+    <circle cx="${fx}" cy="${fy}" r="21" fill="rgba(251,191,36,0.12)" stroke="#fbbf24" stroke-width="2" opacity="0" style="animation:popIn 0.4s ${d+0.1}s both"/>
+    <text x="${fx}" y="${fy-3}" text-anchor="middle" fill="#fbbf24" font-size="8" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">${n}</text>
+    <text x="${fx}" y="${fy+7}" text-anchor="middle" fill="rgba(251,191,36,0.7)" font-size="7" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">18%·7000PV</text>`;
+  });
+
+  el.innerHTML=`
+  <svg width="100%" height="auto" style="max-width:430px" viewBox="0 0 430 310" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="arr8" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L7,3 z" fill="rgba(45,212,191,0.8)"/>
+      </marker>
+    </defs>
+    <circle cx="38" cy="32" r="26" fill="rgba(45,212,191,0.15)" stroke="#2dd4bf" stroke-width="2" opacity="0" style="animation:popIn 0.5s 0.2s both"/>
+    <text x="38" y="28" text-anchor="middle" fill="#2dd4bf" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 0.3s both">Amway</text>
+    <text x="38" y="41" text-anchor="middle" fill="rgba(45,212,191,0.6)" font-size="8" opacity="0" style="animation:fadeIn 0.3s 0.3s both">Интернет-магазин</text>
+    <line x1="${cx-r_abo-2}" y1="${cy-r_abo+10}" x2="60" y2="54" stroke="rgba(45,212,191,0.5)" stroke-width="1.5" marker-end="url(#arr8)" opacity="0" style="animation:fadeIn 0.4s 0.5s both"/>
+    <!-- ABO Diamond -->
+    <circle cx="${cx}" cy="${cy}" r="${r_abo}" fill="rgba(148,163,184,0.12)" stroke="#cbd5e1" stroke-width="2.5" opacity="0" style="animation:popIn 0.5s 0.4s both"/>
+    <text x="${cx}" y="${cy-6}" text-anchor="middle" fill="#f1f5f9" font-size="11" font-weight="700" opacity="0" style="animation:fadeIn 0.4s 0.5s both">ABO</text>
+    <text x="${cx}" y="${cy+8}" text-anchor="middle" fill="rgba(241,245,249,0.8)" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.4s 0.5s both">💎 Diamond</text>
+    ${svg}
+    <!-- Legend -->
+    <rect x="2" y="296" width="90" height="11" rx="4" fill="rgba(148,163,184,0.1)" stroke="rgba(148,163,184,0.35)" stroke-width="1" opacity="0" style="animation:fadeIn 0.4s 2.5s both"/>
+    <text x="47" y="305" text-anchor="middle" fill="#cbd5e1" font-size="7" opacity="0" style="animation:fadeIn 0.4s 2.6s both">BA = Silver+ (21%)</text>
+    <rect x="98" y="296" width="86" height="11" rx="4" fill="rgba(251,191,36,0.1)" stroke="rgba(251,191,36,0.35)" stroke-width="1" opacity="0" style="animation:fadeIn 0.4s 2.6s both"/>
+    <text x="141" y="305" text-anchor="middle" fill="#fbbf24" font-size="7" opacity="0" style="animation:fadeIn 0.4s 2.7s both">BB = Bronze Builder (18%)</text>
+  </svg>`;
+}
+
+function drawS8f(){
+  const el=document.getElementById('diag-s8f'); if(!el)return;
+  el.style.cssText='flex-shrink:0;';
+
+  const cx=210, cy=150, r_abo=34, r_fl=100;
+
+  function pos(cx,cy,r,deg){
+    const rad=(deg-90)*Math.PI/180;
+    return [+(cx+r*Math.cos(rad)).toFixed(0), +(cy+r*Math.sin(rad)).toFixed(0)];
+  }
+
+  // 3 BA (21%/Silver): øverst, grønn/gull glow
+  // 3 BB store (18%, 7000): høyre side
+  // 3 BB mindre (15%, 4200): nedre
+  const ba_angs  = [{deg:340,n:'BA1'},{deg:20,n:'BA2'},{deg:60,n:'BA3'}];
+  const bb1_angs = [{deg:110,n:'BB1'},{deg:150,n:'BB2'},{deg:190,n:'BB3'}];
+  const bb2_angs = [{deg:230,n:'BB4'},{deg:270,n:'BB5'},{deg:310,n:'BB6'}];
+
+  let svg='';
+
+  // BA-ben — hvit/isblå med grønn kant, stor (Silver under)
+  ba_angs.forEach(({deg,n},i)=>{
+    const [fx,fy]=pos(cx,cy,r_fl,deg);
+    const [x1,y1]=pos(cx,cy,r_abo+3,deg);
+    const [x2,y2]=pos(cx,cy,r_fl-26,deg);
+    const d=0.8+i*0.15;
+    svg+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="rgba(74,222,128,0.45)" stroke-width="2" opacity="0" style="animation:fadeIn 0.3s ${d}s both"/>
+    <circle cx="${fx}" cy="${fy}" r="25" fill="rgba(74,222,128,0.1)" stroke="#4ade80" stroke-width="2.2" opacity="0" style="animation:popIn 0.4s ${d+0.1}s both"/>
+    <text x="${fx}" y="${fy-4}" text-anchor="middle" fill="#4ade80" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">${n}</text>
+    <text x="${fx}" y="${fy+6}" text-anchor="middle" fill="rgba(74,222,128,0.7)" font-size="7" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">21%·Silver</text>
+    <text x="${fx}" y="${fy+15}" text-anchor="middle" fill="rgba(74,222,128,0.5)" font-size="6.5" opacity="0" style="animation:fadeIn 0.3s ${d+0.25}s both">16 400 PV</text>`;
+  });
+
+  // BB store (18%, 7000)
+  bb1_angs.forEach(({deg,n},i)=>{
+    const [fx,fy]=pos(cx,cy,r_fl,deg);
+    const [x1,y1]=pos(cx,cy,r_abo+3,deg);
+    const [x2,y2]=pos(cx,cy,r_fl-23,deg);
+    const d=1.5+i*0.15;
+    svg+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="rgba(251,191,36,0.45)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s ${d}s both"/>
+    <circle cx="${fx}" cy="${fy}" r="22" fill="rgba(251,191,36,0.12)" stroke="#fbbf24" stroke-width="2" opacity="0" style="animation:popIn 0.4s ${d+0.1}s both"/>
+    <text x="${fx}" y="${fy-3}" text-anchor="middle" fill="#fbbf24" font-size="8" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">${n}</text>
+    <text x="${fx}" y="${fy+6}" text-anchor="middle" fill="rgba(251,191,36,0.7)" font-size="7" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">18%·7000PV</text>`;
+  });
+
+  // BB mindre (15%, 4200)
+  bb2_angs.forEach(({deg,n},i)=>{
+    const [fx,fy]=pos(cx,cy,r_fl,deg);
+    const [x1,y1]=pos(cx,cy,r_abo+3,deg);
+    const [x2,y2]=pos(cx,cy,r_fl-21,deg);
+    const d=2.2+i*0.15;
+    svg+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="rgba(201,168,76,0.4)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s ${d}s both"/>
+    <circle cx="${fx}" cy="${fy}" r="20" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1.8" opacity="0" style="animation:popIn 0.4s ${d+0.1}s both"/>
+    <text x="${fx}" y="${fy-3}" text-anchor="middle" fill="#C9A84C" font-size="8" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">${n}</text>
+    <text x="${fx}" y="${fy+6}" text-anchor="middle" fill="rgba(201,168,76,0.7)" font-size="7" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">15%·4200PV</text>`;
+  });
+
+  el.innerHTML=`
+  <svg width="100%" height="auto" style="max-width:430px" viewBox="0 0 430 310" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="arr7" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L7,3 z" fill="rgba(45,212,191,0.8)"/>
+      </marker>
+    </defs>
+    <circle cx="38" cy="32" r="26" fill="rgba(45,212,191,0.15)" stroke="#2dd4bf" stroke-width="2" opacity="0" style="animation:popIn 0.5s 0.2s both"/>
+    <text x="38" y="28" text-anchor="middle" fill="#2dd4bf" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 0.3s both">Amway</text>
+    <text x="38" y="41" text-anchor="middle" fill="rgba(45,212,191,0.6)" font-size="8" opacity="0" style="animation:fadeIn 0.3s 0.3s both">Интернет-магазин</text>
+    <line x1="${cx-r_abo-2}" y1="${cy-r_abo+10}" x2="60" y2="54" stroke="rgba(45,212,191,0.5)" stroke-width="1.5" marker-end="url(#arr7)" opacity="0" style="animation:fadeIn 0.4s 0.5s both"/>
+    <!-- ABO Emerald -->
+    <circle cx="${cx}" cy="${cy}" r="${r_abo}" fill="rgba(52,211,153,0.1)" stroke="#34d399" stroke-width="2.5" opacity="0" style="animation:popIn 0.5s 0.4s both"/>
+    <text x="${cx}" y="${cy-6}" text-anchor="middle" fill="#34d399" font-size="11" font-weight="700" opacity="0" style="animation:fadeIn 0.4s 0.5s both">ABO</text>
+    <text x="${cx}" y="${cy+8}" text-anchor="middle" fill="rgba(52,211,153,0.8)" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.4s 0.5s both">Emerald · 21%</text>
+    ${svg}
+    <!-- Legend -->
+    <rect x="2" y="296" width="82" height="11" rx="4" fill="rgba(74,222,128,0.1)" stroke="rgba(74,222,128,0.35)" stroke-width="1" opacity="0" style="animation:fadeIn 0.4s 3.0s both"/>
+    <text x="43" y="305" text-anchor="middle" fill="#4ade80" font-size="7" opacity="0" style="animation:fadeIn 0.4s 3.1s both">BA = Silver (21%)</text>
+    <rect x="90" y="296" width="82" height="11" rx="4" fill="rgba(251,191,36,0.1)" stroke="rgba(251,191,36,0.35)" stroke-width="1" opacity="0" style="animation:fadeIn 0.4s 3.1s both"/>
+    <text x="131" y="305" text-anchor="middle" fill="#fbbf24" font-size="7" opacity="0" style="animation:fadeIn 0.4s 3.2s both">BB большая (18%)</text>
+    <rect x="178" y="296" width="82" height="11" rx="4" fill="rgba(201,168,76,0.1)" stroke="rgba(201,168,76,0.3)" stroke-width="1" opacity="0" style="animation:fadeIn 0.4s 3.2s both"/>
+    <text x="219" y="305" text-anchor="middle" fill="#C9A84C" font-size="7" opacity="0" style="animation:fadeIn 0.4s 3.3s both">BB малая (15%)</text>
+  </svg>`;
+}
+
+function drawS8e(){
+  const el=document.getElementById('diag-s8e'); if(!el)return;
+  el.style.cssText='flex-shrink:0;';
+
+  const cx=210, cy=150, r_abo=34, r_fl=100;
+
+  function pos(cx,cy,r,deg){
+    const rad=(deg-90)*Math.PI/180;
+    return [+(cx+r*Math.cos(rad)).toFixed(0), +(cy+r*Math.sin(rad)).toFixed(0)];
+  }
+
+  // 9 ben spredt jevnt, unngår venstre side (Amway)
+  // Store BB (18%, 7000): 350°, 30°, 70°
+  // Mindre BB (15%, 4200): 110°, 150°, 190°
+  // BF (9%, 1400): 230°, 270°, 310°
+  const big_bb   = [{deg:350,n:'BB1'},{deg:30,n:'BB2'},{deg:70,n:'BB3'}];
+  const small_bb = [{deg:110,n:'BB4'},{deg:150,n:'BB5'},{deg:190,n:'BB6'}];
+  const bf_ben   = [{deg:230,n:'BF1'},{deg:270,n:'BF2'},{deg:310,n:'BF3'}];
+
+  let svg='';
+
+  // Store BB — amber, 7000 PV, 18%
+  big_bb.forEach(({deg,n},i)=>{
+    const [fx,fy]=pos(cx,cy,r_fl,deg);
+    const [x1,y1]=pos(cx,cy,r_abo+3,deg);
+    const [x2,y2]=pos(cx,cy,r_fl-24,deg);
+    const d=0.8+i*0.15;
+    svg+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="rgba(251,191,36,0.45)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s ${d}s both"/>
+    <circle cx="${fx}" cy="${fy}" r="23" fill="rgba(251,191,36,0.13)" stroke="#fbbf24" stroke-width="2" opacity="0" style="animation:popIn 0.4s ${d+0.1}s both"/>
+    <text x="${fx}" y="${fy-3}" text-anchor="middle" fill="#fbbf24" font-size="8" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">${n}</text>
+    <text x="${fx}" y="${fy+7}" text-anchor="middle" fill="rgba(251,191,36,0.7)" font-size="7" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">18%·7000PV</text>`;
+  });
+
+  // Mindre BB — gull, 4200 PV, 15%
+  small_bb.forEach(({deg,n},i)=>{
+    const [fx,fy]=pos(cx,cy,r_fl,deg);
+    const [x1,y1]=pos(cx,cy,r_abo+3,deg);
+    const [x2,y2]=pos(cx,cy,r_fl-22,deg);
+    const d=1.4+i*0.15;
+    svg+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="rgba(201,168,76,0.4)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s ${d}s both"/>
+    <circle cx="${fx}" cy="${fy}" r="21" fill="rgba(201,168,76,0.11)" stroke="#C9A84C" stroke-width="1.8" opacity="0" style="animation:popIn 0.4s ${d+0.1}s both"/>
+    <text x="${fx}" y="${fy-3}" text-anchor="middle" fill="#C9A84C" font-size="8" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">${n}</text>
+    <text x="${fx}" y="${fy+7}" text-anchor="middle" fill="rgba(201,168,76,0.7)" font-size="7" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">15%·4200PV</text>`;
+  });
+
+  // BF — blå, 1400 PV, 9%
+  bf_ben.forEach(({deg,n},i)=>{
+    const [fx,fy]=pos(cx,cy,r_fl,deg);
+    const [x1,y1]=pos(cx,cy,r_abo+3,deg);
+    const [x2,y2]=pos(cx,cy,r_fl-20,deg);
+    const d=2.1+i*0.15;
+    svg+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="rgba(100,149,237,0.4)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s ${d}s both"/>
+    <circle cx="${fx}" cy="${fy}" r="19" fill="rgba(100,149,237,0.1)" stroke="#6495ED" stroke-width="1.8" opacity="0" style="animation:popIn 0.4s ${d+0.1}s both"/>
+    <text x="${fx}" y="${fy-3}" text-anchor="middle" fill="#6495ED" font-size="8" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">${n}</text>
+    <text x="${fx}" y="${fy+7}" text-anchor="middle" fill="rgba(100,149,237,0.7)" font-size="7" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">9%·1400PV</text>`;
+  });
+
+  el.innerHTML=`
+  <svg width="100%" height="auto" style="max-width:430px" viewBox="0 0 430 310" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="arr6" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L7,3 z" fill="rgba(45,212,191,0.8)"/>
+      </marker>
+    </defs>
+    <circle cx="38" cy="32" r="26" fill="rgba(45,212,191,0.15)" stroke="#2dd4bf" stroke-width="2" opacity="0" style="animation:popIn 0.5s 0.2s both"/>
+    <text x="38" y="28" text-anchor="middle" fill="#2dd4bf" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 0.3s both">Amway</text>
+    <text x="38" y="41" text-anchor="middle" fill="rgba(45,212,191,0.6)" font-size="8" opacity="0" style="animation:fadeIn 0.3s 0.3s both">Интернет-магазин</text>
+    <line x1="${cx-r_abo-2}" y1="${cy-r_abo+10}" x2="60" y2="54" stroke="rgba(45,212,191,0.5)" stroke-width="1.5" marker-end="url(#arr6)" opacity="0" style="animation:fadeIn 0.4s 0.5s both"/>
+    <circle cx="${cx}" cy="${cy}" r="${r_abo}" fill="rgba(239,68,68,0.1)" stroke="#f87171" stroke-width="2.5" opacity="0" style="animation:popIn 0.5s 0.4s both"/>
+    <text x="${cx}" y="${cy-6}" text-anchor="middle" fill="#f87171" font-size="11" font-weight="700" opacity="0" style="animation:fadeIn 0.4s 0.5s both">ABO</text>
+    <text x="${cx}" y="${cy+8}" text-anchor="middle" fill="rgba(239,68,68,0.8)" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.4s 0.5s both">Ruby · 21%</text>
+    ${svg}
+    <rect x="2" y="295" width="82" height="11" rx="4" fill="rgba(251,191,36,0.1)" stroke="rgba(251,191,36,0.35)" stroke-width="1" opacity="0" style="animation:fadeIn 0.4s 2.8s both"/>
+    <text x="43" y="304" text-anchor="middle" fill="#fbbf24" font-size="7" opacity="0" style="animation:fadeIn 0.4s 2.9s both">BB большая (18%)</text>
+    <rect x="90" y="295" width="82" height="11" rx="4" fill="rgba(201,168,76,0.1)" stroke="rgba(201,168,76,0.3)" stroke-width="1" opacity="0" style="animation:fadeIn 0.4s 2.9s both"/>
+    <text x="131" y="304" text-anchor="middle" fill="#C9A84C" font-size="7" opacity="0" style="animation:fadeIn 0.4s 3.0s both">BB малая (15%)</text>
+    <rect x="178" y="295" width="82" height="11" rx="4" fill="rgba(100,149,237,0.1)" stroke="rgba(100,149,237,0.3)" stroke-width="1" opacity="0" style="animation:fadeIn 0.4s 3.0s both"/>
+    <text x="219" y="304" text-anchor="middle" fill="#6495ED" font-size="7" opacity="0" style="animation:fadeIn 0.4s 3.1s both">BF (9%)</text>
+  </svg>`;
+}
+
+
+function drawS8d(){
+  const el=document.getElementById('diag-s8d'); if(!el)return;
+  el.style.cssText='flex-shrink:0;';
+
+  // ViewBox: 420 × 280
+  // ABO senter: (180, 140)
+  // 6 FL fordelt jevnt i en sirkel rundt ABO, radius 95
+  // BB (gull): 330°, 30°, 90° — øvre halvdel
+  // BF (blå): 150°, 210°, 270° — nedre halvdel
+  // Sub-ben: 3 sirkler utenfor hver FL
+
+  const cx=205, cy=140, r_abo=32;
+  const r_fl=95, r_sub=148, r_sub2=175;
+
+  // FL posisjoner (grader fra 12-klokken, med venstre plass til Amway)
+  // BB: 320°, 20°, 80° (øvre)
+  // BF: 140°, 200°, 260° (nedre)
+  const bb_angles = [320, 20, 80];
+  const bf_angles = [140, 200, 260];
+
+  function pos(cx, cy, r, deg){
+    const rad = (deg-90)*Math.PI/180;
+    return [cx+r*Math.cos(rad), cy+r*Math.sin(rad)];
+  }
+
+  let svg = '';
+
+  // BB FL-er med 3 sub-sirkler (BB = 15%, har 3L2+3L3 struktur)
+  bb_angles.forEach((deg, i) => {
+    const [fx, fy] = pos(cx, cy, r_fl, deg);
+    const d = 0.8 + i*0.2;
+    // Linje ABO→FL
+    const [lx1,ly1] = pos(cx,cy,r_abo+4,deg);
+    const [lx2,ly2] = pos(cx,cy,r_fl-24,deg);
+    svg += `<line x1="${lx1.toFixed(0)}" y1="${ly1.toFixed(0)}" x2="${lx2.toFixed(0)}" y2="${ly2.toFixed(0)}" stroke="rgba(201,168,76,0.4)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s ${d}s both"/>`;
+    // FL sirkel
+    svg += `<circle cx="${fx.toFixed(0)}" cy="${fy.toFixed(0)}" r="24" fill="rgba(201,168,76,0.12)" stroke="#C9A84C" stroke-width="2" opacity="0" style="animation:popIn 0.4s ${d+0.1}s both"/>
+    <text x="${fx.toFixed(0)}" y="${(fy-4).toFixed(0)}" text-anchor="middle" fill="#C9A84C" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">FL${i+1}</text>
+    <text x="${fx.toFixed(0)}" y="${(fy+7).toFixed(0)}" text-anchor="middle" fill="rgba(201,168,76,0.65)" font-size="7" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">BB·15%</text>`;
+    // 3 sub-sirkler rundt FL, viftet utover
+    [-40,0,40].forEach((spread, j) => {
+      const subDeg = deg + spread;
+      const [sx, sy] = pos(fx, fy, 40, subDeg);
+      const [lsx1,lsy1] = pos(fx,fy,26,subDeg);
+      const [lsx2,lsy2] = pos(fx,fy,34,subDeg);
+      svg += `<line x1="${lsx1.toFixed(0)}" y1="${lsy1.toFixed(0)}" x2="${lsx2.toFixed(0)}" y2="${lsy2.toFixed(0)}" stroke="rgba(100,149,237,0.3)" stroke-width="1.2" opacity="0" style="animation:fadeIn 0.3s ${d+0.5}s both"/>
+      <circle cx="${sx.toFixed(0)}" cy="${sy.toFixed(0)}" r="13" fill="rgba(100,149,237,0.1)" stroke="#6495ED" stroke-width="1.3" opacity="0" style="animation:popIn 0.35s ${d+0.5+j*0.08}s both"/>
+      <text x="${sx.toFixed(0)}" y="${(sy+3).toFixed(0)}" text-anchor="middle" fill="#6495ED" font-size="7" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${d+0.6}s both">L2</text>`;
+    });
+  });
+
+  // BF FL-er med 3 sub-sirkler (BF = 9%)
+  bf_angles.forEach((deg, i) => {
+    const [fx, fy] = pos(cx, cy, r_fl, deg);
+    const d = 1.4 + i*0.2;
+    const [lx1,ly1] = pos(cx,cy,r_abo+4,deg);
+    const [lx2,ly2] = pos(cx,cy,r_fl-22,deg);
+    svg += `<line x1="${lx1.toFixed(0)}" y1="${ly1.toFixed(0)}" x2="${lx2.toFixed(0)}" y2="${ly2.toFixed(0)}" stroke="rgba(100,149,237,0.4)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s ${d}s both"/>`;
+    svg += `<circle cx="${fx.toFixed(0)}" cy="${fy.toFixed(0)}" r="24" fill="rgba(100,149,237,0.1)" stroke="#6495ED" stroke-width="2" opacity="0" style="animation:popIn 0.4s ${d+0.1}s both"/>
+    <text x="${fx.toFixed(0)}" y="${(fy-4).toFixed(0)}" text-anchor="middle" fill="#6495ED" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">FL${i+4}</text>
+    <text x="${fx.toFixed(0)}" y="${(fy+7).toFixed(0)}" text-anchor="middle" fill="rgba(100,149,237,0.65)" font-size="7" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">BF·9%</text>`;
+    [-40,0,40].forEach((spread, j) => {
+      const subDeg = deg + spread;
+      const [sx, sy] = pos(fx, fy, 40, subDeg);
+      const [lsx1,lsy1] = pos(fx,fy,26,subDeg);
+      const [lsx2,lsy2] = pos(fx,fy,34,subDeg);
+      svg += `<line x1="${lsx1.toFixed(0)}" y1="${lsy1.toFixed(0)}" x2="${lsx2.toFixed(0)}" y2="${lsy2.toFixed(0)}" stroke="rgba(201,168,76,0.25)" stroke-width="1.2" opacity="0" style="animation:fadeIn 0.3s ${d+0.5}s both"/>
+      <circle cx="${sx.toFixed(0)}" cy="${sy.toFixed(0)}" r="13" fill="rgba(201,168,76,0.08)" stroke="rgba(201,168,76,0.5)" stroke-width="1.3" opacity="0" style="animation:popIn 0.35s ${d+0.5+j*0.08}s both"/>
+      <text x="${sx.toFixed(0)}" y="${(sy+3).toFixed(0)}" text-anchor="middle" fill="rgba(201,168,76,0.7)" font-size="7" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${d+0.6}s both">L2</text>`;
+    });
+  });
+
+  el.innerHTML=`
+  <svg width="420" height="350" viewBox="0 0 420 350" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="arr5" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L7,3 z" fill="rgba(45,212,191,0.8)"/>
+      </marker>
+    </defs>
+    <!-- Amway -->
+    <circle cx="38" cy="32" r="28" fill="rgba(45,212,191,0.15)" stroke="#2dd4bf" stroke-width="2"
+      opacity="0" style="animation:popIn 0.5s 0.2s both"/>
+    <text x="38" y="28" text-anchor="middle" fill="#2dd4bf" font-size="9" font-weight="700"
+      opacity="0" style="animation:fadeIn 0.3s 0.3s both">Amway</text>
+    <text x="38" y="41" text-anchor="middle" fill="rgba(45,212,191,0.6)" font-size="8"
+      opacity="0" style="animation:fadeIn 0.3s 0.3s both">Интернет-магазин</text>
+    <!-- Pil ABO→Amway (diagonal opp-venstre) -->
+    <line x1="${cx-r_abo-2}" y1="${cy-r_abo+10}" x2="62" y2="56" stroke="rgba(45,212,191,0.5)" stroke-width="1.5"
+      marker-end="url(#arr5)" opacity="0" style="animation:fadeIn 0.4s 0.5s both"/>
+    <!-- ABO Silver -->
+    <circle cx="${cx}" cy="${cy}" r="${r_abo}" fill="rgba(202,220,252,0.15)" stroke="#CADCFC" stroke-width="2.5"
+      opacity="0" style="animation:popIn 0.5s 0.4s both"/>
+    <text x="${cx}" y="${cy-6}" text-anchor="middle" fill="#CADCFC" font-size="11" font-weight="700"
+      opacity="0" style="animation:fadeIn 0.4s 0.5s both">ABO</text>
+    <text x="${cx}" y="${cy+6}" text-anchor="middle" fill="rgba(202,220,252,0.7)" font-size="9" font-weight="700"
+      opacity="0" style="animation:fadeIn 0.4s 0.5s both">21% · Silver</text>
+    ${svg}
+    <!-- Legend — plassert nederst til høyre utenfor sirkelklyngen -->
+    <rect x="100" y="335" width="96" height="12" rx="4" fill="rgba(201,168,76,0.1)" stroke="rgba(201,168,76,0.3)" stroke-width="1" opacity="0" style="animation:fadeIn 0.4s 2.8s both"/>
+    <text x="148" y="344" text-anchor="middle" fill="#C9A84C" font-size="7" opacity="0" style="animation:fadeIn 0.4s 2.9s both">BB = Bronze Builder (15%)</text>
+    <rect x="206" y="335" width="84" height="12" rx="4" fill="rgba(100,149,237,0.1)" stroke="rgba(100,149,237,0.3)" stroke-width="1" opacity="0" style="animation:fadeIn 0.4s 2.9s both"/>
+    <text x="248" y="344" text-anchor="middle" fill="#6495ED" font-size="7" opacity="0" style="animation:fadeIn 0.4s 3.0s both">BF = Bronze Foundation (9%)</text>
+  </svg>`;
+}
+
+function drawS8c(){
+  const el=document.getElementById('diag-s8c'); if(!el)return;
+  el.style.cssText='flex-shrink:0;';
+  el.innerHTML=`
+  <svg width="100%" height="auto" style="max-width:310px" viewBox="0 0 310 250" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="arr4" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L7,3 z" fill="rgba(201,168,76,0.8)"/>
+      </marker>
+    </defs>
+    <!-- Amway — øverst til venstre -->
+    <circle cx="38" cy="32" r="26" fill="rgba(45,212,191,0.15)" stroke="#2dd4bf" stroke-width="2"
+      opacity="0" style="animation:popIn 0.5s 0.2s both"/>
+    <text x="38" y="28" text-anchor="middle" fill="#2dd4bf" font-size="9" font-weight="700"
+      opacity="0" style="animation:fadeIn 0.3s 0.3s both">Amway</text>
+    <text x="38" y="40" text-anchor="middle" fill="rgba(45,212,191,0.6)" font-size="8"
+      opacity="0" style="animation:fadeIn 0.3s 0.3s both">Интернет-магазин</text>
+    <line x1="92" y1="97" x2="56" y2="50" stroke="rgba(45,212,191,0.55)" stroke-width="1.5"
+      marker-end="url(#arr4)" opacity="0" style="animation:fadeIn 0.4s 0.5s both"/>
+    <!-- ABO -->
+    <circle cx="110" cy="115" r="30" fill="rgba(202,220,252,0.12)" stroke="#CADCFC" stroke-width="2"
+      opacity="0" style="animation:popIn 0.5s 0.4s both"/>
+    <text x="110" y="111" text-anchor="middle" fill="#CADCFC" font-size="11" font-weight="700"
+      opacity="0" style="animation:fadeIn 0.4s 0.5s both">ABO</text>
+    <text x="110" y="124" text-anchor="middle" fill="rgba(202,220,252,0.55)" font-size="8"
+      opacity="0" style="animation:fadeIn 0.4s 0.5s both">Du · 15%</text>
+    <!-- ABO→FL linjer -->
+    <line x1="136" y1="98" x2="162" y2="65" stroke="rgba(201,168,76,0.35)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s 0.8s both"/>
+    <line x1="140" y1="115" x2="170" y2="115" stroke="rgba(201,168,76,0.35)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s 0.9s both"/>
+    <line x1="136" y1="132" x2="162" y2="165" stroke="rgba(201,168,76,0.35)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s 1.0s both"/>
+    <!-- FL1 — opp -->
+    <circle cx="182" cy="55" r="22" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1.8"
+      opacity="0" style="animation:popIn 0.4s 0.9s both"/>
+    <text x="182" y="52" text-anchor="middle" fill="#C9A84C" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 1.0s both">FL1</text>
+    <text x="182" y="63" text-anchor="middle" fill="rgba(201,168,76,0.6)" font-size="7" opacity="0" style="animation:fadeIn 0.3s 1.0s both">9%</text>
+    <!-- FL2 — midten -->
+    <circle cx="194" cy="115" r="22" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1.8"
+      opacity="0" style="animation:popIn 0.4s 1.0s both"/>
+    <text x="194" y="112" text-anchor="middle" fill="#C9A84C" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 1.1s both">FL2</text>
+    <text x="194" y="123" text-anchor="middle" fill="rgba(201,168,76,0.6)" font-size="7" opacity="0" style="animation:fadeIn 0.3s 1.1s both">9%</text>
+    <!-- FL3 — ned -->
+    <circle cx="182" cy="175" r="22" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1.8"
+      opacity="0" style="animation:popIn 0.4s 1.1s both"/>
+    <text x="182" y="172" text-anchor="middle" fill="#C9A84C" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 1.2s both">FL3</text>
+    <text x="182" y="183" text-anchor="middle" fill="rgba(201,168,76,0.6)" font-size="7" opacity="0" style="animation:fadeIn 0.3s 1.2s both">9%</text>
+    <!-- 3 L2 for FL2 — rett til høyre, spredt vertikalt -->
+    <line x1="216" y1="107" x2="240" y2="78" stroke="rgba(100,149,237,0.3)" stroke-width="1.2" opacity="0" style="animation:fadeIn 0.3s 1.3s both"/>
+    <line x1="216" y1="115" x2="244" y2="115" stroke="rgba(100,149,237,0.3)" stroke-width="1.2" opacity="0" style="animation:fadeIn 0.3s 1.4s both"/>
+    <line x1="216" y1="123" x2="240" y2="152" stroke="rgba(100,149,237,0.3)" stroke-width="1.2" opacity="0" style="animation:fadeIn 0.3s 1.5s both"/>
+    <!-- L2-1 øverst -->
+    <circle cx="254" cy="68" r="13" fill="rgba(100,149,237,0.1)" stroke="#6495ED" stroke-width="1.3" opacity="0" style="animation:popIn 0.35s 1.4s both"/>
+    <text x="254" y="72" text-anchor="middle" fill="#6495ED" font-size="7" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 1.5s both">L2</text>
+    <!-- L3 fra L2-1 — samme vinkel som L2-1 fra FL2 -->
+    <line x1="264" y1="60" x2="271" y2="55" stroke="rgba(74,222,128,0.35)" stroke-width="1.2" opacity="0" style="animation:fadeIn 0.3s 1.7s both"/>
+    <circle cx="278" cy="49" r="10" fill="rgba(34,197,94,0.1)" stroke="#4ade80" stroke-width="1.3" opacity="0" style="animation:popIn 0.35s 1.8s both"/>
+    <text x="278" y="53" text-anchor="middle" fill="#4ade80" font-size="6" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 1.9s both">L3</text>
+    <!-- L2-2 midten -->
+    <circle cx="258" cy="115" r="13" fill="rgba(100,149,237,0.1)" stroke="#6495ED" stroke-width="1.3" opacity="0" style="animation:popIn 0.35s 1.5s both"/>
+    <text x="258" y="119" text-anchor="middle" fill="#6495ED" font-size="7" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 1.6s both">L2</text>
+    <!-- L3 fra L2-2 — rett til høyre -->
+    <line x1="271" y1="115" x2="279" y2="115" stroke="rgba(74,222,128,0.35)" stroke-width="1.2" opacity="0" style="animation:fadeIn 0.3s 1.8s both"/>
+    <circle cx="289" cy="115" r="10" fill="rgba(34,197,94,0.1)" stroke="#4ade80" stroke-width="1.3" opacity="0" style="animation:popIn 0.35s 1.9s both"/>
+    <text x="289" y="119" text-anchor="middle" fill="#4ade80" font-size="6" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 2.0s both">L3</text>
+    <!-- L2-3 nederst -->
+    <circle cx="254" cy="162" r="13" fill="rgba(100,149,237,0.1)" stroke="#6495ED" stroke-width="1.3" opacity="0" style="animation:popIn 0.35s 1.6s both"/>
+    <text x="254" y="166" text-anchor="middle" fill="#6495ED" font-size="7" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 1.7s both">L2</text>
+    <!-- L3 fra L2-3 — samme vinkel som L2-3 fra FL2 -->
+    <line x1="264" y1="170" x2="271" y2="175" stroke="rgba(74,222,128,0.35)" stroke-width="1.2" opacity="0" style="animation:fadeIn 0.3s 1.9s both"/>
+    <circle cx="278" cy="181" r="10" fill="rgba(34,197,94,0.1)" stroke="#4ade80" stroke-width="1.3" opacity="0" style="animation:popIn 0.35s 2.0s both"/>
+    <text x="278" y="185" text-anchor="middle" fill="#4ade80" font-size="6" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 2.1s both">L3</text>
+    <!-- Indikator FL1 og FL3 også har struktur -->
+    <text x="182" y="30" text-anchor="middle" fill="rgba(100,149,237,0.5)" font-size="7" opacity="0" style="animation:fadeIn 0.4s 1.7s both">3×L2+L3</text>
+    <text x="182" y="210" text-anchor="middle" fill="rgba(100,149,237,0.5)" font-size="7" opacity="0" style="animation:fadeIn 0.4s 1.8s both">3×L2+L3</text>
+    <text x="150" y="244" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-size="7" opacity="0" style="animation:fadeIn 0.5s 2.2s both">22 ABOer totalt</text>
+  </svg>`;
+}
+
+function drawS8b(){
+  const el=document.getElementById('diag-s8b'); if(!el)return;
+  el.style.cssText='flex-shrink:0;';
+
+  // Layout: Amway til venstre, ABO i midten, 3 FL som kronblader til høyre
+  // ViewBox: 300 × 230
+  // Amway: (28, 115)
+  // ABO: (115, 115)
+  // FL1: opp-høyre   (195, 60)
+  // FL2: rett høyre  (210, 115)
+  // FL3: ned-høyre   (195, 170)
+  // L2-1: (260, 35)
+  // L2-2: (272, 115)
+  // L2-3: (260, 195)
+
+  el.innerHTML=`
+  <svg width="100%" height="auto" style="max-width:300px" viewBox="0 0 300 230" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="arr3" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L7,3 z" fill="rgba(201,168,76,0.8)"/>
+      </marker>
+    </defs>
+
+    <!-- Amway — venstre -->
+    <circle cx="28" cy="115" r="26" fill="rgba(201,168,76,0.15)" stroke="#C9A84C" stroke-width="2"
+      opacity="0" style="animation:popIn 0.5s 0.2s both"/>
+    <text x="28" y="111" text-anchor="middle" fill="#C9A84C" font-size="9" font-weight="700"
+      opacity="0" style="animation:fadeIn 0.4s 0.3s both">Amway</text>
+    <text x="28" y="123" text-anchor="middle" fill="rgba(201,168,76,0.6)" font-size="8"
+      opacity="0" style="animation:fadeIn 0.4s 0.3s both">Nett</text>
+
+    <!-- Pil ABO → Amway -->
+    <line x1="82" y1="115" x2="56" y2="115" stroke="rgba(201,168,76,0.7)" stroke-width="1.8"
+      marker-end="url(#arr3)"
+      opacity="0" style="animation:fadeIn 0.5s 0.6s both"/>
+
+    <!-- ABO — midten -->
+    <circle cx="115" cy="115" r="32" fill="rgba(202,220,252,0.12)" stroke="#CADCFC" stroke-width="2"
+      opacity="0" style="animation:popIn 0.5s 0.4s both"/>
+    <text x="115" y="111" text-anchor="middle" fill="#CADCFC" font-size="12" font-weight="700"
+      opacity="0" style="animation:fadeIn 0.4s 0.5s both">ABO</text>
+    <text x="115" y="125" text-anchor="middle" fill="rgba(202,220,252,0.55)" font-size="9"
+      opacity="0" style="animation:fadeIn 0.4s 0.5s both">Du · 9%</text>
+
+    <!-- Linjer ABO → FL -->
+    <line x1="143" y1="97" x2="172" y2="71" stroke="rgba(201,168,76,0.35)" stroke-width="1.5"
+      opacity="0" style="animation:fadeIn 0.3s 0.9s both"/>
+    <line x1="147" y1="115" x2="182" y2="115" stroke="rgba(201,168,76,0.35)" stroke-width="1.5"
+      opacity="0" style="animation:fadeIn 0.3s 1.1s both"/>
+    <line x1="143" y1="133" x2="172" y2="159" stroke="rgba(201,168,76,0.35)" stroke-width="1.5"
+      opacity="0" style="animation:fadeIn 0.3s 1.3s both"/>
+
+    <!-- FL1 — opp-høyre -->
+    <circle cx="195" cy="58" r="24" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1.8"
+      opacity="0" style="animation:popIn 0.45s 1.0s both"/>
+    <text x="195" y="54" text-anchor="middle" fill="#C9A84C" font-size="10" font-weight="700"
+      opacity="0" style="animation:fadeIn 0.3s 1.1s both">FL1</text>
+    <text x="195" y="66" text-anchor="middle" fill="rgba(201,168,76,0.6)" font-size="8"
+      opacity="0" style="animation:fadeIn 0.3s 1.1s both">200 PV</text>
+
+    <!-- FL2 — midten høyre -->
+    <circle cx="208" cy="115" r="24" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1.8"
+      opacity="0" style="animation:popIn 0.45s 1.2s both"/>
+    <text x="208" y="111" text-anchor="middle" fill="#C9A84C" font-size="10" font-weight="700"
+      opacity="0" style="animation:fadeIn 0.3s 1.3s both">FL2</text>
+    <text x="208" y="123" text-anchor="middle" fill="rgba(201,168,76,0.6)" font-size="8"
+      opacity="0" style="animation:fadeIn 0.3s 1.3s both">200 PV</text>
+
+    <!-- FL3 — ned-høyre -->
+    <circle cx="195" cy="172" r="24" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1.8"
+      opacity="0" style="animation:popIn 0.45s 1.4s both"/>
+    <text x="195" y="168" text-anchor="middle" fill="#C9A84C" font-size="10" font-weight="700"
+      opacity="0" style="animation:fadeIn 0.3s 1.5s both">FL3</text>
+    <text x="195" y="180" text-anchor="middle" fill="rgba(201,168,76,0.6)" font-size="8"
+      opacity="0" style="animation:fadeIn 0.3s 1.5s both">200 PV</text>
+
+    <!-- Linjer FL → L2 -->
+    <line x1="218" y1="44" x2="244" y2="26" stroke="rgba(100,149,237,0.35)" stroke-width="1.5"
+      opacity="0" style="animation:fadeIn 0.3s 1.6s both"/>
+    <line x1="232" y1="115" x2="256" y2="115" stroke="rgba(100,149,237,0.35)" stroke-width="1.5"
+      opacity="0" style="animation:fadeIn 0.3s 1.8s both"/>
+    <line x1="218" y1="186" x2="244" y2="204" stroke="rgba(100,149,237,0.35)" stroke-width="1.5"
+      opacity="0" style="animation:fadeIn 0.3s 2.0s both"/>
+
+    <!-- L2-1 -->
+    <circle cx="262" cy="20" r="18" fill="rgba(100,149,237,0.1)" stroke="#6495ED" stroke-width="1.5"
+      opacity="0" style="animation:popIn 0.4s 1.7s both"/>
+    <text x="262" y="17" text-anchor="middle" fill="#6495ED" font-size="9" font-weight="700"
+      opacity="0" style="animation:fadeIn 0.3s 1.8s both">L2</text>
+    <text x="262" y="28" text-anchor="middle" fill="rgba(100,149,237,0.6)" font-size="7"
+      opacity="0" style="animation:fadeIn 0.3s 1.8s both">200 PV</text>
+
+    <!-- L2-2 -->
+    <circle cx="274" cy="115" r="18" fill="rgba(100,149,237,0.1)" stroke="#6495ED" stroke-width="1.5"
+      opacity="0" style="animation:popIn 0.4s 1.9s both"/>
+    <text x="274" y="112" text-anchor="middle" fill="#6495ED" font-size="9" font-weight="700"
+      opacity="0" style="animation:fadeIn 0.3s 2.0s both">L2</text>
+    <text x="274" y="123" text-anchor="middle" fill="rgba(100,149,237,0.6)" font-size="7"
+      opacity="0" style="animation:fadeIn 0.3s 2.0s both">200 PV</text>
+
+    <!-- L2-3 -->
+    <circle cx="262" cy="210" r="18" fill="rgba(100,149,237,0.1)" stroke="#6495ED" stroke-width="1.5"
+      opacity="0" style="animation:popIn 0.4s 2.1s both"/>
+    <text x="262" y="207" text-anchor="middle" fill="#6495ED" font-size="9" font-weight="700"
+      opacity="0" style="animation:fadeIn 0.3s 2.2s both">L2</text>
+    <text x="262" y="218" text-anchor="middle" fill="rgba(100,149,237,0.6)" font-size="7"
+      opacity="0" style="animation:fadeIn 0.3s 2.2s both">200 PV</text>
+  </svg>`;
+}
+
+function drawS8a(){
+  const el=document.getElementById('diag-s8a'); if(!el)return;
+  el.style.cssText='display:flex;flex-direction:column;align-items:center;width:100%;';
+  el.innerHTML=`
+  <svg width="100%" height="240" viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="arr2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="rgba(201,168,76,0.8)"/>
+      </marker>
+    </defs>
+    <!-- Amway — helt til venstre -->
+    <circle cx="44" cy="110" r="38" fill="rgba(201,168,76,0.15)" stroke="#C9A84C" stroke-width="2"
+      opacity="0" style="animation:popIn 0.5s 0.2s both"/>
+    <text x="44" y="106" text-anchor="middle" fill="#C9A84C" font-size="11" font-weight="700"
+      opacity="0" style="animation:fadeIn 0.4s 0.3s both">Amway</text>
+    <text x="38" y="40" text-anchor="middle" fill="rgba(45,212,191,0.6)" font-size="8"
+      opacity="0" style="animation:fadeIn 0.4s 0.3s both">Интернет-магазин</text>
+    <!-- Pil fra ABO til Amway -->
+    <line x1="155" y1="110" x2="84" y2="110" stroke="rgba(201,168,76,0.7)" stroke-width="2"
+      marker-end="url(#arr2)"
+      opacity="0" style="animation:fadeIn 0.5s 1.2s both"/>
+    <text x="119" y="102" text-anchor="middle" fill="rgba(201,168,76,0.55)" font-size="9"
+      opacity="0" style="animation:fadeIn 0.4s 1.3s both">покупает</text>
+    <!-- ABO — midten -->
+    <circle cx="210" cy="110" r="48" fill="rgba(202,220,252,0.12)" stroke="#CADCFC" stroke-width="2"
+      opacity="0" style="animation:popIn 0.5s 0.8s both"/>
+    <text x="210" y="105" text-anchor="middle" fill="#CADCFC" font-size="12" font-weight="700"
+      opacity="0" style="animation:fadeIn 0.4s 0.9s both">ABO</text>
+    <text x="210" y="120" text-anchor="middle" fill="rgba(202,220,252,0.55)" font-size="10"
+      opacity="0" style="animation:fadeIn 0.4s 0.9s both">Du · 200 PV</text>
+    <!-- 3% badge -->
+    <rect x="162" y="172" width="96" height="24" rx="12" fill="rgba(201,168,76,0.15)" stroke="rgba(201,168,76,0.4)" stroke-width="1.5"
+      opacity="0" style="animation:fadeIn 0.4s 1.6s both"/>
+    <text x="210" y="189" text-anchor="middle" fill="#C9A84C" font-size="11" font-weight="700"
+      opacity="0" style="animation:fadeIn 0.4s 1.7s both">3% уровень бонуса</text>
+    <!-- Kupong-badge -->
+    <rect x="110" y="204" width="200" height="28" rx="10" fill="rgba(34,197,94,0.1)" stroke="rgba(34,197,94,0.3)" stroke-width="1.5"
+      opacity="0" style="animation:popIn 0.5s 2.0s both"/>
+    <text x="210" y="223" text-anchor="middle" fill="#4ade80" font-size="10" font-weight="700"
+      opacity="0" style="animation:fadeIn 0.4s 2.1s both">🎁 4 стартовых купона = 800 kr</text>
+  </svg>`;
+}
+
+function drawGrowthTree(){
+  const el=document.getElementById('growth-tree'); if(!el)return;
+  const scale = [
+    {pv:'200 PV',   pct:'3%',  w:14,  c:'#3B82F6', d:0.1},
+    {pv:'1 200 PV', pct:'9%',  w:42,  c:'#8B5CF6', d:0.2},
+    {pv:'6 200 PV', pct:'15%', w:71,  c:'#C084FC', d:0.3},
+    {pv:'15 800 PV',pct:'21%', w:100, c:'#C9A84C', d:0.4},
+  ];
+  let scaleSvg = '';
+  scale.forEach((s,i) => {
+    scaleSvg += `<div style="display:flex;align-items:center;gap:8px;opacity:0;animation:fadeUp 0.5s ${s.d}s both;">
+      <div style="font-size:10px;color:rgba(255,255,255,0.5);min-width:66px;text-align:right;">${s.pv}</div>
+      <div style="flex:1;height:20px;background:rgba(255,255,255,0.06);border-radius:4px;overflow:hidden;">
+        <div style="height:100%;width:0;background:${s.c};border-radius:4px;transition:width 1s ${0.5+i*0.12}s ease;display:flex;align-items:center;padding-left:6px;font-size:10px;font-weight:700;color:#fff;" data-w="${s.w}%">${s.pct}</div>
+      </div>
+    </div>`;
+  });
+  const fl6 = [30,78,126,174,222,270].map((x,i)=>`
+    <line x1="${x}" y1="60" x2="${x}" y2="74" stroke="rgba(100,149,237,0.3)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s ${0.5+i*0.07}s both"/>
+    <circle cx="${x}" cy="84" r="14" fill="rgba(100,149,237,0.1)" stroke="#6495ED" stroke-width="1.5" opacity="0" style="animation:popIn 0.4s ${0.55+i*0.07}s both"/>
+    <text x="${x}" y="81" text-anchor="middle" fill="#6495ED" font-size="6.5" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${0.6+i*0.07}s both">FL${i+1}</text>
+    <text x="${x}" y="92" text-anchor="middle" fill="rgba(100,149,237,0.6)" font-size="6" opacity="0" style="animation:fadeIn 0.3s ${0.6+i*0.07}s both">200PV</text>`).join('');
+  // 4 L2 under FL1 — god horisontal luft
+  const l2 = [-10,12,34,56].map((x,i)=>`
+    <line x1="${x+11}" y1="108" x2="${x+11}" y2="116" stroke="rgba(74,222,128,0.3)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s ${1.1+i*0.08}s both"/>
+    <circle cx="${x+11}" cy="128" r="11" fill="rgba(34,197,94,0.1)" stroke="#4ade80" stroke-width="1.5" opacity="0" style="animation:popIn 0.4s ${1.15+i*0.08}s both"/>
+    <text x="${x+11}" y="131" text-anchor="middle" fill="#4ade80" font-size="6" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${1.2+i*0.08}s both">L2</text>`).join('');
+  // 2 L3 — vertikale linjer kun fra første L2 (x=1)
+  const l3 = [1,16].map((x,i)=>`
+    <line x1="${x}" y1="139" x2="${x}" y2="154" stroke="rgba(251,191,36,0.3)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s ${1.6+i*0.1}s both"/>
+    <circle cx="${x}" cy="164" r="9" fill="rgba(245,158,11,0.1)" stroke="#fbbf24" stroke-width="1.5" opacity="0" style="animation:popIn 0.4s ${1.65+i*0.1}s both"/>
+    <text x="${x}" y="167" text-anchor="middle" fill="#fbbf24" font-size="5.5" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${1.7+i*0.1}s both">L3</text>`).join('');
+
+  el.style.cssText='display:flex;flex-direction:column;align-items:center;width:100%;gap:8px;';
+  el.innerHTML=`
+    <div style="font-size:10px;color:var(--gray);letter-spacing:1px;font-weight:600;">ОРГ-ДЕРЕВО (1 из 6 веток показана)</div>
+    <svg width="100%" height="185" viewBox="0 0 300 185" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="150" cy="22" r="20" fill="rgba(201,168,76,0.18)" stroke="#C9A84C" stroke-width="2" opacity="0" style="animation:popIn 0.5s 0.1s both"/>
+      <text x="150" y="19" text-anchor="middle" fill="#C9A84C" font-size="8" font-weight="700" opacity="0" style="animation:fadeIn 0.4s 0.2s both">ABO1</text>
+      <text x="150" y="30" text-anchor="middle" fill="rgba(201,168,76,0.6)" font-size="7" opacity="0" style="animation:fadeIn 0.4s 0.2s both">200 PV</text>
+      <line x1="150" y1="42" x2="150" y2="56" stroke="rgba(201,168,76,0.3)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s 0.45s both"/>
+      <line x1="30" y1="56" x2="270" y2="56" stroke="rgba(100,149,237,0.4)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.4s 0.48s both"/>
+      ${fl6}
+      <line x1="30" y1="98" x2="30" y2="108" stroke="rgba(74,222,128,0.3)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s 1.0s both"/>
+      <line x1="1" y1="108" x2="67" y2="108" stroke="rgba(74,222,128,0.3)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s 1.05s both"/>
+      ${l2}
+      <line x1="1" y1="139" x2="17" y2="139" stroke="rgba(245,158,11,0.3)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s 1.55s both"/>
+      ${l3}
+      <text x="150" y="182" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="7.5" opacity="0" style="animation:fadeIn 0.5s 2.0s both">× 6 веток = 79 ABO итого · 15 800 PV · 21%</text>
+    </svg>
+    <div style="width:100%;display:flex;flex-direction:column;gap:4px;"></div>`;
+  // Fyll bonusskala på høyre side
+  const scaleEl = document.getElementById('scale-s7b');
+  if(scaleEl){
+    scaleEl.innerHTML = ''; // tøm før ny fylling
+    scale.forEach((s,i) => {
+      const row = document.createElement('div');
+      row.style.cssText='display:flex;align-items:center;gap:8px;';
+      row.innerHTML=`
+        <div style="font-size:10px;color:rgba(255,255,255,0.5);min-width:66px;text-align:right;">${s.pv}</div>
+        <div style="flex:1;height:20px;background:rgba(255,255,255,0.06);border-radius:4px;overflow:hidden;">
+          <div style="height:100%;width:0;background:${s.c};border-radius:4px;transition:width 1s ${0.5+i*0.12}s ease;display:flex;align-items:center;padding-left:6px;font-size:10px;font-weight:700;color:#fff;" data-w="${s.w}%">${s.pct}</div>
+        </div>`;
+      scaleEl.appendChild(row);
+    });
+    setTimeout(()=>{ scaleEl.querySelectorAll('[data-w]').forEach(b=>{ b.style.width=b.dataset.w; }); }, 600);
+  }
+}
+
+function drawBF(){
+  const el=document.getElementById('tree-bf'); if(!el)return;
+  const you=cir('ТЫ<br>9%','#C9A84C','#C9A84C','rgba(201,168,76,0.22)',0.1,56,10);
+  const fls=[1,2,3].map((n,i)=>
+    `<div style="flex:1;display:flex;justify-content:center;">
+      ${cir(`FL${n}<br>3%`,'#6495ED','#6495ED','rgba(100,149,237,0.12)',0.3+i*0.12,40,9)}
+    </div>`).join('');
+  el.style.cssText='display:flex;flex-direction:column;align-items:center;width:100%;';
+  el.innerHTML=`
+    <div style="font-size:10px;color:var(--gray);margin-bottom:8px;letter-spacing:1px;font-weight:600;">1 200 GPV · 9%</div>
+    ${you}${vl(12)}${hl('70%')}
+    <div style="display:flex;width:70%;gap:4px;">${fls}</div>
+    <div style="margin-top:12px;padding:9px 14px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);border-radius:8px;width:70%;text-align:center;">
+      <span style="font-size:12px;font-weight:700;color:var(--gold);">BFI aktivert ✓</span>
+      <span style="font-size:12px;color:rgba(255,255,255,0.5);"> — 30% ekstra</span>
+    </div>`;
+}
+
+// S8b: Bronze Builder — Du + 3 FL på 6%
+function drawBB(){
+  const el=document.getElementById('tree-bb'); if(!el)return;
+  const you=cir('ТЫ<br>15%','#C9A84C','#C9A84C','rgba(201,168,76,0.22)',0.1,56,10);
+  const fls=[1,2,3].map((n,i)=>
+    `<div style="flex:1;display:flex;justify-content:center;">
+      ${cir(`FL${n}<br>6%`,'#C084FC','#C084FC','rgba(192,132,252,0.12)',0.3+i*0.12,40,9)}
+    </div>`).join('');
+  el.style.cssText='display:flex;flex-direction:column;align-items:center;width:100%;';
+  el.innerHTML=`
+    <div style="font-size:10px;color:var(--gray);margin-bottom:8px;letter-spacing:1px;font-weight:600;">4 000 GPV · 15%</div>
+    ${you}${vl(12)}${hl('70%')}
+    <div style="display:flex;width:70%;gap:4px;">${fls}</div>
+    <div style="margin-top:12px;display:flex;flex-direction:column;gap:6px;width:70%;">
+      <div style="padding:8px 14px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);border-radius:8px;text-align:center;">
+        <span style="font-size:12px;font-weight:700;color:var(--gold);">BFI + BBI aktivert ✓</span>
+        <span style="font-size:12px;color:rgba(255,255,255,0.5);"> — 70% ekstra</span>
+      </div>
+    </div>`;
+}
+
+// S8e: Ruby — Silver-struktur + 3 ekstra FL à 2400 PV
+function drawRuby(){
+  const el=document.getElementById('org-ruby'); if(!el)return;
+  const you=cir('ТЫ<br>21%','#C9A84C','#C9A84C','rgba(201,168,76,0.2)',0.1,54,10);
+  const fls6=[1,2,3,4,5,6].map((n,i)=>
+    `<div style="flex:1;display:flex;justify-content:center;">
+      ${cir(`FL${n}<br>15%`,'rgba(201,168,76,0.6)','rgba(201,168,76,0.8)','rgba(201,168,76,0.09)',0.28+i*0.09,32,7)}
+    </div>`).join('');
+  const fls3=[7,8,9].map((n,i)=>
+    `<div style="flex:1;display:flex;justify-content:center;">
+      ${cir(`FL${n}<br>12%`,'#f59e0b','#fbbf24','rgba(245,158,11,0.12)',0.82+i*0.1,32,7)}
+    </div>`).join('');
+  el.style.cssText='display:flex;flex-direction:column;align-items:center;width:100%;';
+  el.innerHTML=`
+    <div style="font-size:10px;color:var(--gray);margin-bottom:6px;letter-spacing:1px;font-weight:600;">STRUKTUR 31 400 PV</div>
+    ${you}${vl(10)}${hl('100%')}
+    <div style="display:flex;width:100%;gap:2px;">${fls6}${fls3}</div>
+    <div style="margin-top:10px;display:flex;flex-direction:column;gap:5px;width:100%;">
+      <div style="padding:7px 12px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);border-radius:6px;font-size:12px;color:var(--gold);">✓ FL1–6: Bronze Builder (4 000 PV, 15%)</div>
+      <div style="padding:7px 12px;background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.3);border-radius:6px;font-size:12px;color:#fbbf24;">✓ FL7–9: Новые ветки BF (2 400 PV, 12%) → RPV = 31 400</div>
+    </div>`;
+}
+
+// S10: Emerald org
+function drawEmerald(){
+  const el=document.getElementById('org-emerald'); if(!el)return;
+  const you=cir('ТЫ<br>21%','#C9A84C','#C9A84C','rgba(201,168,76,0.2)',0.1,54,10);
+  const ba2=[1,2].map((n,i)=>`<div style="flex:1;display:flex;justify-content:center;">${cir(`BA${n}<br>21%`,'#22c55e','#4ade80','rgba(34,197,94,0.12)',0.28+i*0.12,36,8)}</div>`).join('');
+  const ba3=`<div style="flex:1;display:flex;flex-direction:column;align-items:center;">
+    ${cir('BA3<br>21%','#22c55e','#4ade80','rgba(34,197,94,0.18)',0.52,36,8)}
+    ${vl(6)}
+    ${cir('DL<br>21%','#4ade80','#86efac','rgba(34,197,94,0.08)',0.68,28,7)}
+    <div style="font-size:8px;color:rgba(74,222,128,0.55);margin-top:2px;">15 800 PV</div>
+  </div>`;
+  const fl=[4,5,6].map((n,i)=>`<div style="flex:1;display:flex;justify-content:center;">${cir(`FL${n}<br>18%`,'#f59e0b','#fbbf24','rgba(245,158,11,0.12)',0.64+i*0.12,36,8)}</div>`).join('');
+  el.style.cssText='display:flex;flex-direction:column;align-items:center;width:100%;';
+  el.innerHTML=`
+    <div style="font-size:10px;color:var(--gray);margin-bottom:6px;letter-spacing:1px;font-weight:600;">СТРУКТУРА EMERALD</div>
+    ${you}${vl(10)}${hl('95%')}
+    <div style="display:flex;width:95%;gap:3px;">${ba2}${ba3}${fl}</div>
+    <div style="margin-top:10px;display:flex;flex-direction:column;gap:5px;width:95%;">
+      <div style="padding:7px 12px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.22);border-radius:6px;font-size:12px;color:#4ade80;">✓ 3 ветки breakaway — BA3: 7 500 своих + 15 800 downline</div>
+      <div style="padding:7px 12px;background:rgba(91,33,182,0.12);border:1px solid rgba(91,33,182,0.28);border-radius:6px;font-size:12px;color:#c4b5fd;">✓ Бонус глубины активирован — BA3 имеет downline на 21%</div>
+      <div style="padding:7px 12px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.22);border-radius:6px;font-size:12px;color:#fbbf24;">✓ 3 × 7 000 PV боковой объём (18%) → бонус Ruby</div>
+    </div>`;
+}
+
+// S11: Diamond org
+function drawDiamond(){
+  const el=document.getElementById('org-diamond'); if(!el)return;
+  const you=cir('ТЫ<br>21%','#C9A84C','#C9A84C','rgba(201,168,76,0.2)',0.1,54,10);
+  const ba=[1,2,3,4,5,6].map((n,i)=>`<div style="flex:1;display:flex;justify-content:center;">${cir(`BA${n}`,  '#22c55e','#4ade80','rgba(34,197,94,0.12)',0.2+i*0.09,32,7.5)}</div>`).join('');
+  const fl=[7,8,9].map((n,i)=>    `<div style="flex:1;display:flex;justify-content:center;">${cir(`FL${n}`,  '#f59e0b','#fbbf24','rgba(245,158,11,0.12)',0.74+i*0.09,32,7.5)}</div>`).join('');
+  el.innerHTML=`
+    <div style="font-size:10px;color:var(--gray);margin-bottom:6px;letter-spacing:1px;font-weight:600;">СТРУКТУРА DIAMOND</div>
+    ${you}${vl(10)}${hl('95%')}
+    <div style="display:flex;width:95%;gap:2px;">${ba}${fl}</div>
+    <div style="margin-top:10px;display:flex;flex-direction:column;gap:5px;width:95%;">
+      <div style="padding:7px 12px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.22);border-radius:6px;font-size:12px;color:#4ade80;">✓ 6 веток breakaway → бонус лидера 97 200/мес.</div>
+      <div style="padding:7px 12px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.22);border-radius:6px;font-size:12px;color:#fbbf24;">✓ 3 × 7 000 PV боковой объём → бонус Ruby</div>
+    </div>`;
+}
+
+// Bonus scale
+const scaleData=[
+  {l:'200 PV',p:'3%',w:14,c:'#3B82F6'},{l:'600 PV',p:'6%',w:28,c:'#6366F1'},
+  {l:'1 200 PV',p:'9%',w:42,c:'#8B5CF6'},{l:'2 400 PV',p:'12%',w:57,c:'#A855F7'},
+  {l:'4 000 PV',p:'15%',w:71,c:'#C084FC'},{l:'7 000 PV',p:'18%',w:85,c:'#D97706'},
+  {l:'10 000 PV',p:'21%',w:100,c:'#C9A84C'},
+];
+
+function animScale(){
+  const el = document.getElementById('bscale');
+  el.innerHTML = '';
+  scaleData.forEach(d=>{
+    el.innerHTML+=`<div class="sr">
+      <div class="sl">${d.l}</div>
+      <div class="st"><div class="sf" data-w="${d.w}%" style="background:${d.c};">${d.p}</div></div>
+      <div class="sv">${d.p}</div>
+    </div>`;
+  });
+  document.querySelectorAll('#bscale .sf').forEach((b,i)=>{
+    setTimeout(()=>b.style.width=b.dataset.w, i*120);
+  });
+}
+
+// ANIMATE SCENE IN
+function animIn(idx){
+  const sc=SCENES[idx];
+  // reset .wa elements
+  sc.querySelectorAll('.wa').forEach(el=>{
+    el.style.opacity='0';
+    el.className=el.className.replace(/\b(au|al|ar|as|af|ap|d[1-9])\b/g,'').trim();
+  });
+  const cfg=ACFG[idx]||[];
+  cfg.forEach(([sel,cls,del])=>{
+    const el=sc.querySelector(sel); if(!el)return;
+    void el.offsetWidth;
+    el.classList.add(cls,del);
+    el.style.opacity='';
+  });
+  // special draws
+  if(idx===8)  setTimeout(drawNetDiag, 400); // s5d
+  if(idx===9)  setTimeout(drawOrg,     350); // s6
+  if(idx===9)  setTimeout(animScale,      500); // s7
+  if(idx===10) setTimeout(drawGrowthTree, 350); // s7b
+  if(idx===11) setTimeout(drawS8a, 350); // s8a steg1
+  if(idx===12) setTimeout(drawS8b, 350); // s8b steg2
+  if(idx===13) setTimeout(drawS8c, 350); // s8c steg3
+  if(idx===14) setTimeout(drawS8d, 350); // s8d steg4
+  if(idx===15) setTimeout(drawS8e, 350); // s8e ruby
+  if(idx===16) setTimeout(drawS8f, 350); // s8f emerald
+  if(idx===17) setTimeout(drawS8g, 350); // s8g diamond
+  if(idx===18) setTimeout(drawS8h, 350); // s8h edc
+}
+
+function go(idx){
+  cur=Math.max(0,Math.min(N-1,idx));
+  SCENES.forEach((s,i)=>{
+    s.classList.toggle('active',i===cur);
+    if(i===cur) animIn(i);
+  });
+  document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('on',i===cur));
+  document.getElementById('sctr').textContent=`${cur+1}/${N}`;
+  document.getElementById('progbar').style.width=`${(cur+1)/N*100}%`;
+  elapsed=0;
+  arc.style.strokeDashoffset=CIRC;
+}
+
+function tick(ts){
+  if(!playing){lastT=null;return;}
+  if(lastT===null)lastT=ts;
+  const dt=ts-lastT; lastT=ts; elapsed+=dt;
+  const pct=Math.min(elapsed/ТЫR[cur],1);
+  arc.style.strokeDashoffset=CIRC-(CIRC*pct);
+  if(elapsed>=ТЫR[cur]){go((cur+1)%N);lastT=ts;}
+  raf=requestAnimationFrame(tick);
+}
+function startPlay(){playing=true;document.getElementById('bplay').textContent='⏸';lastT=null;raf=requestAnimationFrame(tick);}
+function pausePlay(){playing=false;document.getElementById('bplay').textContent='▶';if(raf)cancelAnimationFrame(raf);}
+
+document.getElementById('bplay').onclick=()=>playing?pausePlay():startPlay();
+document.getElementById('bp').onclick=()=>{go(cur-1);lastT=null;};
+document.getElementById('bn').onclick=()=>{go((cur+1)%N);lastT=null;};
+
+document.addEventListener('keydown',e=>{
+  if(['ArrowRight',' '].includes(e.key)){e.preventDefault();go((cur+1)%N);lastT=null;}
+  if(e.key==='ArrowLeft'){e.preventDefault();go(cur-1);lastT=null;}
+  if(e.key==='p'||e.key==='P') playing?pausePlay():startPlay();
+});
+
+let tx=0;
+document.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
+document.addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-tx;
+  if(Math.abs(dx)>50){dx<0?go((cur+1)%N):go(cur-1);lastT=null;}
+});
+document.getElementById('deck').addEventListener('click',e=>{
+  if(!e.target.closest('#ctrl'))go((cur+1)%N);lastT=null;
+});
+
+go(0);
+setTimeout(startPlay,900);
+
+// Fullskjerm ved åpning
+(function tryFS(){
+  const el = document.documentElement;
+  if (el.requestFullscreen) el.requestFullscreen().catch(()=>{});
+  else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+  else if (el.mozRequestFullScreen) el.mozRequestFullScreen();
+})();
+
+// Fallback: prøv igjen ved første klikk hvis fullskjerm ikke gikk
+document.addEventListener('click', function tryFS2() {
+  if (!document.fullscreenElement) {
+    const el = document.documentElement;
+    if (el.requestFullscreen) el.requestFullscreen().catch(()=>{});
+    else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+  }
+  document.removeEventListener('click', tryFS2);
+}, { once: true });
+</script>
+</body>
+</html>
