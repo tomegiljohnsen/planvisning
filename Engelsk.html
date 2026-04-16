@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-fullscreen">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-fullscreen">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Design Your Own Future</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -154,43 +155,9 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
 #tarc{stroke:var(--gold);stroke-width:3;fill:none;stroke-dasharray:82;stroke-dashoffset:82;stroke-linecap:round;transition:stroke-dashoffset 0.15s linear;}
 #sctr{font-size:11px;color:rgba(255,255,255,0.32);min-width:34px;text-align:center;}
 
-  .h2 { font-size: 17px !important; }
-  .scene { padding: 14px 13px 90px !important; }
-  .brow .lbl { font-size: 10px !important; }
-  .brow .val { font-size: 11px !important; }
-}
-
-
+/* ===== MOBIL ===== */
 @media(max-width:900px){
-  .scene{padding:70px 16px 65px !important;overflow-y:auto;}
-  .si{gap:10px !important;}
-  .h1{font-size:clamp(20px,6vw,38px) !important;}
-  .h2{font-size:clamp(14px,4vw,26px) !important;line-height:1.2;}
-  .blg,.bmd,.bsm{font-size:clamp(11px,3vw,14px) !important;}
-  .kicker{font-size:clamp(9px,2.5vw,12px) !important;}
-  .row{flex-direction:column !important;gap:8px !important;}
-  .card{padding:10px 12px !important;}
-  .brow{padding:5px 8px !important;}
-  .brow .lbl{font-size:10px !important;}
-  .brow .val{font-size:12px !important;}
-  [style*="justify-content:space-between"]{flex-direction:column !important;gap:10px !important;}
-  [style*="width:240px"]{width:100% !important;}
-  [style*="width:260px"]{width:100% !important;}
-  [style*="flex-shrink:0"]{flex-shrink:1 !important;}
-  svg{max-width:100% !important;height:auto !important;}
-  .flow{padding:12px 6px !important;gap:0 !important;flex-wrap:nowrap !important;}
-  .fi{gap:4px !important;flex:1 !important;min-width:0 !important;}
-  .fic{width:38px !important;height:38px !important;}
-  .fic svg{width:20px !important;height:20px !important;}
-  .fla{font-size:9px !important;}
-  .far{font-size:12px !important;padding:0 2px !important;margin-bottom:10px !important;}
-  #ctrl{bottom:6px !important;padding:5px 10px !important;gap:6px !important;opacity:0.5;}
-  #dots{display:none !important;}
-  #sctr{font-size:10px !important;}
-  .cb{width:32px !important;height:32px !important;font-size:16px !important;}
-  #timer-ring{display:none !important;}
-  .scale{max-width:100% !important;}
-}
+  .scene{padding:44px 16px 65px !important;overflow-y:auto;}
   .si{gap:10px !important;}
   .h1{font-size:clamp(20px,6vw,38px) !important;}
   .h2{font-size:clamp(14px,4vw,26px) !important;line-height:1.2;}
@@ -208,24 +175,22 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
   [style*="width:260px"]{width:100% !important;}
   [style*="flex-shrink:0"]{flex-shrink:1 !important;}
   svg{max-width:100% !important;height:auto !important;}
-  /* Handelsflyt */
+  /* Conventional Commerce — gjør flow mindre */
   .flow{padding:12px 6px !important;gap:0 !important;flex-wrap:nowrap !important;}
   .fi{gap:4px !important;flex:1 !important;min-width:0 !important;}
   .fic{width:38px !important;height:38px !important;}
   .fic svg{width:20px !important;height:20px !important;}
   .fla{font-size:9px !important;}
   .far{font-size:12px !important;padding:0 2px !important;margin-bottom:10px !important;}
-  /* Kontrollbar — liten, transparent, ingen dots, liten sirkel */
-  #ctrl{bottom:6px !important;padding:5px 10px !important;gap:6px !important;opacity:0.4 !important;}
-  #ctrl:hover{opacity:0.4 !important;}
-  #dots{display:none !important;visibility:hidden !important;}
+  /* Kontrollbar */
+  #ctrl{bottom:6px !important;padding:5px 10px !important;gap:6px !important;opacity:0.5;}
+  #dots{display:none !important;}
   #sctr{font-size:10px !important;}
   .cb{width:32px !important;height:32px !important;font-size:16px !important;}
-  #tring svg{width:20px !important;height:20px !important;}
-  /* Bonusskala */
+  #timer-ring{display:none !important;}
+  /* Bonus Scale */
   .scale{max-width:100% !important;}
 }
-
 </style>
 </head>
 <body>
@@ -237,7 +202,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
 <div class="scene" id="s1">
   <div class="si c">
     <div class="kicker wa">Business Model · Presentation</div>
-    <div class="h1 wa">Design <em>Your Own Future</em></div>
+    <div class="h1 wa">Design your <em>own future</em></div>
     <div class="divw wa"></div>
     <div class="blg wa" style="max-width:580px;">A business model for modern entrepreneurs.</div>
   </div>
@@ -246,7 +211,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
 <!-- S2: SPØRSMÅLET -->
 <div class="scene" id="s2">
   <div class="si">
-    <div class="kicker wa">Starting Point</div>
+    <div class="kicker wa">The Starting Point</div>
     <div class="h2 wa">Have you ever <em>wanted more?</em></div>
     <div class="div wa"></div>
     <div class="blg wa">Do you want:</div>
@@ -260,14 +225,14 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
 <!-- S3: LINEÆR VS SKALERBAR -->
 <div class="scene" id="s3">
   <div class="si">
-    <div class="kicker wa">The Important Distinction</div>
+    <div class="kicker wa">The Key Distinction</div>
     <div class="h2 wa">Not all income is <em>created equal</em></div>
     <div class="bmd wa">You can either sell your time for money, or invest your time building something that generates income.</div>
     <div class="row wa">
       <div class="card cr f1">
         <div style="font-size:28px;margin-bottom:10px;">⏱️</div>
         <div style="font-size:16px;font-weight:700;color:#f87171;margin-bottom:8px;">Linear Income</div>
-        <div class="bmd">Work 1 hour → get paid for 1 hour. Short-term — disappears into monthly expenses.</div>
+        <div class="bmd">Work 1 hour → get paid for 1 hour. Short-term — disappears in monthly expenses.</div>
       </div>
       <div class="card cg f1">
         <div style="font-size:28px;margin-bottom:10px;">📈</div>
@@ -276,7 +241,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
       </div>
     </div>
     <div class="bmd wa" id="s3-last" style="color:rgba(255,255,255,0.6);font-style:italic;">
-      Most people who build income-generating assets do so alongside their regular job. For many, this is a safe and structured way to build the future.
+      The vast majority of people who build income-generating assets do so alongside their regular job. For many, this is a safe and structured way to build their future.
     </div>
   </div>
 </div>
@@ -285,11 +250,11 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
 <div class="scene" id="s3b">
   <div class="si c" style="gap:32px;">
     <div class="kicker wa">A Different Model</div>
-    <div class="h2 wa" style="max-width:700px;">We will look at a business model that gives you the opportunity to do exactly that — <em>create recurring income</em></div>
+    <div class="h2 wa" style="max-width:700px;">We'll look at a business model that gives you the opportunity to do exactly that — <em>create recurring income</em></div>
     <div class="divw wa"></div>
     <div class="blg wa" style="max-width:660px;">The model is scalable, so you can build your income to whatever level you desire.</div>
     <div class="hbox wa">
-      <div class="m">First, let's look at how conventional trade works.</div>
+      <div class="m">Let's first look at how conventional commerce works.</div>
     </div>
   </div>
 </div>
@@ -297,13 +262,13 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
 <!-- S4: HANDELSFLYT -->
 <div class="scene" id="s4">
   <div class="si">
-    <div class="kicker wa">Conventional Trade</div>
-    <div class="h2 wa">A product must pass through a series of <em>steps</em> before it reaches you as a customer</div>
+    <div class="kicker wa">Conventional Commerce</div>
+    <div class="h2 wa">A product goes through a series of <em>middlemen</em> before it reaches you as a customer</div>
     <div class="flow wa" style="gap:0;padding:24px 12px;">
-      <!-- Manufacturer -->
+      <!-- Producer -->
       <div class="fi" style="gap:8px;">
         <div class="fic"><svg viewBox="0 0 96 96"><path d="M74 75 62 75 62 66 74 66 74 75ZM54 75 42 75 42 66 54 66 54 75ZM34 75 22 75 22 66 34 66 34 75ZM55 55 55 41 28 55 25 14 17 14 14 55 14 82 82 82 82 55 82 41 55 55Z"/></svg></div>
-        <span class="fla" style="font-size:12px;">Manufacturer</span>
+        <span class="fla" style="font-size:12px;">Producer</span>
       </div>
       <div class="far" style="font-size:18px;padding:0 4px;margin-bottom:18px;">→</div>
       <!-- Shipping 1 -->
@@ -339,8 +304,8 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
       </div>
     </div>
     <div class="row wa">
-      <div class="badge bg f1"><strong>You pay for every link</strong>You pay for every step in the chain + employee salaries and incentives. Stores can offer up to 70% discounts in seasonal sales — that says a lot about the margin.</div>
-      <div class="badge br f1"><strong>Hidden store costs</strong>Advertising · Storage · Rent · Receivables · Salaries — all priced into what you buy.</div>
+      <div class="badge bg f1"><strong>You pay for every link</strong>You pay for every step in the chain + employee salaries and incentives. Stores can offer up to 70% off in seasonal sales — that tells you something about the margin.</div>
+      <div class="badge br f1"><strong>The hidden costs of retail</strong>Advertising · Warehouse · Rent · Receivables · Salaries — all priced into what you buy.</div>
     </div>
   </div>
 </div>
@@ -349,22 +314,22 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
 <div class="scene" id="s5b">
   <div class="si">
     <div class="kicker wa">Our Business Model</div>
-    <div class="h2 wa">Business Owner — <em>without the traditional costs</em></div>
-    <div class="blg wa">The model we work with gives us the opportunity to be business owners, but without the same costs we see in traditional business. In addition, we can buy goods at wholesale prices because we cut out expensive middlemen.</div>
+    <div class="h2 wa">Business owner — <em>without the traditional costs</em></div>
+    <div class="blg wa">The model we work with gives us the opportunity to be business owners, but without the same costs we see in traditional business. We can also buy products at wholesale prices because we cut out expensive middlemen.</div>
     <div class="card cg wa">
-      <div style="font-size:14px;font-weight:700;color:var(--gold);margin-bottom:10px;">🤝 Partnership with Amway</div>
-      <div class="bmd">The company we partner with is Amway, and they pay bonuses and incentives based on the turnover we help generate through their online store. We do this by presenting the business opportunity and introducing others to shop at the same place — either as business owners or as customers.</div>
+      <div style="font-size:14px;font-weight:700;color:var(--gold);margin-bottom:10px;">🤝 The Partnership with Amway</div>
+      <div class="bmd">The company we partner with is Amway, and they pay bonuses and incentives based on the turnover we help generate through their online store. We do this by presenting the business opportunity and introducing others to shop in the same place — either as business owners or as customers.</div>
     </div>
     <div class="row wa" style="gap:14px;">
       <div class="card f1" style="padding:16px 18px;background:rgba(34,197,94,0.08);border-color:rgba(34,197,94,0.25);text-align:center;">
         <div style="font-size:22px;margin-bottom:6px;">🏪</div>
         <div style="font-size:13px;font-weight:700;color:#4ade80;margin-bottom:4px;">No physical store</div>
-        <div class="bsm">No rent, storage or employees</div>
+        <div class="bsm">No rent, warehouse or employees</div>
       </div>
       <div class="card f1" style="padding:16px 18px;background:rgba(34,197,94,0.08);border-color:rgba(34,197,94,0.25);text-align:center;">
         <div style="font-size:22px;margin-bottom:6px;">💰</div>
         <div style="font-size:13px;font-weight:700;color:#4ade80;margin-bottom:4px;">Wholesale prices</div>
-        <div class="bsm">Expensive middlemen eliminated</div>
+        <div class="bsm">Cuts out expensive middlemen</div>
       </div>
       <div class="card f1" style="padding:16px 18px;background:rgba(34,197,94,0.08);border-color:rgba(34,197,94,0.25);text-align:center;">
         <div style="font-size:22px;margin-bottom:6px;">📈</div>
@@ -381,7 +346,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
     <div class="kicker wa">The Power of Recommendations</div>
     <div class="h2 wa">Personal recommendations beat advertising <em>20–30 times</em></div>
     <div class="div wa"></div>
-    <div class="blg wa">Research shows that recommendations from friends work <strong>20–30 times stronger</strong> than advertising — and the effect lasts longer. This is confirmed by survey data, and among younger people the effect is even stronger.</div>
+    <div class="blg wa">Research shows that recommendations from friends work <strong>20–30 times stronger</strong> than advertising — and the effect lasts longer. Studies confirm this, and for younger people the impact is even stronger.</div>
     <div class="row wa">
       <div class="card f1" style="background:rgba(13,148,136,0.09);border-color:rgba(13,148,136,0.28);text-align:center;padding:18px 14px;">
         <div style="font-size:26px;margin-bottom:6px;">🚗</div>
@@ -391,12 +356,12 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
       <div class="card f1" style="background:rgba(13,148,136,0.09);border-color:rgba(13,148,136,0.28);text-align:center;padding:18px 14px;">
         <div style="font-size:26px;margin-bottom:6px;">🏨</div>
         <div style="font-size:13px;font-weight:700;color:#2dd4bf;margin-bottom:4px;">Airbnb</div>
-        <div class="bsm">Owns no hotels — 8.2 million accommodation spots</div>
+        <div class="bsm">Owns no hotels — 8.2 million accommodations</div>
       </div>
       <div class="card f1" style="background:rgba(13,148,136,0.09);border-color:rgba(13,148,136,0.28);text-align:center;padding:18px 14px;">
         <div style="font-size:26px;margin-bottom:6px;">🛍️</div>
         <div style="font-size:13px;font-weight:700;color:#2dd4bf;margin-bottom:4px;">Etsy</div>
-        <div class="bsm">Owns no goods — millions of sellers globally</div>
+        <div class="bsm">Owns no products — millions of sellers worldwide</div>
       </div>
       <div class="card cg f1" style="text-align:center;padding:18px 14px;">
         <div style="font-size:26px;margin-bottom:6px;">🏆</div>
@@ -422,12 +387,12 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
       <div class="card f1" style="padding:20px 18px;text-align:center;background:rgba(34,197,94,0.08);border-color:rgba(34,197,94,0.25);">
         <div style="font-size:30px;margin-bottom:10px;">🤝</div>
         <div style="font-size:13px;font-weight:700;color:#4ade80;margin-bottom:8px;">You find others</div>
-        <div class="bmd">You find others who want to take part in the business model, and sponsor them. They also buy directly from Amway.</div>
+        <div class="bmd">You find others who want to take part in the business model and sponsor them in. They also buy directly from Amway.</div>
       </div>
       <div class="card f1" style="padding:20px 18px;text-align:center;background:rgba(91,33,182,0.1);border-color:rgba(91,33,182,0.28);">
         <div style="font-size:30px;margin-bottom:10px;">🌐</div>
         <div style="font-size:13px;font-weight:700;color:#c4b5fd;margin-bottom:8px;">The network grows</div>
-        <div class="bmd">This way we build a network of people who <strong>save money</strong> — and at the same time get the opportunity to <strong>earn money</strong>.</div>
+        <div class="bmd">This is how we build a network of people who <strong>save money</strong> — and at the same time get the opportunity to <strong>earn money</strong>.</div>
       </div>
     </div>
     <div class="hbox wa">
@@ -450,23 +415,23 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
 <div class="scene" id="s6">
   <div class="si">
     <div class="kicker wa">Your Support System</div>
-    <div class="h2 wa">You <em>don't stand alone</em></div>
+    <div class="h2 wa">You are <em>not alone</em></div>
     <div class="row wa" style="align-items:flex-start;gap:24px;">
       <!-- Tre kort -->
       <div class="col f1" style="gap:10px;">
         <div class="card cg" style="padding:16px 18px;">
           <div style="font-size:18px;margin-bottom:6px;">🏢</div>
           <div style="font-size:13px;font-weight:700;color:var(--gold);margin-bottom:4px;">Amway</div>
-          <div class="bmd" style="font-size:12px;">Platform, products and shipping. Bonuses paid directly to you. Founded 1959 — ~$7.5 billion in turnover.</div>
+          <div class="bmd" style="font-size:12px;">Platform, products and delivery. Pays bonuses directly to you. Founded 1959 — ~$7.5 billion in revenue.</div>
         </div>
         <div class="card" style="padding:16px 18px;background:rgba(91,33,182,0.1);border-color:rgba(91,33,182,0.28);">
           <div style="font-size:18px;margin-bottom:6px;">🌍</div>
           <div style="font-size:13px;font-weight:700;color:#c4b5fd;margin-bottom:4px;">Yager Group</div>
-          <div class="bmd" style="font-size:12px;">Since 1963 — the world's largest network organization. Tens of thousands of mentors. Podcasts, events and hands-on training.</div>
+          <div class="bmd" style="font-size:12px;">Since 1963 — the world's largest network organisation. Tens of thousands of mentors. Podcasts, events and hands-on training.</div>
         </div>
         <div class="card" style="padding:16px 18px;">
           <div style="font-size:18px;margin-bottom:6px;">🤝</div>
-          <div style="font-size:13px;font-weight:700;color:var(--ice);margin-bottom:4px;">Your Sponsor</div>
+          <div style="font-size:13px;font-weight:700;color:var(--ice);margin-bottom:4px;">Your sponsor</div>
           <div class="bmd" style="font-size:12px;">Introduced you to the opportunity and helps you succeed with experience and materials.</div>
         </div>
       </div>
@@ -480,8 +445,8 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
 <div class="scene" id="s7">
   <div class="si">
     <div class="kicker wa">The Income Model</div>
-    <div class="h2 wa">Bonus Scale — <em>turnover based</em></div>
-    <div class="bmd wa">Amway operates in ~100 countries and uses point value (PV) tied to local currency. <strong>1 PV = 27 NOK</strong>. The bonus is based on the turnover you actually generate.</div>
+    <div class="h2 wa">The Bonus Scale — <em>turnover based</em></div>
+    <div class="bmd wa">Amway operates in ~100 countries and uses point value (PV) linked to local currency. <strong>1 PV = local value</strong>. The bonus is based on the turnover you actually generate.</div>
     <div class="scale wa" id="bscale"></div>
     <div class="bsm wa" style="text-align:center;">The higher the volume in your organisation → the higher the bonus percentage → the higher the income</div>
   </div>
@@ -491,7 +456,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
 <div class="scene" id="s7b">
   <div class="si">
     <div class="kicker wa">How the Network Grows</div>
-    <div class="h2 wa">Duplication — <em>the power of exponential growth</em></div>
+    <div class="h2 wa">Youplication — <em>the power of exponential growth</em></div>
     <div class="row wa" style="gap:16px;align-items:flex-start;">
       <!-- Venstre: org-tre + utregninger -->
       <div class="col" style="flex:1.3;gap:10px;">
@@ -539,26 +504,26 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
         <div class="card" style="padding:14px 16px;background:rgba(255,255,255,0.04);">
           <div style="font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Welcome Benefits</div>
           <div class="brow"><span class="lbl">Over 50 PV</span><span class="val" style="color:#4ade80;">Free registration</span></div>
-          <div class="brow"><span class="lbl">200 PV</span><span class="val" style="color:#4ade80;">4 starter coupons of 200 NOK each</span></div>
+          <div class="brow"><span class="lbl">200 PV</span><span class="val" style="color:#4ade80;">4 starter vouchers</span></div>
         </div>
         <div style="font-size:11px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:1px;">Your earnings — 200 PV · 3%</div>
         <div class="brow"><span class="lbl">Performance bonus (200 × 27 × 3%)</span><span class="val">162 kr</span></div>
         <div class="brow" style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.25);">
-          <span class="lbl">🎁 Starter coupons (4 × 200 NOK)</span><span class="val" style="color:#4ade80;">800 kr</span>
+          <span class="lbl">🎁 Starter vouchers (4 × 200)</span><span class="val" style="color:#4ade80;">800 kr</span>
         </div>
         <div class="brow tot"><span class="lbl">TOTAL</span><span class="val">962 kr</span></div>
-        <div class="bsm" style="color:rgba(255,255,255,0.35);margin-top:4px;">* Coupons used for next month's order</div>
+        <div class="bsm" style="color:rgba(255,255,255,0.35);margin-top:4px;">* Vouchers used for next month's order</div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- S8b: STEG 2 — DU SPONSER 3, HVER SPONSER 1 -->
+<!-- S8b: STEG 2 — YOU SPONSER 3, HVER SPONSER 1 -->
 <div class="scene" id="s8b">
   <div class="si">
     <div class="kicker wa">How to Start Effectively · Step 2</div>
-    <div class="h2 wa">Your first goal: sponsor 3 who each sponsor 1 — <em>Bronze Foundation</em></div>
-    <div class="bmd wa" style="max-width:620px;">You sponsor 3 who in turn each sponsor 1 — all with 200 PV. Total 7 ABOs and 1 400 GPV. You are at 9% and BFI is activated.</div>
+    <div class="h2 wa">Ditt første mål: sponse 3 som hver sponser 1 — <em>Bronze Foundation</em></div>
+    <div class="bmd wa" style="max-width:620px;">You sponsor 3 who each sponsor 1 — all with 200 PV. Total 7 ABOs and 1 400 GPV. You are at 9% and BFI activates.</div>
     <div id="s8b-wrap" style="display:flex;gap:0;align-items:center;justify-content:space-between;width:100%;opacity:0;animation:fadeUp 0.6s 0.4s both;">
       <!-- SVG diagram -->
       <div id="diag-s8b" style="flex-shrink:0;"></div>
@@ -571,7 +536,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
         <div class="brow"><span class="lbl" style="font-size:12px;">Differential bonus</span><span class="val">1 944 kr</span></div>
         <div class="brow"><span class="lbl" style="font-size:12px;">BFI (30%)</span><span class="val">729 kr</span></div>
         <div class="brow" style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.25);">
-          <span class="lbl" style="font-size:12px;">🎁 Startkuponger</span><span class="val" style="color:#4ade80;">800 kr</span>
+          <span class="lbl" style="font-size:12px;">🎁 Starter vouchers</span><span class="val" style="color:#4ade80;">800 kr</span>
         </div>
         <div class="brow tot"><span class="lbl">TOTAL</span><span class="val">3 959 kr</span></div>
         <div class="brow" style="background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.15);">
@@ -598,7 +563,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
         <div class="brow"><span class="lbl" style="font-size:12px;">BFI (30%)</span><span class="val">2 284 kr</span></div>
         <div class="brow"><span class="lbl" style="font-size:12px;">BBI (40%)</span><span class="val">3 046 kr</span></div>
         <div class="brow" style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.25);">
-          <span class="lbl" style="font-size:12px;">🎁 Startkuponger</span><span class="val" style="color:#4ade80;">800 kr</span>
+          <span class="lbl" style="font-size:12px;">🎁 Starter vouchers</span><span class="val" style="color:#4ade80;">800 kr</span>
         </div>
         <div class="brow tot"><span class="lbl">TOTAL</span><span class="val">13 744 kr</span></div>
         <div class="brow" style="background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.15);">
@@ -615,26 +580,26 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
   <div class="si" style="gap:12px;">
     <div class="kicker wa">How to Build Effectively · Step 2</div>
     <div class="h2 wa">You help others become BF and BB — <em>you become Silver</em></div>
-    <div class="bmd wa" style="max-width:680px;">You sponsor 3 new and help them reach Bronze Foundation. At the same time you help your previous frontline participants become Bronze Builder. You are now Silver at 21%.</div>
+    <div class="bmd wa" style="max-width:680px;">You sponsor 3 new people and help them reach Bronze Foundation. At the same time you help your earlier frontlines become Bronze Builder. You are now Silver at 21%.</div>
     <div style="display:flex;gap:0;align-items:center;justify-content:space-between;width:100%;opacity:0;animation:fadeUp 0.6s 0.4s both;">
       <div id="diag-s8d" style="flex-shrink:0;"></div>
       <div style="flex:1;"></div>
       <div style="display:flex;flex-direction:column;gap:4px;width:240px;flex-shrink:0;">
         <div style="font-size:10px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px;">16 400 PV · 21% · BFI + BBI</div>
         <div class="brow" style="padding:5px 10px;"><span class="lbl" style="font-size:11px;">Performance bonus</span><span class="val" style="font-size:13px;">1 134 kr</span></div>
-        <div class="brow" style="padding:5px 10px;"><span class="lbl" style="font-size:11px;">Diff. (21%−9%) × 3 × 1 400</span><span class="val" style="font-size:13px;">13 608 kr</span></div>
-        <div class="brow" style="padding:5px 10px;"><span class="lbl" style="font-size:11px;">Diff. (21%−15%) × 3 × 4 000</span><span class="val" style="font-size:13px;">19 440 kr</span></div>
+        <div class="brow" style="padding:5px 10px;"><span class="lbl" style="font-size:11px;">Diff (21%−9%) × 3 × 1 400</span><span class="val" style="font-size:13px;">13 608 kr</span></div>
+        <div class="brow" style="padding:5px 10px;"><span class="lbl" style="font-size:11px;">Diff (21%−15%) × 3 × 4 000</span><span class="val" style="font-size:13px;">19 440 kr</span></div>
         <div class="brow" style="padding:5px 10px;"><span class="lbl" style="font-size:11px;">BFI (30%)</span><span class="val" style="font-size:13px;">10 255 kr</span></div>
         <div class="brow" style="padding:5px 10px;"><span class="lbl" style="font-size:11px;">BBI (40%)</span><span class="val" style="font-size:13px;">13 673 kr</span></div>
         <div class="brow" style="padding:5px 10px;background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.25);">
-          <span class="lbl" style="font-size:11px;">🎁 Startkuponger</span><span class="val" style="color:#4ade80;font-size:13px;">800 kr</span>
+          <span class="lbl" style="font-size:11px;">🎁 Starter vouchers</span><span class="val" style="color:#4ade80;font-size:13px;">800 kr</span>
         </div>
         <div class="brow tot" style="padding:6px 10px;"><span class="lbl">TOTAL</span><span class="val">58 909 kr</span></div>
         <div class="brow ttci" style="padding:5px 10px;">
           <span class="lbl" style="font-size:10px;">Gold Producer TTCI (after 3 months)</span>
           <span class="val" style="color:#c4b5fd;font-size:12px;">13 500 kr</span>
         </div>
-        <div class="bsm" style="color:rgba(255,255,255,0.35);font-size:10px;">Platinum = 6 qualifying months as Silver</div>
+        <div class="bsm" style="color:rgba(255,255,255,0.35);font-size:10px;">Platinum = 6 qualified months as Silver</div>
       </div>
     </div>
   </div>
@@ -651,9 +616,9 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
       <div style="display:flex;flex-direction:column;gap:5px;width:240px;flex-shrink:0;">
         <div style="font-size:10px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px;">38 000 PV · 21% · BFI + BBI + Ruby</div>
         <div class="brow"><span class="lbl" style="font-size:12px;">Performance bonus</span><span class="val">1 134 kr</span></div>
-        <div class="brow"><span class="lbl" style="font-size:12px;">Diff. (21%−18%) × 3 × 7 000</span><span class="val">17 010 kr</span></div>
-        <div class="brow"><span class="lbl" style="font-size:12px;">Diff. (21%−15%) × 3 × 4 200</span><span class="val">20 412 kr</span></div>
-        <div class="brow"><span class="lbl" style="font-size:12px;">Diff. (21%−9%) × 3 × 1 400</span><span class="val">13 608 kr</span></div>
+        <div class="brow"><span class="lbl" style="font-size:12px;">Diff (21%−18%) × 3 × 7 000</span><span class="val">17 010 kr</span></div>
+        <div class="brow"><span class="lbl" style="font-size:12px;">Diff (21%−15%) × 3 × 4 200</span><span class="val">20 412 kr</span></div>
+        <div class="brow"><span class="lbl" style="font-size:12px;">Diff (21%−9%) × 3 × 1 400</span><span class="val">13 608 kr</span></div>
         <div class="brow"><span class="lbl" style="font-size:12px;">BFI (30%)</span><span class="val">15 649 kr</span></div>
         <div class="brow"><span class="lbl" style="font-size:12px;">BBI (40%)</span><span class="val">20 866 kr</span></div>
         <div class="brow" style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);">
@@ -661,7 +626,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
         </div>
         <div class="brow tot"><span class="lbl">TOTAL</span><span class="val">109 199 kr</span></div>
         <div class="brow ttci" style="margin-top:2px;">
-          <span class="lbl" style="font-size:11px;">TTCI Platinum (2 × 40 500 NOK)</span>
+          <span class="lbl" style="font-size:11px;">TTCI Platinum (2 × 40 500)</span>
           <span class="val" style="color:#c4b5fd;">81 000 kr</span>
         </div>
         <div class="brow" style="background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.15);">
@@ -682,10 +647,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
       <div id="diag-s8f" style="flex-shrink:0;"></div>
       <div style="flex:1;"></div>
       <div style="display:flex;flex-direction:column;gap:5px;width:240px;flex-shrink:0;">
-        <div style="font-size:10px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px;">83 000 PV · 21% · Emerald · BFI/BBI baigta</div>
+        <div style="font-size:10px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px;">83 000 PV · 21% · Emerald · BFI/BBI complete</div>
         <div class="brow"><span class="lbl" style="font-size:12px;">Performance bonus</span><span class="val">1 134 kr</span></div>
-        <div class="brow"><span class="lbl" style="font-size:12px;">Diff. (21%−18%) × 3 × 7 000</span><span class="val">17 010 kr</span></div>
-        <div class="brow"><span class="lbl" style="font-size:12px;">Diff. (21%−15%) × 3 × 4 200</span><span class="val">20 412 kr</span></div>
+        <div class="brow"><span class="lbl" style="font-size:12px;">Diff (21%−18%) × 3 × 7 000</span><span class="val">17 010 kr</span></div>
+        <div class="brow"><span class="lbl" style="font-size:12px;">Diff (21%−15%) × 3 × 4 200</span><span class="val">20 412 kr</span></div>
         <div class="brow" style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.25);">
           <span class="lbl" style="font-size:12px;">Leadership bonus (6%) × 3 × 16 400</span><span class="val" style="color:var(--gold);">79 704 kr</span>
         </div>
@@ -693,7 +658,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
         <div class="brow"><span class="lbl" style="font-size:12px;">Depth bonus (1% × 49 200 PV)</span><span class="val" style="color:#c4b5fd;">13 284 kr</span></div>
         <div class="brow tot"><span class="lbl">Total/month</span><span class="val">149 796 kr</span></div>
         <div class="brow ttci" style="margin-top:2px;">
-          <span class="lbl" style="font-size:11px;">TTCI Emerald (2 × 143 500 NOK)</span>
+          <span class="lbl" style="font-size:11px;">TTCI Emerald (2 × 143 500)</span>
           <span class="val" style="color:#c4b5fd;">287 000 kr</span>
         </div>
         <div class="brow" style="background:rgba(52,211,153,0.08);border:1px solid rgba(52,211,153,0.3);margin-top:4px;">
@@ -709,7 +674,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
 <div class="scene" id="s8g">
   <div class="si">
     <div class="kicker wa">How to Build Effectively · Step 5</div>
-    <div class="h2 wa">We continue building financial freedom — <em>you are Diamond</em></div>
+    <div class="h2 wa">We build further towards financial freedom — <em>you are Diamond</em></div>
     <div style="display:flex;gap:0;align-items:center;justify-content:space-between;width:100%;opacity:0;animation:fadeUp 0.6s 0.4s both;">
       <div id="diag-s8g" style="flex-shrink:0;"></div>
       <div style="flex:1;"></div>
@@ -719,12 +684,12 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
         <div class="brow" style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.25);">
           <span class="lbl" style="font-size:12px;">Leadership bonus (6%) × 6 × 20 000</span><span class="val" style="color:var(--gold);">194 400 kr</span>
         </div>
-        <div class="brow"><span class="lbl" style="font-size:12px;">Diff. (21%−18%) × 3 × 7 000</span><span class="val">17 010 kr</span></div>
+        <div class="brow"><span class="lbl" style="font-size:12px;">Diff (21%−18%) × 3 × 7 000</span><span class="val">17 010 kr</span></div>
         <div class="brow"><span class="lbl" style="font-size:12px;">Ruby bonus (2% × 21 200 PV)</span><span class="val" style="color:#f87171;">11 448 kr</span></div>
         <div class="brow"><span class="lbl" style="font-size:12px;">Depth bonus (1% × 120 000 PV)</span><span class="val" style="color:#c4b5fd;">32 400 kr</span></div>
         <div class="brow tot"><span class="lbl">Total/month</span><span class="val">256 392 kr</span></div>
         <div class="brow ttci" style="margin-top:2px;">
-          <span class="lbl" style="font-size:11px;">TTCI Diamond (2 × 224 000 NOK)</span>
+          <span class="lbl" style="font-size:11px;">TTCI Diamond (2 × 224 000)</span>
           <span class="val" style="color:#c4b5fd;">448 000 kr</span>
         </div>
         <div class="brow" style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.35);margin-top:4px;">
@@ -741,7 +706,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
   <div class="si">
     <div class="kicker wa">How to Build Effectively · Step 6</div>
     <div class="h2 wa">The organisation grows — <em>you are Executive Diamond</em></div>
-    <div class="bmd wa" style="max-width:680px;">You have 9 legs all above Ruby level. An Amway organisation can be passed on to the next generation — you are building lasting, generational wealth.</div>
+    <div class="bmd wa" style="max-width:680px;">You have 9 legs all above Ruby level. An Amway organisation can be taken over by the next generation — you are building lasting, generational wealth.</div>
     <div style="display:flex;gap:0;align-items:center;justify-content:space-between;width:100%;opacity:0;animation:fadeUp 0.6s 0.5s both;">
       <div id="diag-s8h" style="flex-shrink:0;"></div>
       <div style="flex:1;"></div>
@@ -795,9 +760,9 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
         <div class="brow ttci"><span class="lbl">Crown Ambassador</span><span class="val">3 230 000 kr</span></div>
         <div class="brow ttci"><span class="lbl">Founders Crown Amb.</span><span class="val">3 770 000 kr</span></div>
         <div style="font-size:11px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin:8px 0 4px;">LPI — Leadership Plus Incentive</div>
-        <div class="brow"><span class="lbl">Maintain FQ</span><span class="val">20% lyderio+gylio</span></div>
-        <div class="brow"><span class="lbl">Add 1–5 FQ</span><span class="val">40% lyderio+gylio</span></div>
-        <div class="brow"><span class="lbl">Add 6+ FQ</span><span class="val">50% lyderio+gylio</span></div>
+        <div class="brow"><span class="lbl">Maintain FQ</span><span class="val">20% of leader+depth</span></div>
+        <div class="brow"><span class="lbl">Add 1–5 FQ</span><span class="val">40% of leader+depth</span></div>
+        <div class="brow"><span class="lbl">Add 6+ FQ</span><span class="val">50% of leader+depth</span></div>
         <div class="brow tot"><span class="lbl">LPI max payout/year</span><span class="val">1 020 000 kr</span></div>
       </div>
     </div>
@@ -810,25 +775,25 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
     <div class="kicker wa">The Big Difference</div>
     <div class="h2 wa">You have built something that <em>generates income</em></div>
     <div class="div wa"></div>
-    <div class="blg wa">Like everything else that is well paid, it requires work and focused effort. The big difference is that here you have created <strong>monthly, recurring income</strong> — achieved freedom.</div>
+    <div class="blg wa">Like everything else that pays well, it requires work and focused effort. The big difference is that here you have created <strong>monthly, recurring income</strong> — achieved freedom.</div>
     <div class="row wa">
       <div class="card cg f1" style="text-align:center;"><div style="font-size:34px;font-weight:800;color:var(--gold);">~70 years</div><div class="bmd" style="margin-top:5px;">Amway has existed for nearly 70 years</div></div>
-      <div class="card cg f1" style="text-align:center;"><div style="font-size:34px;font-weight:800;color:var(--gold);">73 billion</div><div class="bmd" style="margin-top:5px;">USD paid out in bonuses since the start</div></div>
+      <div class="card cg f1" style="text-align:center;"><div style="font-size:34px;font-weight:800;color:var(--gold);">$73 billion</div><div class="bmd" style="margin-top:5px;">USD paid out in bonuses since the start</div></div>
       <div class="card cg f1" style="text-align:center;"><div style="font-size:34px;font-weight:800;color:var(--gold);">~100</div><div class="bmd" style="margin-top:5px;">Countries and territories where Amway operates</div></div>
     </div>
-    <div class="bmd wa" style="color:rgba(255,255,255,0.5);">Yager Group founded in 1963 by Dex and Birdie Yager — today run by Doyle, Jeff and Steve Yager. The world's undisputed largest and most successful network organisation.</div>
+    <div class="bmd wa" style="color:rgba(255,255,255,0.5);">Yager Group founded in 1963 by Dex and Birdie Yager — today led by Doyle, Jeff and Steve Yager. The world's undisputed largest and most successful network organisation.</div>
   </div>
 </div>
 
 <!-- S13: NORGE OG TEAMET -->
 <div class="scene" id="s13">
   <div class="si">
-    <div class="kicker wa">Our Position in Norway</div>
+    <div class="kicker wa">Our Position</div>
     <div class="h2 wa">We are in a <em>unique position</em></div>
     <div class="div wa"></div>
     <div class="blg wa">We are directly connected to the Yager family through personal relationships and mentorship.</div>
     <div class="card wa" style="background:rgba(255,255,255,0.04);">
-      <div class="bmd">Our leading mentors for Norway, <strong>Johan and Julia Nilsson</strong>, directly sponsored by the Yager family, are young successful business owners in several countries. For us in Norway and Scandinavia they are an invaluable resource with their experience and connections.</div>
+      <div class="bmd">Our leading mentors, <strong>Johan and Julia Nilsson</strong>, directly sponsored by the Yager family, are young, successful business owners in multiple countries. For us they are an invaluable resource with their experience and connections.</div>
     </div>
     <div class="row wa" style="gap:10px;flex-wrap:wrap;">
       <span class="pill pg">✓ Direct Yager connection</span>
@@ -844,12 +809,12 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
     <div class="kicker wa">Next Step</div>
     <div class="h1 wa">Are you <em>ready?</em></div>
     <div class="divw wa"></div>
-    <div class="blg wa" style="max-width:620px;">We book the meeting straight away — if you have a partner we should all meet together. You will receive links to videos showing what Amway is.</div>
+    <div class="blg wa" style="max-width:620px;">We book the meeting right away — if you have a partner, we should all meet together. You will receive links to videos showing what Amway is.</div>
     <div class="hbox wa">
       <div class="m">Meeting 1: Answers to questions and details about how we work</div>
       <div class="s">Possible registration and planning of the start</div>
     </div>
-    <div class="bmd wa" style="color:rgba(255,255,255,0.4);font-style:italic;">We are not looking to "have" anyone — we are looking for people who dare to pursue what they dream of.</div>
+    <div class="bmd wa" style="color:rgba(255,255,255,0.4);font-style:italic;">We are not trying to "recruit" anyone — we are looking for people who dare to pursue what they dream of.</div>
   </div>
 </div>
 
@@ -867,7 +832,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
 <script>
 const SCENES = document.querySelectorAll('.scene');
 const N = SCENES.length;
-const DUR = [10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000];
+const YOUR = [10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000];
 
 let cur=0, playing=true, elapsed=0, lastT=null, raf=null;
 const arc = document.getElementById('tarc');
@@ -921,24 +886,24 @@ function cir(txt,bc,cc,bg,delay,sz=48,fs=10){
 function vl(h=18){return `<div style="width:2px;height:${h}px;background:rgba(201,168,76,0.28);margin:0 auto;"></div>`;}
 function hl(w='100%'){return `<div style="height:2px;background:rgba(201,168,76,0.2);width:${w};"></div>`;}
 
-// S6: Amway + Yager → Sponsor → DU
+// S6: Amway + Yager → Sponsor → YOU
 function drawOrg(){
   const el=document.getElementById('org-tree'); if(!el)return;
   el.innerHTML=`
     <div style="display:flex;gap:24px;justify-content:center;">
       <div style="display:flex;flex-direction:column;align-items:center;gap:5px;">
         ${cir('Amway','#C9A84C','#C9A84C','rgba(201,168,76,0.14)',0.2,66,11)}
-        <span style="font-size:10px;color:rgba(255,255,255,0.35);">Platform</span>
+        <span style="font-size:10px;color:rgba(255,255,255,0.35);">Plattform</span>
       </div>
       <div style="display:flex;flex-direction:column;align-items:center;gap:5px;">
         ${cir('Yager<br>Group','#c4b5fd','#c4b5fd','rgba(91,33,182,0.14)',0.35,66,11)}
-        <span style="font-size:10px;color:rgba(255,255,255,0.35);">Organization</span>
+        <span style="font-size:10px;color:rgba(255,255,255,0.35);">Organisasjon</span>
       </div>
     </div>
     ${vl(20)}
     <div style="display:flex;flex-direction:column;align-items:center;gap:5px;">
       ${cir('Your<br>Sponsor','#CADCFC','#CADCFC','rgba(202,220,252,0.09)',0.55,60,11)}
-      <span style="font-size:10px;color:rgba(255,255,255,0.35);">Your mentor</span>
+      <span style="font-size:10px;color:rgba(255,255,255,0.35);">Din mentor</span>
     </div>
     ${vl(20)}
     <div style="display:flex;flex-direction:column;align-items:center;gap:5px;">
@@ -992,7 +957,7 @@ function drawNetDiag(){
     </defs>
     <circle cx="400" cy="55" r="48" fill="rgba(201,168,76,0.15)" stroke="#C9A84C" stroke-width="2" opacity="0" style="animation:fadeIn 0.6s 0.2s both"/>
     <text x="400" y="50" text-anchor="middle" fill="#C9A84C" font-size="13" font-weight="700" opacity="0" style="animation:fadeIn 0.6s 0.3s both">Amway</text>
-    <text x="400" y="67" text-anchor="middle" fill="rgba(201,168,76,0.6)" font-size="10" opacity="0" style="animation:fadeIn 0.6s 0.3s both">Online Store</text>
+    <text x="400" y="67" text-anchor="middle" fill="rgba(201,168,76,0.6)" font-size="10" opacity="0" style="animation:fadeIn 0.6s 0.3s both">Online store</text>
     <circle cx="400" cy="175" r="44" fill="rgba(202,220,252,0.12)" stroke="#CADCFC" stroke-width="2" opacity="0" style="animation:fadeIn 0.6s 0.9s both"/>
     <text x="400" y="171" text-anchor="middle" fill="#CADCFC" font-size="13" font-weight="700" opacity="0" style="animation:fadeIn 0.6s 1.0s both">ABO</text>
     <text x="400" y="187" text-anchor="middle" fill="rgba(202,220,252,0.55)" font-size="10" opacity="0" style="animation:fadeIn 0.6s 1.0s both">You</text>
@@ -1000,7 +965,7 @@ function drawNetDiag(){
     <text x="416" y="121" fill="rgba(201,168,76,0.6)" font-size="9" opacity="0" style="animation:fadeIn 0.5s 1.5s both">buys</text>
     ${dlSvg}
     <line x1="20" y1="362" x2="55" y2="362" stroke="rgba(201,168,76,0.7)" stroke-width="1.5" marker-end="url(#arr)" opacity="0" style="animation:fadeIn 0.5s 3.2s both"/>
-    <text x="62" y="366" fill="rgba(255,255,255,0.5)" font-size="10" opacity="0" style="animation:fadeIn 0.5s 3.2s both">Sponsors / buys through you</text>
+    <text x="62" y="366" fill="rgba(255,255,255,0.5)" font-size="10" opacity="0" style="animation:fadeIn 0.5s 3.2s both">Sponsored by you — volume counts for you</text>
     <line x1="260" y1="362" x2="295" y2="362" stroke="rgba(201,168,76,0.3)" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arrd)" opacity="0" style="animation:fadeIn 0.5s 3.3s both"/>
     <text x="302" y="366" fill="rgba(255,255,255,0.5)" font-size="10" opacity="0" style="animation:fadeIn 0.5s 3.3s both">Buys directly from Amway</text>
   </svg>`;
@@ -1021,8 +986,8 @@ function drawS8h(){
     return [+(cx+r*Math.cos(rad)).toFixed(0), +(cy+r*Math.sin(rad)).toFixed(0)];
   }
 
-  // 3 Emerald atšakos (žalios, viršuje): 340°, 20°, 60°
-  // 3 Ruby didelės (raudonos, dešinėje): 100°, 140°, 180°
+  // 3 Emerald leg (grønn, øverst): 340°, 20°, 60°
+  // 3 Ruby stor (rød, høyre): 100°, 140°, 180°
   // 3 Ruby liten (lys-rød, ned): 220°, 260°, 300°
   const em_angs  = [{deg:340,n:'EM1'},{deg:20,n:'EM2'},{deg:60,n:'EM3'}];
   const r1_angs  = [{deg:100,n:'RB1'},{deg:140,n:'RB2'},{deg:180,n:'RB3'}];
@@ -1030,7 +995,7 @@ function drawS8h(){
 
   let svg='';
 
-  // Emerald-ben
+  // Emerald leg
   em_angs.forEach(({deg,n},i)=>{
     const [fx,fy]=pos(cx,cy,r_fl,deg);
     const [x1,y1]=pos(cx,cy,r_abo+3,deg);
@@ -1070,7 +1035,7 @@ function drawS8h(){
   });
 
   el.innerHTML=`
-  <svg width="430" height="310" viewBox="0 0 430 310" xmlns="http://www.w3.org/2000/svg">
+  <svg width="100%" height="auto" style="max-width:430px" viewBox="0 0 430 310" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <marker id="arr9" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
         <path d="M0,0 L0,6 L7,3 z" fill="rgba(45,212,191,0.8)"/>
@@ -1078,9 +1043,9 @@ function drawS8h(){
     </defs>
     <circle cx="38" cy="32" r="26" fill="rgba(45,212,191,0.15)" stroke="#2dd4bf" stroke-width="2" opacity="0" style="animation:popIn 0.5s 0.2s both"/>
     <text x="38" y="28" text-anchor="middle" fill="#2dd4bf" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 0.3s both">Amway</text>
-    <text x="38" y="41" text-anchor="middle" fill="rgba(45,212,191,0.6)" font-size="8" opacity="0" style="animation:fadeIn 0.3s 0.3s both">Online Store</text>
+    <text x="38" y="41" text-anchor="middle" fill="rgba(45,212,191,0.6)" font-size="8" opacity="0" style="animation:fadeIn 0.3s 0.3s both">Online store</text>
     <line x1="${cx-r_abo-2}" y1="${cy-r_abo+10}" x2="60" y2="54" stroke="rgba(45,212,191,0.5)" stroke-width="1.5" marker-end="url(#arr9)" opacity="0" style="animation:fadeIn 0.4s 0.5s both"/>
-    <!-- ABO EDC — deimantas-auksas -->
+    <!-- ABO EDC — diamant-gull -->
     <circle cx="${cx}" cy="${cy}" r="${r_abo}" fill="rgba(201,168,76,0.15)" stroke="#C9A84C" stroke-width="2.5" opacity="0" style="animation:popIn 0.5s 0.4s both"/>
     <text x="${cx}" y="${cy-7}" text-anchor="middle" fill="#C9A84C" font-size="10" font-weight="700" opacity="0" style="animation:fadeIn 0.4s 0.5s both">ABO</text>
     <text x="${cx}" y="${cy+5}" text-anchor="middle" fill="rgba(201,168,76,0.9)" font-size="8" font-weight="700" opacity="0" style="animation:fadeIn 0.4s 0.5s both">💎 EDC</text>
@@ -1107,7 +1072,7 @@ function drawS8g(){
     return [+(cx+r*Math.cos(rad)).toFixed(0), +(cy+r*Math.sin(rad)).toFixed(0)];
   }
 
-  // 6 BA tolygiai išdėstytos (vengiama kairiosios sektoriaus), 3 BB tarpuose
+  // 6 BA jevnt spredt (unngår venstre sektor), 3 BB i gaps
   const ba_angs = [
     {deg:330,n:'BA1'},{deg:10,n:'BA2'},{deg:50,n:'BA3'},
     {deg:90,n:'BA4'},{deg:130,n:'BA5'},{deg:170,n:'BA6'}
@@ -1118,7 +1083,7 @@ function drawS8g(){
 
   let svg='';
 
-  // BA atšakos — deimanto mėlyna/balta, 20 000 PV, 21%
+  // BA-ben — diamant-blå/hvit, 20 000 PV, 21%
   ba_angs.forEach(({deg,n},i)=>{
     const [fx,fy]=pos(cx,cy,r_fl,deg);
     const [x1,y1]=pos(cx,cy,r_abo+3,deg);
@@ -1144,7 +1109,7 @@ function drawS8g(){
   });
 
   el.innerHTML=`
-  <svg width="430" height="310" viewBox="0 0 430 310" xmlns="http://www.w3.org/2000/svg">
+  <svg width="100%" height="auto" style="max-width:430px" viewBox="0 0 430 310" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <marker id="arr8" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
         <path d="M0,0 L0,6 L7,3 z" fill="rgba(45,212,191,0.8)"/>
@@ -1152,7 +1117,7 @@ function drawS8g(){
     </defs>
     <circle cx="38" cy="32" r="26" fill="rgba(45,212,191,0.15)" stroke="#2dd4bf" stroke-width="2" opacity="0" style="animation:popIn 0.5s 0.2s both"/>
     <text x="38" y="28" text-anchor="middle" fill="#2dd4bf" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 0.3s both">Amway</text>
-    <text x="38" y="41" text-anchor="middle" fill="rgba(45,212,191,0.6)" font-size="8" opacity="0" style="animation:fadeIn 0.3s 0.3s both">Online Store</text>
+    <text x="38" y="41" text-anchor="middle" fill="rgba(45,212,191,0.6)" font-size="8" opacity="0" style="animation:fadeIn 0.3s 0.3s both">Online store</text>
     <line x1="${cx-r_abo-2}" y1="${cy-r_abo+10}" x2="60" y2="54" stroke="rgba(45,212,191,0.5)" stroke-width="1.5" marker-end="url(#arr8)" opacity="0" style="animation:fadeIn 0.4s 0.5s both"/>
     <!-- ABO Diamond -->
     <circle cx="${cx}" cy="${cy}" r="${r_abo}" fill="rgba(148,163,184,0.12)" stroke="#cbd5e1" stroke-width="2.5" opacity="0" style="animation:popIn 0.5s 0.4s both"/>
@@ -1179,7 +1144,7 @@ function drawS8f(){
   }
 
   // 3 BA (21%/Silver): øverst, grønn/gull glow
-  // 3 BB didelės (18%, 7000): dešinė pusė
+  // 3 BB store (18%, 7000): høyre side
   // 3 BB mindre (15%, 4200): nedre
   const ba_angs  = [{deg:340,n:'BA1'},{deg:20,n:'BA2'},{deg:60,n:'BA3'}];
   const bb1_angs = [{deg:110,n:'BB1'},{deg:150,n:'BB2'},{deg:190,n:'BB3'}];
@@ -1187,7 +1152,7 @@ function drawS8f(){
 
   let svg='';
 
-  // BA atšakos — balta/ledų mėlyna su žaliu kraštų, didelė (Silver žemiau)
+  // BA-ben — hvit/isblå med grønn kant, stor (Silver under)
   ba_angs.forEach(({deg,n},i)=>{
     const [fx,fy]=pos(cx,cy,r_fl,deg);
     const [x1,y1]=pos(cx,cy,r_abo+3,deg);
@@ -1225,7 +1190,7 @@ function drawS8f(){
   });
 
   el.innerHTML=`
-  <svg width="430" height="310" viewBox="0 0 430 310" xmlns="http://www.w3.org/2000/svg">
+  <svg width="100%" height="auto" style="max-width:430px" viewBox="0 0 430 310" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <marker id="arr7" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
         <path d="M0,0 L0,6 L7,3 z" fill="rgba(45,212,191,0.8)"/>
@@ -1233,7 +1198,7 @@ function drawS8f(){
     </defs>
     <circle cx="38" cy="32" r="26" fill="rgba(45,212,191,0.15)" stroke="#2dd4bf" stroke-width="2" opacity="0" style="animation:popIn 0.5s 0.2s both"/>
     <text x="38" y="28" text-anchor="middle" fill="#2dd4bf" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 0.3s both">Amway</text>
-    <text x="38" y="41" text-anchor="middle" fill="rgba(45,212,191,0.6)" font-size="8" opacity="0" style="animation:fadeIn 0.3s 0.3s both">Online Store</text>
+    <text x="38" y="41" text-anchor="middle" fill="rgba(45,212,191,0.6)" font-size="8" opacity="0" style="animation:fadeIn 0.3s 0.3s both">Online store</text>
     <line x1="${cx-r_abo-2}" y1="${cy-r_abo+10}" x2="60" y2="54" stroke="rgba(45,212,191,0.5)" stroke-width="1.5" marker-end="url(#arr7)" opacity="0" style="animation:fadeIn 0.4s 0.5s both"/>
     <!-- ABO Emerald -->
     <circle cx="${cx}" cy="${cy}" r="${r_abo}" fill="rgba(52,211,153,0.1)" stroke="#34d399" stroke-width="2.5" opacity="0" style="animation:popIn 0.5s 0.4s both"/>
@@ -1261,7 +1226,7 @@ function drawS8e(){
     return [+(cx+r*Math.cos(rad)).toFixed(0), +(cy+r*Math.sin(rad)).toFixed(0)];
   }
 
-  // 9 atšakos tolygiai išdėstytos, vengiama kairiosios pusės (Amway)
+  // 9 ben spredt jevnt, unngår venstre side (Amway)
   // Store BB (18%, 7000): 350°, 30°, 70°
   // Mindre BB (15%, 4200): 110°, 150°, 190°
   // BF (9%, 1400): 230°, 270°, 310°
@@ -1308,7 +1273,7 @@ function drawS8e(){
   });
 
   el.innerHTML=`
-  <svg width="430" height="310" viewBox="0 0 430 310" xmlns="http://www.w3.org/2000/svg">
+  <svg width="100%" height="auto" style="max-width:430px" viewBox="0 0 430 310" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <marker id="arr6" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
         <path d="M0,0 L0,6 L7,3 z" fill="rgba(45,212,191,0.8)"/>
@@ -1316,7 +1281,7 @@ function drawS8e(){
     </defs>
     <circle cx="38" cy="32" r="26" fill="rgba(45,212,191,0.15)" stroke="#2dd4bf" stroke-width="2" opacity="0" style="animation:popIn 0.5s 0.2s both"/>
     <text x="38" y="28" text-anchor="middle" fill="#2dd4bf" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 0.3s both">Amway</text>
-    <text x="38" y="41" text-anchor="middle" fill="rgba(45,212,191,0.6)" font-size="8" opacity="0" style="animation:fadeIn 0.3s 0.3s both">Online Store</text>
+    <text x="38" y="41" text-anchor="middle" fill="rgba(45,212,191,0.6)" font-size="8" opacity="0" style="animation:fadeIn 0.3s 0.3s both">Online store</text>
     <line x1="${cx-r_abo-2}" y1="${cy-r_abo+10}" x2="60" y2="54" stroke="rgba(45,212,191,0.5)" stroke-width="1.5" marker-end="url(#arr6)" opacity="0" style="animation:fadeIn 0.4s 0.5s both"/>
     <circle cx="${cx}" cy="${cy}" r="${r_abo}" fill="rgba(239,68,68,0.1)" stroke="#f87171" stroke-width="2.5" opacity="0" style="animation:popIn 0.5s 0.4s both"/>
     <text x="${cx}" y="${cy-6}" text-anchor="middle" fill="#f87171" font-size="11" font-weight="700" opacity="0" style="animation:fadeIn 0.4s 0.5s both">ABO</text>
@@ -1346,7 +1311,7 @@ function drawS8d(){
   const cx=205, cy=140, r_abo=32;
   const r_fl=95, r_sub=148, r_sub2=175;
 
-  // FL pozicijos (laipsniai nuo 12 valandos, su kairėje puse Amway)
+  // FL posisjoner (grader fra 12-klokken, med venstre plass til Amway)
   // BB: 320°, 20°, 80° (øvre)
   // BF: 140°, 200°, 260° (nedre)
   const bb_angles = [320, 20, 80];
@@ -1417,8 +1382,8 @@ function drawS8d(){
     <text x="38" y="28" text-anchor="middle" fill="#2dd4bf" font-size="9" font-weight="700"
       opacity="0" style="animation:fadeIn 0.3s 0.3s both">Amway</text>
     <text x="38" y="41" text-anchor="middle" fill="rgba(45,212,191,0.6)" font-size="8"
-      opacity="0" style="animation:fadeIn 0.3s 0.3s both">Online Store</text>
-    <!-- Rodyklė ABO→Amway (įstrižainė viršus-kairė) -->
+      opacity="0" style="animation:fadeIn 0.3s 0.3s both">Online store</text>
+    <!-- Pil ABO→Amway (diagonal opp-venstre) -->
     <line x1="${cx-r_abo-2}" y1="${cy-r_abo+10}" x2="62" y2="56" stroke="rgba(45,212,191,0.5)" stroke-width="1.5"
       marker-end="url(#arr5)" opacity="0" style="animation:fadeIn 0.4s 0.5s both"/>
     <!-- ABO Silver -->
@@ -1429,7 +1394,7 @@ function drawS8d(){
     <text x="${cx}" y="${cy+6}" text-anchor="middle" fill="rgba(202,220,252,0.7)" font-size="9" font-weight="700"
       opacity="0" style="animation:fadeIn 0.4s 0.5s both">21% · Silver</text>
     ${svg}
-    <!-- Legenda — apačioje dešinėje už apskritimų grupės -->
+    <!-- Legend — plassert nederst til høyre utenfor sirkelklyngen -->
     <rect x="100" y="335" width="96" height="12" rx="4" fill="rgba(201,168,76,0.1)" stroke="rgba(201,168,76,0.3)" stroke-width="1" opacity="0" style="animation:fadeIn 0.4s 2.8s both"/>
     <text x="148" y="344" text-anchor="middle" fill="#C9A84C" font-size="7" opacity="0" style="animation:fadeIn 0.4s 2.9s both">BB = Bronze Builder (15%)</text>
     <rect x="206" y="335" width="84" height="12" rx="4" fill="rgba(100,149,237,0.1)" stroke="rgba(100,149,237,0.3)" stroke-width="1" opacity="0" style="animation:fadeIn 0.4s 2.9s both"/>
@@ -1441,19 +1406,19 @@ function drawS8c(){
   const el=document.getElementById('diag-s8c'); if(!el)return;
   el.style.cssText='flex-shrink:0;';
   el.innerHTML=`
-  <svg width="310" height="250" viewBox="0 0 310 250" xmlns="http://www.w3.org/2000/svg">
+  <svg width="100%" height="auto" style="max-width:310px" viewBox="0 0 310 250" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <marker id="arr4" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
         <path d="M0,0 L0,6 L7,3 z" fill="rgba(201,168,76,0.8)"/>
       </marker>
     </defs>
-    <!-- Amway — viršuje kairėje -->
+    <!-- Amway — øverst til venstre -->
     <circle cx="38" cy="32" r="26" fill="rgba(45,212,191,0.15)" stroke="#2dd4bf" stroke-width="2"
       opacity="0" style="animation:popIn 0.5s 0.2s both"/>
     <text x="38" y="28" text-anchor="middle" fill="#2dd4bf" font-size="9" font-weight="700"
       opacity="0" style="animation:fadeIn 0.3s 0.3s both">Amway</text>
     <text x="38" y="40" text-anchor="middle" fill="rgba(45,212,191,0.6)" font-size="8"
-      opacity="0" style="animation:fadeIn 0.3s 0.3s both">Online Store</text>
+      opacity="0" style="animation:fadeIn 0.3s 0.3s both">Online store</text>
     <line x1="92" y1="97" x2="56" y2="50" stroke="rgba(45,212,191,0.55)" stroke-width="1.5"
       marker-end="url(#arr4)" opacity="0" style="animation:fadeIn 0.4s 0.5s both"/>
     <!-- ABO -->
@@ -1467,17 +1432,17 @@ function drawS8c(){
     <line x1="136" y1="98" x2="162" y2="65" stroke="rgba(201,168,76,0.35)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s 0.8s both"/>
     <line x1="140" y1="115" x2="170" y2="115" stroke="rgba(201,168,76,0.35)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s 0.9s both"/>
     <line x1="136" y1="132" x2="162" y2="165" stroke="rgba(201,168,76,0.35)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s 1.0s both"/>
-    <!-- FL1 — viršus -->
+    <!-- FL1 — opp -->
     <circle cx="182" cy="55" r="22" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1.8"
       opacity="0" style="animation:popIn 0.4s 0.9s both"/>
     <text x="182" y="52" text-anchor="middle" fill="#C9A84C" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 1.0s both">FL1</text>
     <text x="182" y="63" text-anchor="middle" fill="rgba(201,168,76,0.6)" font-size="7" opacity="0" style="animation:fadeIn 0.3s 1.0s both">9%</text>
-    <!-- FL2 — vidurys -->
+    <!-- FL2 — midten -->
     <circle cx="194" cy="115" r="22" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1.8"
       opacity="0" style="animation:popIn 0.4s 1.0s both"/>
     <text x="194" y="112" text-anchor="middle" fill="#C9A84C" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 1.1s both">FL2</text>
     <text x="194" y="123" text-anchor="middle" fill="rgba(201,168,76,0.6)" font-size="7" opacity="0" style="animation:fadeIn 0.3s 1.1s both">9%</text>
-    <!-- FL3 — apačia -->
+    <!-- FL3 — ned -->
     <circle cx="182" cy="175" r="22" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1.8"
       opacity="0" style="animation:popIn 0.4s 1.1s both"/>
     <text x="182" y="172" text-anchor="middle" fill="#C9A84C" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 1.2s both">FL3</text>
@@ -1493,14 +1458,14 @@ function drawS8c(){
     <line x1="264" y1="60" x2="271" y2="55" stroke="rgba(74,222,128,0.35)" stroke-width="1.2" opacity="0" style="animation:fadeIn 0.3s 1.7s both"/>
     <circle cx="278" cy="49" r="10" fill="rgba(34,197,94,0.1)" stroke="#4ade80" stroke-width="1.3" opacity="0" style="animation:popIn 0.35s 1.8s both"/>
     <text x="278" y="53" text-anchor="middle" fill="#4ade80" font-size="6" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 1.9s both">L3</text>
-    <!-- L2-2 vidurys -->
+    <!-- L2-2 midten -->
     <circle cx="258" cy="115" r="13" fill="rgba(100,149,237,0.1)" stroke="#6495ED" stroke-width="1.3" opacity="0" style="animation:popIn 0.35s 1.5s both"/>
     <text x="258" y="119" text-anchor="middle" fill="#6495ED" font-size="7" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 1.6s both">L2</text>
     <!-- L3 fra L2-2 — rett til høyre -->
     <line x1="271" y1="115" x2="279" y2="115" stroke="rgba(74,222,128,0.35)" stroke-width="1.2" opacity="0" style="animation:fadeIn 0.3s 1.8s both"/>
     <circle cx="289" cy="115" r="10" fill="rgba(34,197,94,0.1)" stroke="#4ade80" stroke-width="1.3" opacity="0" style="animation:popIn 0.35s 1.9s both"/>
     <text x="289" y="119" text-anchor="middle" fill="#4ade80" font-size="6" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 2.0s both">L3</text>
-    <!-- L2-3 apačia -->
+    <!-- L2-3 nederst -->
     <circle cx="254" cy="162" r="13" fill="rgba(100,149,237,0.1)" stroke="#6495ED" stroke-width="1.3" opacity="0" style="animation:popIn 0.35s 1.6s both"/>
     <text x="254" y="166" text-anchor="middle" fill="#6495ED" font-size="7" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 1.7s both">L2</text>
     <!-- L3 fra L2-3 — samme vinkel som L2-3 fra FL2 -->
@@ -1510,7 +1475,7 @@ function drawS8c(){
     <!-- Indikator FL1 og FL3 også har struktur -->
     <text x="182" y="30" text-anchor="middle" fill="rgba(100,149,237,0.5)" font-size="7" opacity="0" style="animation:fadeIn 0.4s 1.7s both">3×L2+L3</text>
     <text x="182" y="210" text-anchor="middle" fill="rgba(100,149,237,0.5)" font-size="7" opacity="0" style="animation:fadeIn 0.4s 1.8s both">3×L2+L3</text>
-    <text x="150" y="244" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-size="7" opacity="0" style="animation:fadeIn 0.5s 2.2s both">22 ABOs total</text>
+    <text x="150" y="244" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-size="7" opacity="0" style="animation:fadeIn 0.5s 2.2s both">22 ABOer totalt</text>
   </svg>`;
 }
 
@@ -1518,39 +1483,39 @@ function drawS8b(){
   const el=document.getElementById('diag-s8b'); if(!el)return;
   el.style.cssText='flex-shrink:0;';
 
-  // Išdėstymas: Amway kairėje, ABO viduryje, 3 FL kaip žiedlapiai dešinėje
+  // Layout: Amway til venstre, ABO i midten, 3 FL som kronblader til høyre
   // ViewBox: 300 × 230
   // Amway: (28, 115)
   // ABO: (115, 115)
-  // FL1: viršus-dešinė (195, 60)
-  // FL2: tiesiai dešinė (210, 115)
-  // FL3: apačia-dešinė (195, 170)
+  // FL1: opp-høyre   (195, 60)
+  // FL2: rett høyre  (210, 115)
+  // FL3: ned-høyre   (195, 170)
   // L2-1: (260, 35)
   // L2-2: (272, 115)
   // L2-3: (260, 195)
 
   el.innerHTML=`
-  <svg width="300" height="230" viewBox="0 0 300 230" xmlns="http://www.w3.org/2000/svg">
+  <svg width="100%" height="auto" style="max-width:300px" viewBox="0 0 300 230" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <marker id="arr3" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
         <path d="M0,0 L0,6 L7,3 z" fill="rgba(201,168,76,0.8)"/>
       </marker>
     </defs>
 
-    <!-- Amway — kairėje -->
+    <!-- Amway — venstre -->
     <circle cx="28" cy="115" r="26" fill="rgba(201,168,76,0.15)" stroke="#C9A84C" stroke-width="2"
       opacity="0" style="animation:popIn 0.5s 0.2s both"/>
     <text x="28" y="111" text-anchor="middle" fill="#C9A84C" font-size="9" font-weight="700"
       opacity="0" style="animation:fadeIn 0.4s 0.3s both">Amway</text>
     <text x="28" y="123" text-anchor="middle" fill="rgba(201,168,76,0.6)" font-size="8"
-      opacity="0" style="animation:fadeIn 0.4s 0.3s both">Online Store</text>
+      opacity="0" style="animation:fadeIn 0.4s 0.3s both">Nett</text>
 
-    <!-- Rodyklė ABO → Amway -->
+    <!-- Pil ABO → Amway -->
     <line x1="82" y1="115" x2="56" y2="115" stroke="rgba(201,168,76,0.7)" stroke-width="1.8"
       marker-end="url(#arr3)"
       opacity="0" style="animation:fadeIn 0.5s 0.6s both"/>
 
-    <!-- ABO — vidurys -->
+    <!-- ABO — midten -->
     <circle cx="115" cy="115" r="32" fill="rgba(202,220,252,0.12)" stroke="#CADCFC" stroke-width="2"
       opacity="0" style="animation:popIn 0.5s 0.4s both"/>
     <text x="115" y="111" text-anchor="middle" fill="#CADCFC" font-size="12" font-weight="700"
@@ -1566,7 +1531,7 @@ function drawS8b(){
     <line x1="143" y1="133" x2="172" y2="159" stroke="rgba(201,168,76,0.35)" stroke-width="1.5"
       opacity="0" style="animation:fadeIn 0.3s 1.3s both"/>
 
-    <!-- FL1 — viršus-dešinė -->
+    <!-- FL1 — opp-høyre -->
     <circle cx="195" cy="58" r="24" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1.8"
       opacity="0" style="animation:popIn 0.45s 1.0s both"/>
     <text x="195" y="54" text-anchor="middle" fill="#C9A84C" font-size="10" font-weight="700"
@@ -1574,7 +1539,7 @@ function drawS8b(){
     <text x="195" y="66" text-anchor="middle" fill="rgba(201,168,76,0.6)" font-size="8"
       opacity="0" style="animation:fadeIn 0.3s 1.1s both">200 PV</text>
 
-    <!-- FL2 — vidurys dešinė -->
+    <!-- FL2 — midten høyre -->
     <circle cx="208" cy="115" r="24" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1.8"
       opacity="0" style="animation:popIn 0.45s 1.2s both"/>
     <text x="208" y="111" text-anchor="middle" fill="#C9A84C" font-size="10" font-weight="700"
@@ -1582,7 +1547,7 @@ function drawS8b(){
     <text x="208" y="123" text-anchor="middle" fill="rgba(201,168,76,0.6)" font-size="8"
       opacity="0" style="animation:fadeIn 0.3s 1.3s both">200 PV</text>
 
-    <!-- FL3 — apačia-dešinė -->
+    <!-- FL3 — ned-høyre -->
     <circle cx="195" cy="172" r="24" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1.8"
       opacity="0" style="animation:popIn 0.45s 1.4s both"/>
     <text x="195" y="168" text-anchor="middle" fill="#C9A84C" font-size="10" font-weight="700"
@@ -1634,20 +1599,20 @@ function drawS8a(){
         <path d="M0,0 L0,6 L8,3 z" fill="rgba(201,168,76,0.8)"/>
       </marker>
     </defs>
-    <!-- Amway — visiškai kairėje -->
+    <!-- Amway — helt til venstre -->
     <circle cx="44" cy="110" r="38" fill="rgba(201,168,76,0.15)" stroke="#C9A84C" stroke-width="2"
       opacity="0" style="animation:popIn 0.5s 0.2s both"/>
     <text x="44" y="106" text-anchor="middle" fill="#C9A84C" font-size="11" font-weight="700"
       opacity="0" style="animation:fadeIn 0.4s 0.3s both">Amway</text>
     <text x="38" y="40" text-anchor="middle" fill="rgba(45,212,191,0.6)" font-size="8"
-      opacity="0" style="animation:fadeIn 0.4s 0.3s both">Online Store</text>
-    <!-- Rodyklė nuo ABO į Amway -->
+      opacity="0" style="animation:fadeIn 0.4s 0.3s both">Online store</text>
+    <!-- Pil fra ABO til Amway -->
     <line x1="155" y1="110" x2="84" y2="110" stroke="rgba(201,168,76,0.7)" stroke-width="2"
       marker-end="url(#arr2)"
       opacity="0" style="animation:fadeIn 0.5s 1.2s both"/>
     <text x="119" y="102" text-anchor="middle" fill="rgba(201,168,76,0.55)" font-size="9"
       opacity="0" style="animation:fadeIn 0.4s 1.3s both">buys</text>
-    <!-- ABO — vidurys -->
+    <!-- ABO — midten -->
     <circle cx="210" cy="110" r="48" fill="rgba(202,220,252,0.12)" stroke="#CADCFC" stroke-width="2"
       opacity="0" style="animation:popIn 0.5s 0.8s both"/>
     <text x="210" y="105" text-anchor="middle" fill="#CADCFC" font-size="12" font-weight="700"
@@ -1658,12 +1623,12 @@ function drawS8a(){
     <rect x="162" y="172" width="96" height="24" rx="12" fill="rgba(201,168,76,0.15)" stroke="rgba(201,168,76,0.4)" stroke-width="1.5"
       opacity="0" style="animation:fadeIn 0.4s 1.6s both"/>
     <text x="210" y="189" text-anchor="middle" fill="#C9A84C" font-size="11" font-weight="700"
-      opacity="0" style="animation:fadeIn 0.4s 1.7s both">3% bonus level</text>
+      opacity="0" style="animation:fadeIn 0.4s 1.7s both">3% bonusnivå</text>
     <!-- Kupong-badge -->
     <rect x="110" y="204" width="200" height="28" rx="10" fill="rgba(34,197,94,0.1)" stroke="rgba(34,197,94,0.3)" stroke-width="1.5"
       opacity="0" style="animation:popIn 0.5s 2.0s both"/>
     <text x="210" y="223" text-anchor="middle" fill="#4ade80" font-size="10" font-weight="700"
-      opacity="0" style="animation:fadeIn 0.4s 2.1s both">🎁 4 starter coupons of 200 NOK each = 800 kr</text>
+      opacity="0" style="animation:fadeIn 0.4s 2.1s both">🎁 4 starter vouchers = 800 kr</text>
   </svg>`;
 }
 
@@ -1754,7 +1719,7 @@ function drawBF(){
     </div>`;
 }
 
-// S8b: Bronze Builder — Du + 3 FL på 6%
+// S8b: Bronze Builder — You + 3 FL på 6%
 function drawBB(){
   const el=document.getElementById('tree-bb'); if(!el)return;
   const you=cir('YOU<br>15%','#C9A84C','#C9A84C','rgba(201,168,76,0.22)',0.1,56,10);
@@ -1794,7 +1759,7 @@ function drawRuby(){
     <div style="display:flex;width:100%;gap:2px;">${fls6}${fls3}</div>
     <div style="margin-top:10px;display:flex;flex-direction:column;gap:5px;width:100%;">
       <div style="padding:7px 12px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);border-radius:6px;font-size:12px;color:var(--gold);">✓ FL1–6: Bronze Builder (4 000 PV, 15%)</div>
-      <div style="padding:7px 12px;background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.3);border-radius:6px;font-size:12px;color:#fbbf24;">✓ FL7–9: New BF legs (2 400 PV, 12%) → RPV = 31 400</div>
+      <div style="padding:7px 12px;background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.3);border-radius:6px;font-size:12px;color:#fbbf24;">✓ FL7–9: Nye BF-ben (2 400 PV, 12%) → RPV = 31 400</div>
     </div>`;
 }
 
@@ -1816,8 +1781,8 @@ function drawEmerald(){
     ${you}${vl(10)}${hl('95%')}
     <div style="display:flex;width:95%;gap:3px;">${ba2}${ba3}${fl}</div>
     <div style="margin-top:10px;display:flex;flex-direction:column;gap:5px;width:95%;">
-      <div style="padding:7px 12px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.22);border-radius:6px;font-size:12px;color:#4ade80;">✓ 3 breakaway legs — BA3: 7 500 own + 15 800 downline group</div>
-      <div style="padding:7px 12px;background:rgba(91,33,182,0.12);border:1px solid rgba(91,33,182,0.28);border-radius:6px;font-size:12px;color:#c4b5fd;">✓ Depth bonus activated — BA3 has downline at 21% level</div>
+      <div style="padding:7px 12px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.22);border-radius:6px;font-size:12px;color:#4ade80;">✓ 3 breakaway legs — BA3: 7 500 own + 15 800 downline</div>
+      <div style="padding:7px 12px;background:rgba(91,33,182,0.12);border:1px solid rgba(91,33,182,0.28);border-radius:6px;font-size:12px;color:#c4b5fd;">✓ Depth bonus activated — BA3 has downline at 21%</div>
       <div style="padding:7px 12px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.22);border-radius:6px;font-size:12px;color:#fbbf24;">✓ 3 × 7 000 PV side volume (18%) → Ruby bonus</div>
     </div>`;
 }
@@ -1833,7 +1798,7 @@ function drawDiamond(){
     ${you}${vl(10)}${hl('95%')}
     <div style="display:flex;width:95%;gap:2px;">${ba}${fl}</div>
     <div style="margin-top:10px;display:flex;flex-direction:column;gap:5px;width:95%;">
-      <div style="padding:7px 12px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.22);border-radius:6px;font-size:12px;color:#4ade80;">✓ 6 breakaway legs → Leadership bonus 97 200 NOK/month</div>
+      <div style="padding:7px 12px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.22);border-radius:6px;font-size:12px;color:#4ade80;">✓ 6 breakaway legs → Leadership bonus 97 200/month</div>
       <div style="padding:7px 12px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.22);border-radius:6px;font-size:12px;color:#fbbf24;">✓ 3 × 7 000 PV side volume → Ruby bonus</div>
     </div>`;
 }
@@ -1908,9 +1873,9 @@ function tick(ts){
   if(!playing){lastT=null;return;}
   if(lastT===null)lastT=ts;
   const dt=ts-lastT; lastT=ts; elapsed+=dt;
-  const pct=Math.min(elapsed/DUR[cur],1);
+  const pct=Math.min(elapsed/YOUR[cur],1);
   arc.style.strokeDashoffset=CIRC-(CIRC*pct);
-  if(elapsed>=DUR[cur]){go((cur+1)%N);lastT=ts;}
+  if(elapsed>=YOUR[cur]){go((cur+1)%N);lastT=ts;}
   raf=requestAnimationFrame(tick);
 }
 function startPlay(){playing=true;document.getElementById('bplay').textContent='⏸';lastT=null;raf=requestAnimationFrame(tick);}
@@ -1939,13 +1904,7 @@ document.getElementById('deck').addEventListener('click',e=>{
 go(0);
 setTimeout(startPlay,900);
 
-// Verberg dots op mobiel
-if(window.innerWidth <= 900){
-  document.getElementById('dots').style.display='none';
-}
-
-
-// Visas ekranas atidarius
+// Fullskjerm ved åpning
 (function tryFS(){
   const el = document.documentElement;
   if (el.requestFullscreen) el.requestFullscreen().catch(()=>{});
@@ -1953,7 +1912,7 @@ if(window.innerWidth <= 900){
   else if (el.mozRequestFullScreen) el.mozRequestFullScreen();
 })();
 
-// Atsarginis variantas: bandykite dar kartą pirmu paspaudimu, jei visas ekranas nepavyko
+// Fallback: prøv igjen ved første klikk hvis fullskjerm ikke gikk
 document.addEventListener('click', function tryFS2() {
   if (!document.fullscreenElement) {
     const el = document.documentElement;
@@ -1962,9 +1921,6 @@ document.addEventListener('click', function tryFS2() {
   }
   document.removeEventListener('click', tryFS2);
 }, { once: true });
-
-
-
 </script>
 </body>
 </html>
