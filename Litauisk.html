@@ -5,7 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>Kurkite savo ateitį</title>
+<title>Kurkite savo ateitį — Mobil</title>
+<meta name="theme-color" content="#0c1230">
+<meta name="mobile-web-app-capable" content="yes">
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 :root {
@@ -154,47 +156,112 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
 #tarc{stroke:var(--gold);stroke-width:3;fill:none;stroke-dasharray:82;stroke-dashoffset:82;stroke-linecap:round;transition:stroke-dashoffset 0.15s linear;}
 #sctr{font-size:11px;color:rgba(255,255,255,0.32);min-width:34px;text-align:center;}
 
-  .h2 { font-size: 17px !important; }
-  .scene { padding: 14px 13px 90px !important; }
-  .brow .lbl { font-size: 10px !important; }
-  .brow .val { font-size: 11px !important; }
 }
 
+/* ═══════════════════════════════════════════════
+   MOBILVERSJON — maks 768px
+   ═══════════════════════════════════════════════ */
+@media(max-width:768px){
 
-@media(max-width:900px){
-  .scene{padding:44px 16px 65px !important;overflow-y:auto;}
-  .si{gap:10px !important;}
-  .h1{font-size:clamp(20px,6vw,38px) !important;}
-  .h2{font-size:clamp(14px,4vw,26px) !important;line-height:1.2;}
-  .blg,.bmd,.bsm{font-size:clamp(11px,3vw,14px) !important;}
-  .kicker{font-size:clamp(9px,2.5vw,12px) !important;}
-  /* Rad → kolonne */
-  .row{flex-direction:column !important;gap:8px !important;}
-  .card{padding:10px 12px !important;}
-  .brow{padding:5px 8px !important;}
-  .brow .lbl{font-size:10px !important;}
-  .brow .val{font-size:12px !important;}
-  /* Diagrammer og utregningsbokser */
-  [style*="justify-content:space-between"]{flex-direction:column !important;gap:10px !important;}
-  [style*="width:240px"]{width:100% !important;}
-  [style*="width:260px"]{width:100% !important;}
-  [style*="flex-shrink:0"]{flex-shrink:1 !important;}
-  svg{max-width:100% !important;height:auto !important;}
-  /* Handelsflyt */
-  .flow{padding:12px 6px !important;gap:0 !important;flex-wrap:nowrap !important;}
-  .fi{gap:4px !important;flex:1 !important;min-width:0 !important;}
-  .fic{width:38px !important;height:38px !important;}
-  .fic svg{width:20px !important;height:20px !important;}
-  .fla{font-size:9px !important;}
-  .far{font-size:12px !important;padding:0 2px !important;margin-bottom:10px !important;}
-  /* Kontrollbar — liten, transparent, ingen dots, liten sirkel */
-  #ctrl{bottom:6px !important;padding:5px 10px !important;gap:6px !important;opacity:0.5;}
-  #dots{display:none !important;}
-  #sctr{font-size:10px !important;}
-  .cb{width:32px !important;height:32px !important;font-size:16px !important;}
-  #tring svg{width:20px !important;height:20px !important;}
-  /* Bonusskala */
-  .scale{max-width:100% !important;}
+  /* ── Grunnleggende layout ── */
+  body { overflow:hidden; }
+
+  .scene {
+    padding: 52px 14px 80px !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch;
+    align-items: flex-start !important;
+  }
+
+  .si { gap: 12px !important; max-width: 100% !important; }
+
+  /* ── Typografi ── */
+  .h1 { font-size: clamp(28px, 7vw, 42px) !important; line-height: 1.1 !important; }
+  .h2 { font-size: clamp(16px, 5vw, 22px) !important; line-height: 1.2 !important; }
+  .blg { font-size: 13px !important; line-height: 1.65 !important; }
+  .bmd { font-size: 12px !important; line-height: 1.6 !important; }
+  .bsm { font-size: 10px !important; }
+  .kicker { font-size: 9px !important; letter-spacing: 2.5px !important; }
+
+  /* ── Kort og rader ── */
+  .row { flex-direction: column !important; gap: 8px !important; }
+  .card { padding: 12px 14px !important; border-radius: 10px !important; }
+  .hbox { padding: 16px 18px !important; border-radius: 10px !important; }
+  .hbox .m { font-size: 14px !important; }
+  .hbox .s { font-size: 12px !important; }
+
+  /* ── Bonus-rader ── */
+  .brow { padding: 6px 10px !important; border-radius: 6px !important; }
+  .brow .lbl { font-size: 10px !important; }
+  .brow .val { font-size: 11px !important; }
+  .brow.tot .val { font-size: 13px !important; }
+
+  /* ── Badges ── */
+  .badge { font-size: 11px !important; padding: 10px 12px !important; }
+  .badge strong { font-size: 9px !important; }
+
+  /* ── Handelsflyt (flow) ── */
+  .flow { padding: 12px 6px !important; flex-wrap: nowrap !important; }
+  .fi { gap: 4px !important; flex: 1 !important; min-width: 0 !important; }
+  .fic { width: 36px !important; height: 36px !important; }
+  .fic svg { width: 18px !important; height: 18px !important; }
+  .fla { font-size: 8px !important; }
+  .far { font-size: 11px !important; padding: 0 2px !important; margin-bottom: 10px !important; }
+
+  /* ── Bonusskala ── */
+  .scale { max-width: 100% !important; gap: 5px !important; }
+  .sl { min-width: 72px !important; font-size: 10px !important; }
+  .st { height: 26px !important; }
+  .sf { font-size: 10px !important; }
+  .sv { font-size: 10px !important; }
+
+  /* ── Utregningsbokser med fast bredde → full bredde ── */
+  [style*="width:240px"] { width: 100% !important; }
+  [style*="width:260px"] { width: 100% !important; }
+  [style*="flex-shrink:0"] { flex-shrink: 1 !important; width: 100% !important; }
+  [style*="justify-content:space-between"] { flex-direction: column !important; gap: 10px !important; }
+
+  /* ── SVG-diagrammer ── */
+  svg { max-width: 100% !important; height: auto !important; }
+  #netdiag { height: 260px !important; }
+
+  /* ── Nettverksdiagram / org-tre ── */
+  #org-tree { padding-top: 0 !important; }
+
+  /* ── Kontrollbar ── */
+  #ctrl {
+    bottom: 8px !important;
+    padding: 6px 12px !important;
+    gap: 6px !important;
+    opacity: 0.85 !important;
+  }
+  #dots { display: none !important; }
+  #sctr { font-size: 10px !important; min-width: 28px !important; }
+  .cb { width: 34px !important; height: 34px !important; font-size: 18px !important; }
+  #tring svg { width: 22px !important; height: 22px !important; }
+
+  /* ── Fremheving av store tall ── */
+  [style*="font-size:34px"] { font-size: 24px !important; }
+  [style*="font-size:26px"] { font-size: 18px !important; }
+  [style*="font-size:22px"] { font-size: 16px !important; }
+
+  /* ── Kolonner i statistikk-slides ── */
+  .col.f1 { width: 100% !important; }
+}
+
+/* ── Ekstra smal (iPhone SE, 375px) ── */
+@media(max-width:390px){
+  .h1 { font-size: 24px !important; }
+  .h2 { font-size: 14px !important; }
+  .blg { font-size: 11px !important; }
+  .bmd { font-size: 11px !important; }
+  .scene { padding: 48px 10px 76px !important; }
+  .brow .lbl { font-size: 9px !important; }
+  .brow .val { font-size: 10px !important; }
+  .sl { min-width: 60px !important; }
+  .fla { font-size: 7px !important; }
+  .far { font-size: 10px !important; }
 }
 
 </style>
@@ -784,7 +851,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
     <div class="blg wa">Kaip ir viskas kita, kas gerai apmokama, reikia dirbti ir tikslingai koncentruotis. Didelis skirtumas yra tas, kad čia sukurtos <strong>mėnesinės, pasikartojančios pajamos</strong> — pasiekta laisvė.</div>
     <div class="row wa">
       <div class="card cg f1" style="text-align:center;"><div style="font-size:34px;font-weight:800;color:var(--gold);">~70 metų</div><div class="bmd" style="margin-top:5px;">Amway egzistuoja beveik 70 metų</div></div>
-      <div class="card cg f1" style="text-align:center;"><div style="font-size:34px;font-weight:800;color:var(--gold);">73 milijardai</div><div class="bmd" style="margin-top:5px;">USD išmokėta premijomis nuo pradžios</div></div>
+      <div class="card cg f1" style="text-align:center;"><div style="font-size:34px;font-weight:800;color:var(--gold);">73 milijardai USD</div><div class="bmd" style="margin-top:5px;">išmokėta premijomis nuo pradžios</div></div>
       <div class="card cg f1" style="text-align:center;"><div style="font-size:34px;font-weight:800;color:var(--gold);">~100</div><div class="bmd" style="margin-top:5px;">Šalių ir teritorijų, kuriose veikia Amway</div></div>
     </div>
     <div class="bmd wa" style="color:rgba(255,255,255,0.5);">Yager Group įkurta 1963 m. Dex ir Birdie Yager — šiandien vadovaujama Doyle, Jeff ir Steve Yager. Pasaulinio lygio didžiausia ir sėkmingiausia tinklinė organizacija.</div>
@@ -1946,17 +2013,6 @@ document.addEventListener('click', function tryFS2() {
   });
 })();
 
-
-// Mobil: sveip
-(function(){
-  let sx=0,sy=0;
-  document.getElementById('deck').addEventListener('touchstart',function(e){sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});
-  document.getElementById('deck').addEventListener('touchend',function(e){
-    const dx=e.changedTouches[0].clientX-sx;
-    const dy=e.changedTouches[0].clientY-sy;
-    if(Math.abs(dx)>Math.abs(dy)*1.8&&Math.abs(dx)>50){dx<0?go((cur+1)%N):go(cur-1);lastT=null;}
-  });
-})();
 </script>
 </body>
 </html>
