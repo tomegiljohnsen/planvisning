@@ -168,34 +168,6 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
   .h2{font-size:clamp(14px,4vw,26px) !important;line-height:1.2;}
   .blg,.bmd,.bsm{font-size:clamp(11px,3vw,14px) !important;}
   .kicker{font-size:clamp(9px,2.5vw,12px) !important;}
-  .row{flex-direction:column !important;gap:8px !important;}
-  .card{padding:10px 12px !important;}
-  .brow{padding:5px 8px !important;}
-  .brow .lbl{font-size:10px !important;}
-  .brow .val{font-size:12px !important;}
-  [style*="justify-content:space-between"]{flex-direction:column !important;gap:10px !important;}
-  [style*="width:240px"]{width:100% !important;}
-  [style*="width:260px"]{width:100% !important;}
-  [style*="flex-shrink:0"]{flex-shrink:1 !important;}
-  svg{max-width:100% !important;height:auto !important;}
-  .flow{padding:12px 6px !important;gap:0 !important;flex-wrap:nowrap !important;}
-  .fi{gap:4px !important;flex:1 !important;min-width:0 !important;}
-  .fic{width:38px !important;height:38px !important;}
-  .fic svg{width:20px !important;height:20px !important;}
-  .fla{font-size:9px !important;}
-  .far{font-size:12px !important;padding:0 2px !important;margin-bottom:10px !important;}
-  #ctrl{bottom:6px !important;padding:5px 10px !important;gap:6px !important;opacity:0.5;}
-  #dots{display:none !important;}
-  #sctr{font-size:10px !important;}
-  .cb{width:32px !important;height:32px !important;font-size:16px !important;}
-  #timer-ring{display:none !important;}
-  .scale{max-width:100% !important;}
-}
-  .si{gap:10px !important;}
-  .h1{font-size:clamp(20px,6vw,38px) !important;}
-  .h2{font-size:clamp(14px,4vw,26px) !important;line-height:1.2;}
-  .blg,.bmd,.bsm{font-size:clamp(11px,3vw,14px) !important;}
-  .kicker{font-size:clamp(9px,2.5vw,12px) !important;}
   /* Rad → kolonne */
   .row{flex-direction:column !important;gap:8px !important;}
   .card{padding:10px 12px !important;}
@@ -216,9 +188,8 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
   .fla{font-size:9px !important;}
   .far{font-size:12px !important;padding:0 2px !important;margin-bottom:10px !important;}
   /* Kontrollbar — liten, transparent, ingen dots, liten sirkel */
-  #ctrl{bottom:6px !important;padding:5px 10px !important;gap:6px !important;opacity:0.4 !important;}
-  #ctrl:hover{opacity:0.4 !important;}
-  #dots{display:none !important;visibility:hidden !important;}
+  #ctrl{bottom:6px !important;padding:5px 10px !important;gap:6px !important;opacity:0.5;}
+  #dots{display:none !important;}
   #sctr{font-size:10px !important;}
   .cb{width:32px !important;height:32px !important;font-size:16px !important;}
   #tring svg{width:20px !important;height:20px !important;}
@@ -1939,12 +1910,6 @@ document.getElementById('deck').addEventListener('click',e=>{
 go(0);
 setTimeout(startPlay,900);
 
-// Verberg dots op mobiel
-if(window.innerWidth <= 900){
-  document.getElementById('dots').style.display='none';
-}
-
-
 // Visas ekranas atidarius
 (function tryFS(){
   const el = document.documentElement;
@@ -1963,8 +1928,41 @@ document.addEventListener('click', function tryFS2() {
   document.removeEventListener('click', tryFS2);
 }, { once: true });
 
+// Mobil: sveip venstre/høyre - forbedret for scroll vs. navigasjon
+(function(){
+  let sx=0, sy=0;
+  document.getElementById('deck').addEventListener('touchstart', function(e){
+    sx = e.touches[0].clientX;
+    sy = e.touches[0].clientY;
+  }, {passive:true});
+  document.getElementById('deck').addEventListener('touchend', function(e){
+    const dx = e.changedTouches[0].clientX - sx;
+    const dy = e.changedTouches[0].clientY - sy;
+    // Bare naviger om horisontal bevegelse dominerer klart
+    if(Math.abs(dx) > Math.abs(dy) * 1.8 && Math.abs(dx) > 50){
+      dx < 0 ? go((cur+1)%N) : go(cur-1);
+      lastT = null;
+    }
+  });
+})();
 
 
+// Mobil: sveip venstre/høyre
+(function(){
+  let sx=0, sy=0;
+  document.getElementById('deck').addEventListener('touchstart', function(e){
+    sx = e.touches[0].clientX;
+    sy = e.touches[0].clientY;
+  }, {passive:true});
+  document.getElementById('deck').addEventListener('touchend', function(e){
+    const dx = e.changedTouches[0].clientX - sx;
+    const dy = e.changedTouches[0].clientY - sy;
+    if(Math.abs(dx) > Math.abs(dy) * 1.8 && Math.abs(dx) > 50){
+      dx < 0 ? go((cur+1)%N) : go(cur-1);
+      lastT = null;
+    }
+  });
+})();
 </script>
 </body>
 </html>
