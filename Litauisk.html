@@ -2,9 +2,10 @@
 <html lang="lt">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-fullscreen">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kurkite savo ateitį</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -154,13 +155,8 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
 #tarc{stroke:var(--gold);stroke-width:3;fill:none;stroke-dasharray:82;stroke-dashoffset:82;stroke-linecap:round;transition:stroke-dashoffset 0.15s linear;}
 #sctr{font-size:11px;color:rgba(255,255,255,0.32);min-width:34px;text-align:center;}
 
-  .h2 { font-size: 17px !important; }
-  .scene { padding: 14px 13px 90px !important; }
-  .brow .lbl { font-size: 10px !important; }
-  .brow .val { font-size: 11px !important; }
-}
 
-
+/* ===== MOBIL ===== */
 @media(max-width:900px){
   .scene{padding:44px 16px 65px !important;overflow-y:auto;}
   .si{gap:10px !important;}
@@ -183,10 +179,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
   /* Handelsflyt */
   .flow{padding:12px 6px !important;gap:0 !important;flex-wrap:nowrap !important;}
   .fi{gap:4px !important;flex:1 !important;min-width:0 !important;}
-  .fic{width:38px !important;height:38px !important;}
-  .fic svg{width:20px !important;height:20px !important;}
-  .fla{font-size:9px !important;}
-  .far{font-size:12px !important;padding:0 2px !important;margin-bottom:10px !important;}
+  .fic{width:34px !important;height:34px !important;}
+  .fic svg{width:18px !important;height:18px !important;}
+  .fla{font-size:7px !important;}
+  .far{font-size:10px !important;padding:0 1px !important;margin-bottom:10px !important;}
   /* Kontrollbar — liten, transparent, ingen dots, liten sirkel */
   #ctrl{bottom:6px !important;padding:5px 10px !important;gap:6px !important;opacity:0.5;}
   #dots{display:none !important;}
