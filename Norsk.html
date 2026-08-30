@@ -12,6 +12,9 @@
 :root {
   --navy:#1E2761; --gold:#C9A84C; --ice:#CADCFC;
   --gray:#94a3b8; --green:#22c55e; --amber:#f59e0b;
+  /* Nivåfarger — konsekvent gjennom hele reisen */
+  --bronze:#CD7F32; --bronze2:#E0A060; --silver:#B8C4D2;
+  --ruby:#f87171; --ruby2:#fca5a5; --emerald:#34d399; --diamond:#CADCFC;
 }
 body {
   font-family:'Segoe UI',system-ui,sans-serif;
@@ -80,7 +83,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
 .divw{width:120px;height:3px;background:var(--gold);border-radius:2px;}
 
 /* ── LAYOUT ── */
-.row{display:flex;gap:18px;}
+.row,.row2{display:flex;gap:18px;}
 .f1{flex:1;}
 .col{display:flex;flex-direction:column;}
 
@@ -164,7 +167,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
   .blg,.bmd,.bsm{font-size:clamp(11px,3vw,14px) !important;}
   .kicker{font-size:clamp(9px,2.5vw,12px) !important;}
   /* Rad → kolonne */
-  .row{flex-direction:column !important;gap:8px !important;}
+  .row,.row2{flex-direction:column !important;gap:8px !important;}
   .card{padding:10px 12px !important;}
   .brow{padding:5px 8px !important;}
   .brow .lbl{font-size:10px !important;}
@@ -214,11 +217,21 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
     <div class="kicker wa">Utgangspunktet</div>
     <div class="h2 wa">Har du noen gang <em>ønsket deg mer?</em></div>
     <div class="div wa"></div>
-    <div class="blg wa">Ønsker du deg:</div>
+    <div class="blg wa">Alt starter med deg. Med <em>ditt eget ønske</em> — eller en drøm, om du vil. Det kan være:</div>
     <div class="bmd wa" style="color:rgba(255,255,255,0.78);">
       Mer frihet · Større økonomisk spillerom · Å kunne jobbe fra hvor du vil · Å bygge opp noe som kan gi deg en gjentakende inntekt
     </div>
     <div class="bmd wa" id="s2-last">De fleste forretningsmodeller krever kapital eller en revolusjonerende idé — ofte begge deler. Felles for alle er at <strong>det tar tid.</strong></div>
+  </div>
+</div>
+
+<!-- S3b: OVERGANG -->
+<div class="scene" id="s3b">
+  <div class="si c" style="gap:32px;">
+    <div class="kicker wa">En annerledes modell</div>
+    <div class="h2 wa" style="max-width:740px;">Vi jobber med en <em>velprøvd forretningsmodell</em> — utviklet for snart 70 år siden, modernisert gjennom tidene, og fortsatt i vekst over hele verden</div>
+    <div class="divw wa"></div>
+    <div class="blg wa" style="max-width:680px;">Den gir deg nettopp dette: mer frihet, større økonomisk spillerom, muligheten til å jobbe hvor du vil — og en inntekt som kommer igjen måned etter måned. Modellen er skalerbar, så du kan bygge den opp til det nivået du selv ønsker.</div>
   </div>
 </div>
 
@@ -242,19 +255,6 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
     </div>
     <div class="bmd wa" id="s3-last" style="color:rgba(255,255,255,0.6);font-style:italic;">
       De aller fleste som bygger verdier som skaper inntekt, gjør dette ved siden av sin vanlige jobb. For mange er dette en trygg og strukturert måte å bygge fremtiden på.
-    </div>
-  </div>
-</div>
-
-<!-- S3b: OVERGANG -->
-<div class="scene" id="s3b">
-  <div class="si c" style="gap:32px;">
-    <div class="kicker wa">En annerledes modell</div>
-    <div class="h2 wa" style="max-width:700px;">Vi skal se på en forretningsmodell som gir deg muligheten til nettopp det — <em>å skape en gjentakende inntekt</em></div>
-    <div class="divw wa"></div>
-    <div class="blg wa" style="max-width:660px;">Modellen er skalerbar, slik at du kan bygge opp inntjeningen din til det nivået du ønsker.</div>
-    <div class="hbox wa">
-      <div class="m">La oss først se på hvordan konvensjonell handel fungerer.</div>
     </div>
   </div>
 </div>
@@ -340,6 +340,55 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
   </div>
 </div>
 
+<!-- S5a2: HVA ER AMWAY -->
+<div class="scene" id="s5a2">
+  <div class="si">
+    <div class="kicker wa">Hvem er Amway?</div>
+    <div class="h2 wa">Verdens største direktesalgsselskap — <em>i 14 år på rad</em></div>
+    <div class="blg wa" style="max-width:700px;">Amway har vært rangert som nr. 1 i verden av Direct Selling News i 14 år på rad, finnes i over 100 land, og har eksistert siden 1959. De lager produkter millioner bruker <strong>hver eneste dag</strong> — innen helse, skjønnhet og hjem. Nettopp derfor gir det mening å flytte handelen din hit: du kjøper ting du uansett trenger.</div>
+    <div class="row wa" style="gap:12px;flex-wrap:wrap;">
+      <div class="card f1" style="padding:16px 18px;background:rgba(45,212,191,0.08);border-color:rgba(45,212,191,0.25);text-align:center;min-width:150px;">
+        <div style="font-size:22px;margin-bottom:6px;">⚡</div>
+        <div style="font-size:13px;font-weight:700;color:#2dd4bf;margin-bottom:4px;">XS</div>
+        <div class="bsm">Energidrikk og sportsernæring — lav sukker, stor variasjon</div>
+      </div>
+      <div class="card f1" style="padding:16px 18px;background:rgba(45,212,191,0.08);border-color:rgba(45,212,191,0.25);text-align:center;min-width:150px;">
+        <div style="font-size:22px;margin-bottom:6px;">🌿</div>
+        <div style="font-size:13px;font-weight:700;color:#2dd4bf;margin-bottom:4px;">Nutrilite</div>
+        <div class="bsm">Vitaminer og kosttilskudd — fra egne økologiske gårder</div>
+      </div>
+      <div class="card f1" style="padding:16px 18px;background:rgba(45,212,191,0.08);border-color:rgba(45,212,191,0.25);text-align:center;min-width:150px;">
+        <div style="font-size:22px;margin-bottom:6px;">✨</div>
+        <div style="font-size:13px;font-weight:700;color:#2dd4bf;margin-bottom:4px;">Artistry</div>
+        <div class="bsm">Premium hudpleie og kosmetikk — blant verdens ti største</div>
+      </div>
+      <div class="card f1" style="padding:16px 18px;background:rgba(45,212,191,0.08);border-color:rgba(45,212,191,0.25);text-align:center;min-width:150px;">
+        <div style="font-size:22px;margin-bottom:6px;">💧</div>
+        <div style="font-size:13px;font-weight:700;color:#2dd4bf;margin-bottom:4px;">eSpring</div>
+        <div class="bsm">Vannrensesystem i verdensklasse</div>
+      </div>
+    </div>
+    <div class="row2 wa" style="gap:12px;flex-wrap:wrap;">
+      <div class="card f1" style="padding:14px 18px;background:rgba(255,255,255,0.04);text-align:center;min-width:150px;">
+        <div style="font-size:13px;font-weight:700;color:var(--gold);margin-bottom:4px;">🏠 Hjem</div>
+        <div class="bsm">Rengjøring, klesvask, tannpleie, kjøkkenutstyr</div>
+      </div>
+      <div class="card f1" style="padding:14px 18px;background:rgba(255,255,255,0.04);text-align:center;min-width:150px;">
+        <div style="font-size:13px;font-weight:700;color:var(--gold);margin-bottom:4px;">☕ Mat & drikke</div>
+        <div class="bsm">Kaffe, te, energidrikk og vektkontroll</div>
+      </div>
+      <div class="card f1" style="padding:14px 18px;background:rgba(255,255,255,0.04);text-align:center;min-width:150px;">
+        <div style="font-size:13px;font-weight:700;color:var(--gold);margin-bottom:4px;">💄 Personlig pleie</div>
+        <div class="bsm">Hår, kropp og hudpleie</div>
+      </div>
+      <div class="card f1" style="padding:14px 18px;background:rgba(255,255,255,0.04);text-align:center;min-width:150px;">
+        <div style="font-size:13px;font-weight:700;color:var(--gold);margin-bottom:4px;">✅ 450+ produkter</div>
+        <div class="bsm">Alt med 100 % fornøydgaranti</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- S5: ANBEFALINGER + GIG ECONOMY -->
 <div class="scene" id="s5">
   <div class="si">
@@ -366,7 +415,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
       <div class="card cg f1" style="text-align:center;padding:18px 14px;">
         <div style="font-size:26px;margin-bottom:6px;">🏆</div>
         <div style="font-size:13px;font-weight:700;color:var(--gold);margin-bottom:4px;">Amway</div>
-        <div class="bsm">Samme prinsipp — du er plattformen</div>
+        <div class="bsm">Samme prinsipp — du bruker plattformen</div>
       </div>
     </div>
   </div>
@@ -427,7 +476,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
         <div class="card" style="padding:16px 18px;background:rgba(91,33,182,0.1);border-color:rgba(91,33,182,0.28);">
           <div style="font-size:18px;margin-bottom:6px;">🌍</div>
           <div style="font-size:13px;font-weight:700;color:#c4b5fd;margin-bottom:4px;">Yager Group</div>
-          <div class="bmd" style="font-size:12px;">Siden 1963 — verdens største nettverksorg. Titusenvis av mentorer. Podcasts, eventer og hands-on opplæring.</div>
+          <div class="bmd" style="font-size:12px;">Siden 1964 — verdens største nettverksorg. Titusenvis av mentorer. Podcasts, eventer og hands-on opplæring.</div>
         </div>
         <div class="card" style="padding:16px 18px;">
           <div style="font-size:18px;margin-bottom:6px;">🤝</div>
@@ -456,7 +505,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
 <div class="scene" id="s7b">
   <div class="si">
     <div class="kicker wa">Slik vokser nettverket</div>
-    <div class="h2 wa">Duplikasjon — <em>kraften i eksponentiell vekst</em></div>
+    <div class="h2 wa">Duplisering — <em>kraften i eksponentiell vekst</em></div>
     <div class="row wa" style="gap:16px;align-items:flex-start;">
       <!-- Venstre: org-tre + utregninger -->
       <div class="col" style="flex:1.3;gap:10px;">
@@ -519,10 +568,40 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
 </div>
 
 <!-- S8b: STEG 2 — DU SPONSER 3, HVER SPONSER 1 -->
+<div class="scene" id="s8b2">
+  <div class="si">
+    <div class="kicker wa">Nyhet 2027 · Ekstra insentiv i oppstarten</div>
+    <div class="h2 wa">Path to Bronze — <em>betalt allerede fra start</em></div>
+    <div class="bmd wa" style="max-width:640px;">Et helt nytt insentiv for deg som akkurat har startet. Du belønnes for å finne andre og hjelpe dem å gjøre det samme som deg — bytte handleplass og handle for minst 100 PV. Dette kommer <strong>i tillegg</strong> til de vanlige bonusene, allerede fra starten.</div>
+    <div class="card wa" style="background:rgba(34,197,94,0.06);border-color:rgba(34,197,94,0.25);max-width:640px;">
+      <div class="bmd" style="margin-bottom:10px;"><strong>Slik fungerer det:</strong> Hjelp 3–6 personer til å bytte handleplass og handle for minst 100 PV hver — mens du selv gjør det samme. Jo flere du hjelper i gang, jo mer:</div>
+      <div class="row" style="gap:8px;flex-wrap:wrap;justify-content:center;">
+        <div class="card" style="padding:12px 16px;text-align:center;background:rgba(255,255,255,0.04);">
+          <div style="font-size:26px;font-weight:800;color:var(--gold);">1 200 kr</div>
+          <div class="bmd" style="font-size:11px;">3 personer</div>
+        </div>
+        <div class="card" style="padding:12px 16px;text-align:center;background:rgba(255,255,255,0.04);">
+          <div style="font-size:26px;font-weight:800;color:var(--gold);">1 600 kr</div>
+          <div class="bmd" style="font-size:11px;">4 personer</div>
+        </div>
+        <div class="card" style="padding:12px 16px;text-align:center;background:rgba(255,255,255,0.04);">
+          <div style="font-size:26px;font-weight:800;color:var(--gold);">2 100 kr</div>
+          <div class="bmd" style="font-size:11px;">5 personer</div>
+        </div>
+        <div class="card" style="padding:12px 16px;text-align:center;background:rgba(34,197,94,0.08);border-color:rgba(34,197,94,0.25);">
+          <div style="font-size:26px;font-weight:800;color:#4ade80;">2 700 kr</div>
+          <div class="bmd" style="font-size:11px;">6 personer</div>
+        </div>
+      </div>
+    </div>
+    <div class="bsm wa" style="text-align:center;color:rgba(255,255,255,0.5);">Gjelder personer du får med deg innen 6 måneder fra din egen start. Utbetales som et tillegg i oppstartsfasen — ikke inkludert i beregningene på de andre stegene.</div>
+  </div>
+</div>
+
 <div class="scene" id="s8b">
   <div class="si">
     <div class="kicker wa">Hvordan starte effektivt · Steg 2</div>
-    <div class="h2 wa">Ditt første mål: sponse 3 som hver sponser 1 — <em>Bronze Foundation</em></div>
+    <div class="h2 wa">Ditt første mål: <em>Bronze Foundation</em> — sponse 3 som hver sponser 1</div>
     <div class="bmd wa" style="max-width:620px;">Du sponser 3 som igjen sponser 1 hver — alle med 200 PV. Til sammen 7 ABOer og 1 400 GPV. Du er på 9% og BFI aktiveres.</div>
     <div id="s8b-wrap" style="display:flex;gap:0;align-items:center;justify-content:space-between;width:100%;opacity:0;animation:fadeUp 0.6s 0.4s both;">
       <!-- SVG diagram -->
@@ -548,11 +627,12 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
   </div>
 </div>
 
+<!-- S8b2: PATH TO BRONZE (NYHET PY2027 — TILLEGG) -->
 <!-- S8c: STEG 3 -->
 <div class="scene" id="s8c">
   <div class="si">
     <div class="kicker wa">Hvordan bygge effektivt · Steg 1</div>
-    <div class="h2 wa">Ditt 2. mål: hjelp dine første til BF — <em>du er Bronze Builder</em></div>
+    <div class="h2 wa">Ditt 2. mål: <em>Bronze Builder</em> — hjelp dine første til BF</div>
     <div style="display:flex;gap:0;align-items:center;justify-content:space-between;width:100%;opacity:0;animation:fadeUp 0.6s 0.4s both;">
       <div id="diag-s8c" style="flex-shrink:0;"></div>
       <div style="flex:1;"></div>
@@ -781,7 +861,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
       <div class="card cg f1" style="text-align:center;"><div style="font-size:34px;font-weight:800;color:var(--gold);">73 mrd</div><div class="bmd" style="margin-top:5px;">USD betalt ut i bonuser siden starten</div></div>
       <div class="card cg f1" style="text-align:center;"><div style="font-size:34px;font-weight:800;color:var(--gold);">~100</div><div class="bmd" style="margin-top:5px;">Land og territorier Amway er tilstede i</div></div>
     </div>
-    <div class="bmd wa" style="color:rgba(255,255,255,0.5);">Yager Group startet i 1963 av Dex og Birdie Yager — drives i dag av Doyle, Jeff og Steve Yager. Verdens desidert største og mest suksessrike nettverksorganisasjon.</div>
+    <div class="bmd wa" style="color:rgba(255,255,255,0.5);">Yager Group har røtter tilbake til 1964, da Dexter og Birdie Yager begynte — drives i dag videre av Doyle, Jeff og Steve Yager. Verdens desidert største og mest suksessrike nettverksorganisasjon.</div>
   </div>
 </div>
 
@@ -791,14 +871,17 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
     <div class="kicker wa">Vår posisjon i Norge</div>
     <div class="h2 wa">Vi er i en <em>særstilling</em></div>
     <div class="div wa"></div>
-    <div class="blg wa">Vi er direkte knyttet til Yager-familien via bekjentskap og mentorskap.</div>
+    <div class="blg wa">Du står aldri alene i dette.</div>
     <div class="card wa" style="background:rgba(255,255,255,0.04);">
-      <div class="bmd">Våre ledende mentorer for Norge, <strong>Johan og Julia Nilsson</strong>, som er direkte sponset av Yager-familien, er unge fremgangsrike forretningseiere i flere land. For oss i Norge og Skandinavia er de en uvurderlig ressurs med sine erfaringer og kontakter.</div>
+      <div class="bmd">Vi er lokale, erfarne mentorer — personlig knyttet til og trent av <strong>Yager</strong>, verdens ledende nettverksorganisasjon. Det gir deg reell erfaring i ryggen fra dag én.</div>
+    </div>
+    <div class="card2 wa" style="background:rgba(255,255,255,0.04);">
+      <div class="bmd">Og det stopper ikke der: <strong>alle som vil, kan selv bli en mentor.</strong> Etter hvert som du vokser, får du tilgang på mer spesialisert opplæring — og kommer tettere på lederskapet i Yager-organisasjonen.</div>
     </div>
     <div class="row wa" style="gap:10px;flex-wrap:wrap;">
       <span class="pill pg">✓ Direkte Yager-tilknytning</span>
-      <span class="pill pg">✓ Internasjonal vekst</span>
-      <span class="pill pg">✓ Personlig coaching</span>
+      <span class="pill pg">✓ Din vei til å bli mentor</span>
+      <span class="pill pg">✓ Personlig opplæring</span>
     </div>
   </div>
 </div>
@@ -807,12 +890,13 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
 <div class="scene" id="s14">
   <div class="si c">
     <div class="kicker wa">Neste steg</div>
-    <div class="h1 wa">Er du <em>klar?</em></div>
+    <div class="h1 wa">Klar for første steg <em>mot dine mål?</em></div>
     <div class="divw wa"></div>
-    <div class="blg wa" style="max-width:620px;">Vi booker møtet med en gang — har du en partner bør vi møtes alle sammen. Du får lenker til videoer som viser hva Amway er.</div>
+    <div class="blg wa" style="max-width:660px;">Å starte koster lite: registrering er under 300 kr — eller helt gratis hvis du handler for minst 50 PV, altså produkter du uansett bruker. Du bytter rett og slett handleplass.</div>
     <div class="hbox wa">
-      <div class="m">Møte 1: Svar på spørsmål og detaljer om hvordan vi jobber</div>
-      <div class="s">Evt. registrering og planlegging av oppstarten</div>
+      <div class="m">1 · Vi registrerer deg som forretningseier</div>
+      <div class="m">2 · Du gjør din første bestilling og kommer i gang med produktene</div>
+      <div class="m">3 · Vi møtes igjen når varene kommer — og jeg hjelper deg i gang</div>
     </div>
     <div class="bmd wa" style="color:rgba(255,255,255,0.4);font-style:italic;">Vi skal ikke «ha med» noen — vi er på utkikk etter folk som tør å forfølge det de drømmer om.</div>
   </div>
@@ -832,7 +916,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;
 <script>
 const SCENES = document.querySelectorAll('.scene');
 const N = SCENES.length;
-const DUR = [10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000];
+const DUR = [10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000];
 
 let cur=0, playing=true, elapsed=0, lastT=null, raf=null;
 const arc = document.getElementById('tarc');
@@ -849,10 +933,11 @@ for(let i=0;i<N;i++){
 const ACFG = [
   [['.kicker','as','d1'],['.h1','au','d2'],['.divw','af','d4'],['.blg','au','d5']],          // 0  s1
   [['.kicker','al','d1'],['.h2','al','d2'],['.div','af','d3'],['.blg','au','d4'],['.bmd','au','d5'],['#s2-last','au','d6']], // 1  s2
+  [['.kicker','au','d1'],['.h2','au','d2'],['.divw','af','d3'],['.blg','au','d4']], // s3b (flyttet foran s3)
   [['.kicker','au','d1'],['.h2','au','d2'],['.bmd','au','d3'],['.row','au','d4'],['#s3-last','af','d6']], // 2  s3
-  [['.kicker','au','d1'],['.h2','au','d2'],['.divw','af','d3'],['.blg','au','d4'],['.hbox','ap','d6']], // 3  s3b
   [['.kicker','au','d1'],['.h2','au','d2'],['.flow','au','d3'],['.row','au','d5']],           // 4  s4
   [['.kicker','al','d1'],['.h2','al','d2'],['.blg','au','d3'],['.card','au','d4'],['.row','au','d6']], // 5  s5b modellen
+  [['.kicker','au','d1'],['.h2','au','d2'],['.blg','au','d3'],['.row','au','d4'],['.row2','au','d6']], // s5a2 hva er amway
   [['.kicker','ar','d1'],['.h2','au','d2'],['.div','af','d3'],['.blg','au','d4'],['.row','au','d5']], // 6  s5 anbefalinger
   [['.kicker','au','d1'],['.h2','au','d2'],['.row','au','d3'],['.hbox','ap','d5']],                  // 7  s5c modellen virker
   [['.kicker','au','d1'],['.h2','au','d2']],                                                         // 8  s5d nettverksdiagram
@@ -860,6 +945,7 @@ const ACFG = [
   [['.kicker','au','d1'],['.h2','au','d2'],['.bmd','au','d3'],['.scale','au','d4'],['.bsm','af','d7']], // 10 s7 bonusskala
   [['.kicker','au','d1'],['.h2','au','d2'],['.row','au','d3']],                                        // 11 s7b vekst
   [['.kicker','au','d1'],['.h2','au','d2'],['.row','au','d3']],                                        // 12 s8a steg1
+  [['.kicker','au','d1'],['.h2','au','d2'],['.bmd','au','d3'],['.card','au','d4'],['.bsm','af','d7']],  // s8b2 Path to Bronze
   [['.kicker','al','d1'],['.h2','al','d2']],                                                            // 13 s8b steg2
   [['.kicker','au','d1'],['.h2','au','d2']],                                                            // 14 s8c steg3
   [['.kicker','ar','d1'],['.h2','ar','d2']],                                                            // 15 s8d steg4
@@ -869,7 +955,7 @@ const ACFG = [
   [['.kicker','ar','d1'],['.h2','ar','d2'],['.bmd','af','d3']],                                         // 19 s8h edc
   [['.kicker','au','d1'],['.h2','au','d2'],['.row','au','d3']],                    // 10 s11b TTCI
   [['.kicker','au','d1'],['.h2','au','d2'],['.div','af','d3'],['.blg','au','d4'],['.row','au','d5'],['.bmd','af','d7']], // 16 s12
-  [['.kicker','al','d1'],['.h2','al','d2'],['.div','af','d3'],['.blg','au','d4'],['.card','au','d5'],['.row','au','d6']], // 17 s13
+  [['.kicker','al','d1'],['.h2','al','d2'],['.div','af','d3'],['.blg','au','d4'],['.card','au','d5'],['.card2','au','d6'],['.row','au','d7']], // 17 s13
   [['.kicker','as','d1'],['.h1','as','d2'],['.divw','af','d3'],['.blg','au','d4'],['.hbox','ap','d5'],['.bmd','af','d7']], // 18 s14
 ];
 
@@ -892,7 +978,7 @@ function drawOrg(){
   el.innerHTML=`
     <div style="display:flex;gap:24px;justify-content:center;">
       <div style="display:flex;flex-direction:column;align-items:center;gap:5px;">
-        ${cir('Amway','#C9A84C','#C9A84C','rgba(201,168,76,0.14)',0.2,66,11)}
+        ${cir('Amway','#2dd4bf','#2dd4bf','rgba(45,212,191,0.14)',0.2,66,11)}
         <span style="font-size:10px;color:rgba(255,255,255,0.35);">Plattform</span>
       </div>
       <div style="display:flex;flex-direction:column;align-items:center;gap:5px;">
@@ -937,9 +1023,9 @@ function drawNetDiag(){
     const dy2 = (p.cy + (60-p.cy)*0.78).toFixed(1);
     const d = p.delay;
     dlSvg += `
-      <circle cx="${p.cx}" cy="${p.cy}" r="34" fill="rgba(34,197,94,0.1)" stroke="#4ade80" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.5s ${d}s both"/>
-      <text x="${p.cx}" y="${p.cy-5}" text-anchor="middle" fill="#4ade80" font-size="11" font-weight="700" opacity="0" style="animation:fadeIn 0.5s ${d+0.1}s both">ABO</text>
-      <text x="${p.cx}" y="${p.cy+9}" text-anchor="middle" fill="rgba(74,222,128,0.5)" font-size="9" opacity="0" style="animation:fadeIn 0.5s ${d+0.1}s both">${i+1}</text>
+      <circle cx="${p.cx}" cy="${p.cy}" r="34" fill="rgba(148,163,184,0.12)" stroke="#94a3b8" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.5s ${d}s both"/>
+      <text x="${p.cx}" y="${p.cy-5}" text-anchor="middle" fill="#94a3b8" font-size="11" font-weight="700" opacity="0" style="animation:fadeIn 0.5s ${d+0.1}s both">ABO</text>
+      <text x="${p.cx}" y="${p.cy+9}" text-anchor="middle" fill="rgba(148,163,184,0.6)" font-size="9" opacity="0" style="animation:fadeIn 0.5s ${d+0.1}s both">${i+1}</text>
       <line x1="${ax1}" y1="${ay1}" x2="${ax2}" y2="${ay2}" stroke="rgba(201,168,76,0.65)" stroke-width="1.5" marker-end="url(#arr)" opacity="0" style="animation:fadeIn 0.4s ${d+0.15}s both"/>
       <line x1="${dx1}" y1="${dy1}" x2="${dx2}" y2="${dy2}" stroke="rgba(201,168,76,0.25)" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arrd)" opacity="0" style="animation:fadeIn 0.4s ${d+0.25}s both"/>
     `;
@@ -955,9 +1041,9 @@ function drawNetDiag(){
         <path d="M0,0 L0,6 L8,3 z" fill="rgba(201,168,76,0.35)"/>
       </marker>
     </defs>
-    <circle cx="400" cy="55" r="48" fill="rgba(201,168,76,0.15)" stroke="#C9A84C" stroke-width="2" opacity="0" style="animation:fadeIn 0.6s 0.2s both"/>
-    <text x="400" y="50" text-anchor="middle" fill="#C9A84C" font-size="13" font-weight="700" opacity="0" style="animation:fadeIn 0.6s 0.3s both">Amway</text>
-    <text x="400" y="67" text-anchor="middle" fill="rgba(201,168,76,0.6)" font-size="10" opacity="0" style="animation:fadeIn 0.6s 0.3s both">Nettbutikk</text>
+    <circle cx="400" cy="55" r="48" fill="rgba(45,212,191,0.15)" stroke="#2dd4bf" stroke-width="2" opacity="0" style="animation:fadeIn 0.6s 0.2s both"/>
+    <text x="400" y="50" text-anchor="middle" fill="#2dd4bf" font-size="13" font-weight="700" opacity="0" style="animation:fadeIn 0.6s 0.3s both">Amway</text>
+    <text x="400" y="67" text-anchor="middle" fill="rgba(45,212,191,0.6)" font-size="10" opacity="0" style="animation:fadeIn 0.6s 0.3s both">Nettbutikk</text>
     <circle cx="400" cy="175" r="44" fill="rgba(202,220,252,0.12)" stroke="#CADCFC" stroke-width="2" opacity="0" style="animation:fadeIn 0.6s 0.9s both"/>
     <text x="400" y="171" text-anchor="middle" fill="#CADCFC" font-size="13" font-weight="700" opacity="0" style="animation:fadeIn 0.6s 1.0s both">ABO</text>
     <text x="400" y="187" text-anchor="middle" fill="rgba(202,220,252,0.55)" font-size="10" opacity="0" style="animation:fadeIn 0.6s 1.0s both">Du</text>
@@ -1083,17 +1169,17 @@ function drawS8g(){
 
   let svg='';
 
-  // BA-ben — diamant-blå/hvit, 20 000 PV, 21%
+  // BA-ben — sølv (breakaway Silver+), 20 000 PV, 21%
   ba_angs.forEach(({deg,n},i)=>{
     const [fx,fy]=pos(cx,cy,r_fl,deg);
     const [x1,y1]=pos(cx,cy,r_abo+3,deg);
     const [x2,y2]=pos(cx,cy,r_fl-27,deg);
     const d=0.7+i*0.15;
-    svg+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="rgba(148,163,184,0.5)" stroke-width="2" opacity="0" style="animation:fadeIn 0.3s ${d}s both"/>
-    <circle cx="${fx}" cy="${fy}" r="24" fill="rgba(148,163,184,0.12)" stroke="#94a3b8" stroke-width="2.2" opacity="0" style="animation:popIn 0.4s ${d+0.1}s both"/>
-    <text x="${fx}" y="${fy-4}" text-anchor="middle" fill="#e2e8f0" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">${n}</text>
-    <text x="${fx}" y="${fy+6}" text-anchor="middle" fill="rgba(226,232,240,0.65)" font-size="7" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">21%</text>
-    <text x="${fx}" y="${fy+15}" text-anchor="middle" fill="rgba(226,232,240,0.45)" font-size="6.5" opacity="0" style="animation:fadeIn 0.3s ${d+0.25}s both">20 000 PV</text>`;
+    svg+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="rgba(184,196,210,0.5)" stroke-width="2" opacity="0" style="animation:fadeIn 0.3s ${d}s both"/>
+    <circle cx="${fx}" cy="${fy}" r="24" fill="rgba(184,196,210,0.14)" stroke="#B8C4D2" stroke-width="2.2" opacity="0" style="animation:popIn 0.4s ${d+0.1}s both"/>
+    <text x="${fx}" y="${fy-4}" text-anchor="middle" fill="#B8C4D2" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">${n}</text>
+    <text x="${fx}" y="${fy+6}" text-anchor="middle" fill="rgba(184,196,210,0.7)" font-size="7" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">21%</text>
+    <text x="${fx}" y="${fy+15}" text-anchor="middle" fill="rgba(184,196,210,0.5)" font-size="6.5" opacity="0" style="animation:fadeIn 0.3s ${d+0.25}s both">20 000 PV</text>`;
   });
 
   // BB-ben — amber, 7 000 PV, 18%
@@ -1125,8 +1211,8 @@ function drawS8g(){
     <text x="${cx}" y="${cy+8}" text-anchor="middle" fill="rgba(241,245,249,0.8)" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.4s 0.5s both">💎 Diamond</text>
     ${svg}
     <!-- Legend -->
-    <rect x="2" y="296" width="90" height="11" rx="4" fill="rgba(148,163,184,0.1)" stroke="rgba(148,163,184,0.35)" stroke-width="1" opacity="0" style="animation:fadeIn 0.4s 2.5s both"/>
-    <text x="47" y="305" text-anchor="middle" fill="#cbd5e1" font-size="7" opacity="0" style="animation:fadeIn 0.4s 2.6s both">BA = Silver+ (21%)</text>
+    <rect x="2" y="296" width="90" height="11" rx="4" fill="rgba(184,196,210,0.12)" stroke="rgba(184,196,210,0.4)" stroke-width="1" opacity="0" style="animation:fadeIn 0.4s 2.5s both"/>
+    <text x="47" y="305" text-anchor="middle" fill="#B8C4D2" font-size="7" opacity="0" style="animation:fadeIn 0.4s 2.6s both">BA = Silver+ (21%)</text>
     <rect x="98" y="296" width="86" height="11" rx="4" fill="rgba(251,191,36,0.1)" stroke="rgba(251,191,36,0.35)" stroke-width="1" opacity="0" style="animation:fadeIn 0.4s 2.6s both"/>
     <text x="141" y="305" text-anchor="middle" fill="#fbbf24" font-size="7" opacity="0" style="animation:fadeIn 0.4s 2.7s both">BB = Bronze Builder (18%)</text>
   </svg>`;
@@ -1152,17 +1238,17 @@ function drawS8f(){
 
   let svg='';
 
-  // BA-ben — hvit/isblå med grønn kant, stor (Silver under)
+  // BA-ben — sølv (breakaway på Silver-nivå)
   ba_angs.forEach(({deg,n},i)=>{
     const [fx,fy]=pos(cx,cy,r_fl,deg);
     const [x1,y1]=pos(cx,cy,r_abo+3,deg);
     const [x2,y2]=pos(cx,cy,r_fl-26,deg);
     const d=0.8+i*0.15;
-    svg+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="rgba(74,222,128,0.45)" stroke-width="2" opacity="0" style="animation:fadeIn 0.3s ${d}s both"/>
-    <circle cx="${fx}" cy="${fy}" r="25" fill="rgba(74,222,128,0.1)" stroke="#4ade80" stroke-width="2.2" opacity="0" style="animation:popIn 0.4s ${d+0.1}s both"/>
-    <text x="${fx}" y="${fy-4}" text-anchor="middle" fill="#4ade80" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">${n}</text>
-    <text x="${fx}" y="${fy+6}" text-anchor="middle" fill="rgba(74,222,128,0.7)" font-size="7" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">21%·Silver</text>
-    <text x="${fx}" y="${fy+15}" text-anchor="middle" fill="rgba(74,222,128,0.5)" font-size="6.5" opacity="0" style="animation:fadeIn 0.3s ${d+0.25}s both">16 400 PV</text>`;
+    svg+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="rgba(184,196,210,0.5)" stroke-width="2" opacity="0" style="animation:fadeIn 0.3s ${d}s both"/>
+    <circle cx="${fx}" cy="${fy}" r="25" fill="rgba(184,196,210,0.14)" stroke="#B8C4D2" stroke-width="2.2" opacity="0" style="animation:popIn 0.4s ${d+0.1}s both"/>
+    <text x="${fx}" y="${fy-4}" text-anchor="middle" fill="#B8C4D2" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">${n}</text>
+    <text x="${fx}" y="${fy+6}" text-anchor="middle" fill="rgba(184,196,210,0.8)" font-size="7" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">21%·Silver</text>
+    <text x="${fx}" y="${fy+15}" text-anchor="middle" fill="rgba(184,196,210,0.55)" font-size="6.5" opacity="0" style="animation:fadeIn 0.3s ${d+0.25}s both">16 400 PV</text>`;
   });
 
   // BB store (18%, 7000)
@@ -1183,10 +1269,10 @@ function drawS8f(){
     const [x1,y1]=pos(cx,cy,r_abo+3,deg);
     const [x2,y2]=pos(cx,cy,r_fl-21,deg);
     const d=2.2+i*0.15;
-    svg+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="rgba(201,168,76,0.4)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s ${d}s both"/>
-    <circle cx="${fx}" cy="${fy}" r="20" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1.8" opacity="0" style="animation:popIn 0.4s ${d+0.1}s both"/>
-    <text x="${fx}" y="${fy-3}" text-anchor="middle" fill="#C9A84C" font-size="8" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">${n}</text>
-    <text x="${fx}" y="${fy+6}" text-anchor="middle" fill="rgba(201,168,76,0.7)" font-size="7" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">15%·4200PV</text>`;
+    svg+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="rgba(224,160,96,0.4)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s ${d}s both"/>
+    <circle cx="${fx}" cy="${fy}" r="20" fill="rgba(224,160,96,0.12)" stroke="#E0A060" stroke-width="1.8" opacity="0" style="animation:popIn 0.4s ${d+0.1}s both"/>
+    <text x="${fx}" y="${fy-3}" text-anchor="middle" fill="#E0A060" font-size="8" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">${n}</text>
+    <text x="${fx}" y="${fy+6}" text-anchor="middle" fill="rgba(224,160,96,0.75)" font-size="7" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">15%·4200PV</text>`;
   });
 
   el.innerHTML=`
@@ -1206,12 +1292,12 @@ function drawS8f(){
     <text x="${cx}" y="${cy+8}" text-anchor="middle" fill="rgba(52,211,153,0.8)" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.4s 0.5s both">Emerald · 21%</text>
     ${svg}
     <!-- Legend -->
-    <rect x="2" y="296" width="82" height="11" rx="4" fill="rgba(74,222,128,0.1)" stroke="rgba(74,222,128,0.35)" stroke-width="1" opacity="0" style="animation:fadeIn 0.4s 3.0s both"/>
-    <text x="43" y="305" text-anchor="middle" fill="#4ade80" font-size="7" opacity="0" style="animation:fadeIn 0.4s 3.1s both">BA = Silver (21%)</text>
+    <rect x="2" y="296" width="82" height="11" rx="4" fill="rgba(184,196,210,0.14)" stroke="rgba(184,196,210,0.4)" stroke-width="1" opacity="0" style="animation:fadeIn 0.4s 3.0s both"/>
+    <text x="43" y="305" text-anchor="middle" fill="#B8C4D2" font-size="7" opacity="0" style="animation:fadeIn 0.4s 3.1s both">BA = Silver (21%)</text>
     <rect x="90" y="296" width="82" height="11" rx="4" fill="rgba(251,191,36,0.1)" stroke="rgba(251,191,36,0.35)" stroke-width="1" opacity="0" style="animation:fadeIn 0.4s 3.1s both"/>
     <text x="131" y="305" text-anchor="middle" fill="#fbbf24" font-size="7" opacity="0" style="animation:fadeIn 0.4s 3.2s both">BB stor (18%)</text>
-    <rect x="178" y="296" width="82" height="11" rx="4" fill="rgba(201,168,76,0.1)" stroke="rgba(201,168,76,0.3)" stroke-width="1" opacity="0" style="animation:fadeIn 0.4s 3.2s both"/>
-    <text x="219" y="305" text-anchor="middle" fill="#C9A84C" font-size="7" opacity="0" style="animation:fadeIn 0.4s 3.3s both">BB liten (15%)</text>
+    <rect x="178" y="296" width="82" height="11" rx="4" fill="rgba(224,160,96,0.12)" stroke="rgba(224,160,96,0.35)" stroke-width="1" opacity="0" style="animation:fadeIn 0.4s 3.2s both"/>
+    <text x="219" y="305" text-anchor="middle" fill="#E0A060" font-size="7" opacity="0" style="animation:fadeIn 0.4s 3.3s both">BB liten (15%)</text>
   </svg>`;
 }
 
@@ -1248,28 +1334,28 @@ function drawS8e(){
     <text x="${fx}" y="${fy+7}" text-anchor="middle" fill="rgba(251,191,36,0.7)" font-size="7" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">18%·7000PV</text>`;
   });
 
-  // Mindre BB — gull, 4200 PV, 15%
+  // Mindre BB — lys bronse, 4200 PV, 15%
   small_bb.forEach(({deg,n},i)=>{
     const [fx,fy]=pos(cx,cy,r_fl,deg);
     const [x1,y1]=pos(cx,cy,r_abo+3,deg);
     const [x2,y2]=pos(cx,cy,r_fl-22,deg);
     const d=1.4+i*0.15;
-    svg+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="rgba(201,168,76,0.4)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s ${d}s both"/>
-    <circle cx="${fx}" cy="${fy}" r="21" fill="rgba(201,168,76,0.11)" stroke="#C9A84C" stroke-width="1.8" opacity="0" style="animation:popIn 0.4s ${d+0.1}s both"/>
-    <text x="${fx}" y="${fy-3}" text-anchor="middle" fill="#C9A84C" font-size="8" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">${n}</text>
-    <text x="${fx}" y="${fy+7}" text-anchor="middle" fill="rgba(201,168,76,0.7)" font-size="7" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">15%·4200PV</text>`;
+    svg+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="rgba(224,160,96,0.4)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s ${d}s both"/>
+    <circle cx="${fx}" cy="${fy}" r="21" fill="rgba(224,160,96,0.12)" stroke="#E0A060" stroke-width="1.8" opacity="0" style="animation:popIn 0.4s ${d+0.1}s both"/>
+    <text x="${fx}" y="${fy-3}" text-anchor="middle" fill="#E0A060" font-size="8" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">${n}</text>
+    <text x="${fx}" y="${fy+7}" text-anchor="middle" fill="rgba(224,160,96,0.75)" font-size="7" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">15%·4200PV</text>`;
   });
 
-  // BF — blå, 1400 PV, 9%
+  // BF — bronse, 1400 PV, 9%
   bf_ben.forEach(({deg,n},i)=>{
     const [fx,fy]=pos(cx,cy,r_fl,deg);
     const [x1,y1]=pos(cx,cy,r_abo+3,deg);
     const [x2,y2]=pos(cx,cy,r_fl-20,deg);
     const d=2.1+i*0.15;
-    svg+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="rgba(100,149,237,0.4)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s ${d}s both"/>
-    <circle cx="${fx}" cy="${fy}" r="19" fill="rgba(100,149,237,0.1)" stroke="#6495ED" stroke-width="1.8" opacity="0" style="animation:popIn 0.4s ${d+0.1}s both"/>
-    <text x="${fx}" y="${fy-3}" text-anchor="middle" fill="#6495ED" font-size="8" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">${n}</text>
-    <text x="${fx}" y="${fy+7}" text-anchor="middle" fill="rgba(100,149,237,0.7)" font-size="7" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">9%·1400PV</text>`;
+    svg+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="rgba(205,127,50,0.4)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s ${d}s both"/>
+    <circle cx="${fx}" cy="${fy}" r="19" fill="rgba(205,127,50,0.12)" stroke="#CD7F32" stroke-width="1.8" opacity="0" style="animation:popIn 0.4s ${d+0.1}s both"/>
+    <text x="${fx}" y="${fy-3}" text-anchor="middle" fill="#CD7F32" font-size="8" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">${n}</text>
+    <text x="${fx}" y="${fy+7}" text-anchor="middle" fill="rgba(205,127,50,0.75)" font-size="7" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">9%·1400PV</text>`;
   });
 
   el.innerHTML=`
@@ -1289,10 +1375,10 @@ function drawS8e(){
     ${svg}
     <rect x="2" y="295" width="82" height="11" rx="4" fill="rgba(251,191,36,0.1)" stroke="rgba(251,191,36,0.35)" stroke-width="1" opacity="0" style="animation:fadeIn 0.4s 2.8s both"/>
     <text x="43" y="304" text-anchor="middle" fill="#fbbf24" font-size="7" opacity="0" style="animation:fadeIn 0.4s 2.9s both">BB stor (18%)</text>
-    <rect x="90" y="295" width="82" height="11" rx="4" fill="rgba(201,168,76,0.1)" stroke="rgba(201,168,76,0.3)" stroke-width="1" opacity="0" style="animation:fadeIn 0.4s 2.9s both"/>
-    <text x="131" y="304" text-anchor="middle" fill="#C9A84C" font-size="7" opacity="0" style="animation:fadeIn 0.4s 3.0s both">BB liten (15%)</text>
-    <rect x="178" y="295" width="82" height="11" rx="4" fill="rgba(100,149,237,0.1)" stroke="rgba(100,149,237,0.3)" stroke-width="1" opacity="0" style="animation:fadeIn 0.4s 3.0s both"/>
-    <text x="219" y="304" text-anchor="middle" fill="#6495ED" font-size="7" opacity="0" style="animation:fadeIn 0.4s 3.1s both">BF (9%)</text>
+    <rect x="90" y="295" width="82" height="11" rx="4" fill="rgba(224,160,96,0.12)" stroke="rgba(224,160,96,0.35)" stroke-width="1" opacity="0" style="animation:fadeIn 0.4s 2.9s both"/>
+    <text x="131" y="304" text-anchor="middle" fill="#E0A060" font-size="7" opacity="0" style="animation:fadeIn 0.4s 3.0s both">BB liten (15%)</text>
+    <rect x="178" y="295" width="82" height="11" rx="4" fill="rgba(205,127,50,0.12)" stroke="rgba(205,127,50,0.35)" stroke-width="1" opacity="0" style="animation:fadeIn 0.4s 3.0s both"/>
+    <text x="219" y="304" text-anchor="middle" fill="#CD7F32" font-size="7" opacity="0" style="animation:fadeIn 0.4s 3.1s both">BF (9%)</text>
   </svg>`;
 }
 
@@ -1333,18 +1419,18 @@ function drawS8d(){
     const [lx2,ly2] = pos(cx,cy,r_fl-24,deg);
     svg += `<line x1="${lx1.toFixed(0)}" y1="${ly1.toFixed(0)}" x2="${lx2.toFixed(0)}" y2="${ly2.toFixed(0)}" stroke="rgba(201,168,76,0.4)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s ${d}s both"/>`;
     // FL sirkel
-    svg += `<circle cx="${fx.toFixed(0)}" cy="${fy.toFixed(0)}" r="24" fill="rgba(201,168,76,0.12)" stroke="#C9A84C" stroke-width="2" opacity="0" style="animation:popIn 0.4s ${d+0.1}s both"/>
-    <text x="${fx.toFixed(0)}" y="${(fy-4).toFixed(0)}" text-anchor="middle" fill="#C9A84C" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">FL${i+1}</text>
-    <text x="${fx.toFixed(0)}" y="${(fy+7).toFixed(0)}" text-anchor="middle" fill="rgba(201,168,76,0.65)" font-size="7" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">BB·15%</text>`;
+    svg += `<circle cx="${fx.toFixed(0)}" cy="${fy.toFixed(0)}" r="24" fill="rgba(224,160,96,0.14)" stroke="#E0A060" stroke-width="2" opacity="0" style="animation:popIn 0.4s ${d+0.1}s both"/>
+    <text x="${fx.toFixed(0)}" y="${(fy-4).toFixed(0)}" text-anchor="middle" fill="#E0A060" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">FL${i+1}</text>
+    <text x="${fx.toFixed(0)}" y="${(fy+7).toFixed(0)}" text-anchor="middle" fill="rgba(224,160,96,0.75)" font-size="7" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">BB·15%</text>`;
     // 3 sub-sirkler rundt FL, viftet utover
     [-40,0,40].forEach((spread, j) => {
       const subDeg = deg + spread;
-      const [sx, sy] = pos(fx, fy, 40, subDeg);
+      const [sx, sy] = pos(fx, fy, 48, subDeg);
       const [lsx1,lsy1] = pos(fx,fy,26,subDeg);
-      const [lsx2,lsy2] = pos(fx,fy,34,subDeg);
-      svg += `<line x1="${lsx1.toFixed(0)}" y1="${lsy1.toFixed(0)}" x2="${lsx2.toFixed(0)}" y2="${lsy2.toFixed(0)}" stroke="rgba(100,149,237,0.3)" stroke-width="1.2" opacity="0" style="animation:fadeIn 0.3s ${d+0.5}s both"/>
-      <circle cx="${sx.toFixed(0)}" cy="${sy.toFixed(0)}" r="13" fill="rgba(100,149,237,0.1)" stroke="#6495ED" stroke-width="1.3" opacity="0" style="animation:popIn 0.35s ${d+0.5+j*0.08}s both"/>
-      <text x="${sx.toFixed(0)}" y="${(sy+3).toFixed(0)}" text-anchor="middle" fill="#6495ED" font-size="7" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${d+0.6}s both">L2</text>`;
+      const [lsx2,lsy2] = pos(fx,fy,35,subDeg);
+      svg += `<line x1="${lsx1.toFixed(0)}" y1="${lsy1.toFixed(0)}" x2="${lsx2.toFixed(0)}" y2="${lsy2.toFixed(0)}" stroke="rgba(148,163,184,0.3)" stroke-width="1.2" opacity="0" style="animation:fadeIn 0.3s ${d+0.5}s both"/>
+      <circle cx="${sx.toFixed(0)}" cy="${sy.toFixed(0)}" r="13" fill="rgba(148,163,184,0.1)" stroke="#94a3b8" stroke-width="1.3" opacity="0" style="animation:popIn 0.35s ${d+0.5+j*0.08}s both"/>
+      <text x="${sx.toFixed(0)}" y="${(sy+3).toFixed(0)}" text-anchor="middle" fill="#94a3b8" font-size="7" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${d+0.6}s both">L2</text>`;
     });
   });
 
@@ -1355,22 +1441,22 @@ function drawS8d(){
     const [lx1,ly1] = pos(cx,cy,r_abo+4,deg);
     const [lx2,ly2] = pos(cx,cy,r_fl-22,deg);
     svg += `<line x1="${lx1.toFixed(0)}" y1="${ly1.toFixed(0)}" x2="${lx2.toFixed(0)}" y2="${ly2.toFixed(0)}" stroke="rgba(100,149,237,0.4)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s ${d}s both"/>`;
-    svg += `<circle cx="${fx.toFixed(0)}" cy="${fy.toFixed(0)}" r="24" fill="rgba(100,149,237,0.1)" stroke="#6495ED" stroke-width="2" opacity="0" style="animation:popIn 0.4s ${d+0.1}s both"/>
-    <text x="${fx.toFixed(0)}" y="${(fy-4).toFixed(0)}" text-anchor="middle" fill="#6495ED" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">FL${i+4}</text>
-    <text x="${fx.toFixed(0)}" y="${(fy+7).toFixed(0)}" text-anchor="middle" fill="rgba(100,149,237,0.65)" font-size="7" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">BF·9%</text>`;
+    svg += `<circle cx="${fx.toFixed(0)}" cy="${fy.toFixed(0)}" r="24" fill="rgba(205,127,50,0.12)" stroke="#CD7F32" stroke-width="2" opacity="0" style="animation:popIn 0.4s ${d+0.1}s both"/>
+    <text x="${fx.toFixed(0)}" y="${(fy-4).toFixed(0)}" text-anchor="middle" fill="#CD7F32" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">FL${i+4}</text>
+    <text x="${fx.toFixed(0)}" y="${(fy+7).toFixed(0)}" text-anchor="middle" fill="rgba(205,127,50,0.75)" font-size="7" opacity="0" style="animation:fadeIn 0.3s ${d+0.2}s both">BF·9%</text>`;
     [-40,0,40].forEach((spread, j) => {
       const subDeg = deg + spread;
-      const [sx, sy] = pos(fx, fy, 40, subDeg);
+      const [sx, sy] = pos(fx, fy, 48, subDeg);
       const [lsx1,lsy1] = pos(fx,fy,26,subDeg);
-      const [lsx2,lsy2] = pos(fx,fy,34,subDeg);
-      svg += `<line x1="${lsx1.toFixed(0)}" y1="${lsy1.toFixed(0)}" x2="${lsx2.toFixed(0)}" y2="${lsy2.toFixed(0)}" stroke="rgba(201,168,76,0.25)" stroke-width="1.2" opacity="0" style="animation:fadeIn 0.3s ${d+0.5}s both"/>
-      <circle cx="${sx.toFixed(0)}" cy="${sy.toFixed(0)}" r="13" fill="rgba(201,168,76,0.08)" stroke="rgba(201,168,76,0.5)" stroke-width="1.3" opacity="0" style="animation:popIn 0.35s ${d+0.5+j*0.08}s both"/>
-      <text x="${sx.toFixed(0)}" y="${(sy+3).toFixed(0)}" text-anchor="middle" fill="rgba(201,168,76,0.7)" font-size="7" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${d+0.6}s both">L2</text>`;
+      const [lsx2,lsy2] = pos(fx,fy,35,subDeg);
+      svg += `<line x1="${lsx1.toFixed(0)}" y1="${lsy1.toFixed(0)}" x2="${lsx2.toFixed(0)}" y2="${lsy2.toFixed(0)}" stroke="rgba(148,163,184,0.25)" stroke-width="1.2" opacity="0" style="animation:fadeIn 0.3s ${d+0.5}s both"/>
+      <circle cx="${sx.toFixed(0)}" cy="${sy.toFixed(0)}" r="13" fill="rgba(148,163,184,0.08)" stroke="rgba(148,163,184,0.5)" stroke-width="1.3" opacity="0" style="animation:popIn 0.35s ${d+0.5+j*0.08}s both"/>
+      <text x="${sx.toFixed(0)}" y="${(sy+3).toFixed(0)}" text-anchor="middle" fill="rgba(148,163,184,0.7)" font-size="7" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${d+0.6}s both">L2</text>`;
     });
   });
 
   el.innerHTML=`
-  <svg width="420" height="350" viewBox="0 0 420 350" xmlns="http://www.w3.org/2000/svg">
+  <svg width="420" height="362" viewBox="0 -12 420 362" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <marker id="arr5" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
         <path d="M0,0 L0,6 L7,3 z" fill="rgba(45,212,191,0.8)"/>
@@ -1387,18 +1473,18 @@ function drawS8d(){
     <line x1="${cx-r_abo-2}" y1="${cy-r_abo+10}" x2="62" y2="56" stroke="rgba(45,212,191,0.5)" stroke-width="1.5"
       marker-end="url(#arr5)" opacity="0" style="animation:fadeIn 0.4s 0.5s both"/>
     <!-- ABO Silver -->
-    <circle cx="${cx}" cy="${cy}" r="${r_abo}" fill="rgba(202,220,252,0.15)" stroke="#CADCFC" stroke-width="2.5"
+    <circle cx="${cx}" cy="${cy}" r="${r_abo}" fill="rgba(184,196,210,0.16)" stroke="#B8C4D2" stroke-width="2.5"
       opacity="0" style="animation:popIn 0.5s 0.4s both"/>
-    <text x="${cx}" y="${cy-6}" text-anchor="middle" fill="#CADCFC" font-size="11" font-weight="700"
+    <text x="${cx}" y="${cy-6}" text-anchor="middle" fill="#B8C4D2" font-size="11" font-weight="700"
       opacity="0" style="animation:fadeIn 0.4s 0.5s both">ABO</text>
-    <text x="${cx}" y="${cy+6}" text-anchor="middle" fill="rgba(202,220,252,0.7)" font-size="9" font-weight="700"
+    <text x="${cx}" y="${cy+6}" text-anchor="middle" fill="rgba(184,196,210,0.85)" font-size="9" font-weight="700"
       opacity="0" style="animation:fadeIn 0.4s 0.5s both">21% · Silver</text>
     ${svg}
     <!-- Legend — plassert nederst til høyre utenfor sirkelklyngen -->
-    <rect x="100" y="335" width="96" height="12" rx="4" fill="rgba(201,168,76,0.1)" stroke="rgba(201,168,76,0.3)" stroke-width="1" opacity="0" style="animation:fadeIn 0.4s 2.8s both"/>
-    <text x="148" y="344" text-anchor="middle" fill="#C9A84C" font-size="7" opacity="0" style="animation:fadeIn 0.4s 2.9s both">BB = Bronze Builder (15%)</text>
-    <rect x="206" y="335" width="84" height="12" rx="4" fill="rgba(100,149,237,0.1)" stroke="rgba(100,149,237,0.3)" stroke-width="1" opacity="0" style="animation:fadeIn 0.4s 2.9s both"/>
-    <text x="248" y="344" text-anchor="middle" fill="#6495ED" font-size="7" opacity="0" style="animation:fadeIn 0.4s 3.0s both">BF = Bronze Foundation (9%)</text>
+    <rect x="100" y="335" width="96" height="12" rx="4" fill="rgba(224,160,96,0.12)" stroke="rgba(224,160,96,0.35)" stroke-width="1" opacity="0" style="animation:fadeIn 0.4s 2.8s both"/>
+    <text x="148" y="344" text-anchor="middle" fill="#E0A060" font-size="7" opacity="0" style="animation:fadeIn 0.4s 2.9s both">BB = Bronze Builder (15%)</text>
+    <rect x="206" y="335" width="84" height="12" rx="4" fill="rgba(205,127,50,0.12)" stroke="rgba(205,127,50,0.35)" stroke-width="1" opacity="0" style="animation:fadeIn 0.4s 2.9s both"/>
+    <text x="248" y="344" text-anchor="middle" fill="#CD7F32" font-size="7" opacity="0" style="animation:fadeIn 0.4s 3.0s both">BF = Bronze Foundation (9%)</text>
   </svg>`;
 }
 
@@ -1422,59 +1508,61 @@ function drawS8c(){
     <line x1="92" y1="97" x2="56" y2="50" stroke="rgba(45,212,191,0.55)" stroke-width="1.5"
       marker-end="url(#arr4)" opacity="0" style="animation:fadeIn 0.4s 0.5s both"/>
     <!-- ABO -->
-    <circle cx="110" cy="115" r="30" fill="rgba(202,220,252,0.12)" stroke="#CADCFC" stroke-width="2"
+    <circle cx="110" cy="115" r="30" fill="rgba(224,160,96,0.15)" stroke="#E0A060" stroke-width="2.5"
       opacity="0" style="animation:popIn 0.5s 0.4s both"/>
-    <text x="110" y="111" text-anchor="middle" fill="#CADCFC" font-size="11" font-weight="700"
+    <text x="110" y="107" text-anchor="middle" fill="#E0A060" font-size="11" font-weight="700"
       opacity="0" style="animation:fadeIn 0.4s 0.5s both">ABO</text>
-    <text x="110" y="124" text-anchor="middle" fill="rgba(202,220,252,0.55)" font-size="8"
+    <text x="110" y="118" text-anchor="middle" fill="rgba(224,160,96,0.9)" font-size="7" font-weight="700"
+      opacity="0" style="animation:fadeIn 0.4s 0.5s both">Bronze Builder</text>
+    <text x="110" y="127" text-anchor="middle" fill="rgba(224,160,96,0.6)" font-size="8"
       opacity="0" style="animation:fadeIn 0.4s 0.5s both">Du · 15%</text>
     <!-- ABO→FL linjer -->
     <line x1="136" y1="98" x2="162" y2="65" stroke="rgba(201,168,76,0.35)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s 0.8s both"/>
     <line x1="140" y1="115" x2="170" y2="115" stroke="rgba(201,168,76,0.35)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s 0.9s both"/>
     <line x1="136" y1="132" x2="162" y2="165" stroke="rgba(201,168,76,0.35)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s 1.0s both"/>
     <!-- FL1 — opp -->
-    <circle cx="182" cy="55" r="22" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1.8"
+    <circle cx="182" cy="55" r="22" fill="rgba(205,127,50,0.12)" stroke="#CD7F32" stroke-width="1.8"
       opacity="0" style="animation:popIn 0.4s 0.9s both"/>
-    <text x="182" y="52" text-anchor="middle" fill="#C9A84C" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 1.0s both">FL1</text>
-    <text x="182" y="63" text-anchor="middle" fill="rgba(201,168,76,0.6)" font-size="7" opacity="0" style="animation:fadeIn 0.3s 1.0s both">9%</text>
+    <text x="182" y="52" text-anchor="middle" fill="#CD7F32" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 1.0s both">FL1</text>
+    <text x="182" y="63" text-anchor="middle" fill="rgba(205,127,50,0.7)" font-size="7" opacity="0" style="animation:fadeIn 0.3s 1.0s both">BF · 9%</text>
     <!-- FL2 — midten -->
-    <circle cx="194" cy="115" r="22" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1.8"
+    <circle cx="194" cy="115" r="22" fill="rgba(205,127,50,0.12)" stroke="#CD7F32" stroke-width="1.8"
       opacity="0" style="animation:popIn 0.4s 1.0s both"/>
-    <text x="194" y="112" text-anchor="middle" fill="#C9A84C" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 1.1s both">FL2</text>
-    <text x="194" y="123" text-anchor="middle" fill="rgba(201,168,76,0.6)" font-size="7" opacity="0" style="animation:fadeIn 0.3s 1.1s both">9%</text>
+    <text x="194" y="112" text-anchor="middle" fill="#CD7F32" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 1.1s both">FL2</text>
+    <text x="194" y="123" text-anchor="middle" fill="rgba(205,127,50,0.7)" font-size="7" opacity="0" style="animation:fadeIn 0.3s 1.1s both">BF · 9%</text>
     <!-- FL3 — ned -->
-    <circle cx="182" cy="175" r="22" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1.8"
+    <circle cx="182" cy="175" r="22" fill="rgba(205,127,50,0.12)" stroke="#CD7F32" stroke-width="1.8"
       opacity="0" style="animation:popIn 0.4s 1.1s both"/>
-    <text x="182" y="172" text-anchor="middle" fill="#C9A84C" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 1.2s both">FL3</text>
-    <text x="182" y="183" text-anchor="middle" fill="rgba(201,168,76,0.6)" font-size="7" opacity="0" style="animation:fadeIn 0.3s 1.2s both">9%</text>
+    <text x="182" y="172" text-anchor="middle" fill="#CD7F32" font-size="9" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 1.2s both">FL3</text>
+    <text x="182" y="183" text-anchor="middle" fill="rgba(205,127,50,0.7)" font-size="7" opacity="0" style="animation:fadeIn 0.3s 1.2s both">BF · 9%</text>
     <!-- 3 L2 for FL2 — rett til høyre, spredt vertikalt -->
-    <line x1="216" y1="107" x2="240" y2="78" stroke="rgba(100,149,237,0.3)" stroke-width="1.2" opacity="0" style="animation:fadeIn 0.3s 1.3s both"/>
-    <line x1="216" y1="115" x2="244" y2="115" stroke="rgba(100,149,237,0.3)" stroke-width="1.2" opacity="0" style="animation:fadeIn 0.3s 1.4s both"/>
-    <line x1="216" y1="123" x2="240" y2="152" stroke="rgba(100,149,237,0.3)" stroke-width="1.2" opacity="0" style="animation:fadeIn 0.3s 1.5s both"/>
+    <line x1="216" y1="107" x2="240" y2="78" stroke="rgba(148,163,184,0.3)" stroke-width="1.2" opacity="0" style="animation:fadeIn 0.3s 1.3s both"/>
+    <line x1="216" y1="115" x2="244" y2="115" stroke="rgba(148,163,184,0.3)" stroke-width="1.2" opacity="0" style="animation:fadeIn 0.3s 1.4s both"/>
+    <line x1="216" y1="123" x2="240" y2="152" stroke="rgba(148,163,184,0.3)" stroke-width="1.2" opacity="0" style="animation:fadeIn 0.3s 1.5s both"/>
     <!-- L2-1 øverst -->
-    <circle cx="254" cy="68" r="13" fill="rgba(100,149,237,0.1)" stroke="#6495ED" stroke-width="1.3" opacity="0" style="animation:popIn 0.35s 1.4s both"/>
-    <text x="254" y="72" text-anchor="middle" fill="#6495ED" font-size="7" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 1.5s both">L2</text>
+    <circle cx="254" cy="68" r="13" fill="rgba(148,163,184,0.1)" stroke="#94a3b8" stroke-width="1.3" opacity="0" style="animation:popIn 0.35s 1.4s both"/>
+    <text x="254" y="72" text-anchor="middle" fill="#94a3b8" font-size="7" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 1.5s both">L2</text>
     <!-- L3 fra L2-1 — samme vinkel som L2-1 fra FL2 -->
-    <line x1="264" y1="60" x2="271" y2="55" stroke="rgba(74,222,128,0.35)" stroke-width="1.2" opacity="0" style="animation:fadeIn 0.3s 1.7s both"/>
-    <circle cx="278" cy="49" r="10" fill="rgba(34,197,94,0.1)" stroke="#4ade80" stroke-width="1.3" opacity="0" style="animation:popIn 0.35s 1.8s both"/>
-    <text x="278" y="53" text-anchor="middle" fill="#4ade80" font-size="6" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 1.9s both">L3</text>
+    <line x1="264" y1="60" x2="271" y2="55" stroke="rgba(148,163,184,0.35)" stroke-width="1.2" opacity="0" style="animation:fadeIn 0.3s 1.7s both"/>
+    <circle cx="278" cy="49" r="10" fill="rgba(148,163,184,0.1)" stroke="#94a3b8" stroke-width="1.3" opacity="0" style="animation:popIn 0.35s 1.8s both"/>
+    <text x="278" y="53" text-anchor="middle" fill="#94a3b8" font-size="6" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 1.9s both">L3</text>
     <!-- L2-2 midten -->
-    <circle cx="258" cy="115" r="13" fill="rgba(100,149,237,0.1)" stroke="#6495ED" stroke-width="1.3" opacity="0" style="animation:popIn 0.35s 1.5s both"/>
-    <text x="258" y="119" text-anchor="middle" fill="#6495ED" font-size="7" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 1.6s both">L2</text>
+    <circle cx="258" cy="115" r="13" fill="rgba(148,163,184,0.1)" stroke="#94a3b8" stroke-width="1.3" opacity="0" style="animation:popIn 0.35s 1.5s both"/>
+    <text x="258" y="119" text-anchor="middle" fill="#94a3b8" font-size="7" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 1.6s both">L2</text>
     <!-- L3 fra L2-2 — rett til høyre -->
-    <line x1="271" y1="115" x2="279" y2="115" stroke="rgba(74,222,128,0.35)" stroke-width="1.2" opacity="0" style="animation:fadeIn 0.3s 1.8s both"/>
-    <circle cx="289" cy="115" r="10" fill="rgba(34,197,94,0.1)" stroke="#4ade80" stroke-width="1.3" opacity="0" style="animation:popIn 0.35s 1.9s both"/>
-    <text x="289" y="119" text-anchor="middle" fill="#4ade80" font-size="6" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 2.0s both">L3</text>
+    <line x1="271" y1="115" x2="279" y2="115" stroke="rgba(148,163,184,0.35)" stroke-width="1.2" opacity="0" style="animation:fadeIn 0.3s 1.8s both"/>
+    <circle cx="289" cy="115" r="10" fill="rgba(148,163,184,0.1)" stroke="#94a3b8" stroke-width="1.3" opacity="0" style="animation:popIn 0.35s 1.9s both"/>
+    <text x="289" y="119" text-anchor="middle" fill="#94a3b8" font-size="6" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 2.0s both">L3</text>
     <!-- L2-3 nederst -->
-    <circle cx="254" cy="162" r="13" fill="rgba(100,149,237,0.1)" stroke="#6495ED" stroke-width="1.3" opacity="0" style="animation:popIn 0.35s 1.6s both"/>
-    <text x="254" y="166" text-anchor="middle" fill="#6495ED" font-size="7" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 1.7s both">L2</text>
+    <circle cx="254" cy="162" r="13" fill="rgba(148,163,184,0.1)" stroke="#94a3b8" stroke-width="1.3" opacity="0" style="animation:popIn 0.35s 1.6s both"/>
+    <text x="254" y="166" text-anchor="middle" fill="#94a3b8" font-size="7" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 1.7s both">L2</text>
     <!-- L3 fra L2-3 — samme vinkel som L2-3 fra FL2 -->
-    <line x1="264" y1="170" x2="271" y2="175" stroke="rgba(74,222,128,0.35)" stroke-width="1.2" opacity="0" style="animation:fadeIn 0.3s 1.9s both"/>
-    <circle cx="278" cy="181" r="10" fill="rgba(34,197,94,0.1)" stroke="#4ade80" stroke-width="1.3" opacity="0" style="animation:popIn 0.35s 2.0s both"/>
-    <text x="278" y="185" text-anchor="middle" fill="#4ade80" font-size="6" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 2.1s both">L3</text>
+    <line x1="264" y1="170" x2="271" y2="175" stroke="rgba(148,163,184,0.35)" stroke-width="1.2" opacity="0" style="animation:fadeIn 0.3s 1.9s both"/>
+    <circle cx="278" cy="181" r="10" fill="rgba(148,163,184,0.1)" stroke="#94a3b8" stroke-width="1.3" opacity="0" style="animation:popIn 0.35s 2.0s both"/>
+    <text x="278" y="185" text-anchor="middle" fill="#94a3b8" font-size="6" font-weight="700" opacity="0" style="animation:fadeIn 0.3s 2.1s both">L3</text>
     <!-- Indikator FL1 og FL3 også har struktur -->
-    <text x="182" y="30" text-anchor="middle" fill="rgba(100,149,237,0.5)" font-size="7" opacity="0" style="animation:fadeIn 0.4s 1.7s both">3×L2+L3</text>
-    <text x="182" y="210" text-anchor="middle" fill="rgba(100,149,237,0.5)" font-size="7" opacity="0" style="animation:fadeIn 0.4s 1.8s both">3×L2+L3</text>
+    <text x="182" y="30" text-anchor="middle" fill="rgba(148,163,184,0.5)" font-size="7" opacity="0" style="animation:fadeIn 0.4s 1.7s both">3×L2+L3</text>
+    <text x="182" y="210" text-anchor="middle" fill="rgba(148,163,184,0.5)" font-size="7" opacity="0" style="animation:fadeIn 0.4s 1.8s both">3×L2+L3</text>
     <text x="150" y="244" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-size="7" opacity="0" style="animation:fadeIn 0.5s 2.2s both">22 ABOer totalt</text>
   </svg>`;
 }
@@ -1503,11 +1591,11 @@ function drawS8b(){
     </defs>
 
     <!-- Amway — venstre -->
-    <circle cx="28" cy="115" r="26" fill="rgba(201,168,76,0.15)" stroke="#C9A84C" stroke-width="2"
+    <circle cx="28" cy="115" r="26" fill="rgba(45,212,191,0.15)" stroke="#2dd4bf" stroke-width="2"
       opacity="0" style="animation:popIn 0.5s 0.2s both"/>
-    <text x="28" y="111" text-anchor="middle" fill="#C9A84C" font-size="9" font-weight="700"
+    <text x="28" y="111" text-anchor="middle" fill="#2dd4bf" font-size="9" font-weight="700"
       opacity="0" style="animation:fadeIn 0.4s 0.3s both">Amway</text>
-    <text x="28" y="123" text-anchor="middle" fill="rgba(201,168,76,0.6)" font-size="8"
+    <text x="28" y="123" text-anchor="middle" fill="rgba(45,212,191,0.6)" font-size="8"
       opacity="0" style="animation:fadeIn 0.4s 0.3s both">Nett</text>
 
     <!-- Pil ABO → Amway -->
@@ -1516,11 +1604,13 @@ function drawS8b(){
       opacity="0" style="animation:fadeIn 0.5s 0.6s both"/>
 
     <!-- ABO — midten -->
-    <circle cx="115" cy="115" r="32" fill="rgba(202,220,252,0.12)" stroke="#CADCFC" stroke-width="2"
+    <circle cx="115" cy="115" r="32" fill="rgba(205,127,50,0.14)" stroke="#CD7F32" stroke-width="2.5"
       opacity="0" style="animation:popIn 0.5s 0.4s both"/>
-    <text x="115" y="111" text-anchor="middle" fill="#CADCFC" font-size="12" font-weight="700"
+    <text x="115" y="107" text-anchor="middle" fill="#CD7F32" font-size="12" font-weight="700"
       opacity="0" style="animation:fadeIn 0.4s 0.5s both">ABO</text>
-    <text x="115" y="125" text-anchor="middle" fill="rgba(202,220,252,0.55)" font-size="9"
+    <text x="115" y="119" text-anchor="middle" fill="rgba(205,127,50,0.85)" font-size="8" font-weight="700"
+      opacity="0" style="animation:fadeIn 0.4s 0.5s both">Bronze</text>
+    <text x="115" y="129" text-anchor="middle" fill="rgba(205,127,50,0.6)" font-size="8"
       opacity="0" style="animation:fadeIn 0.4s 0.5s both">Du · 9%</text>
 
     <!-- Linjer ABO → FL -->
@@ -1532,59 +1622,59 @@ function drawS8b(){
       opacity="0" style="animation:fadeIn 0.3s 1.3s both"/>
 
     <!-- FL1 — opp-høyre -->
-    <circle cx="195" cy="58" r="24" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1.8"
+    <circle cx="195" cy="58" r="24" fill="rgba(148,163,184,0.12)" stroke="#94a3b8" stroke-width="1.8"
       opacity="0" style="animation:popIn 0.45s 1.0s both"/>
-    <text x="195" y="54" text-anchor="middle" fill="#C9A84C" font-size="10" font-weight="700"
+    <text x="195" y="54" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="700"
       opacity="0" style="animation:fadeIn 0.3s 1.1s both">FL1</text>
-    <text x="195" y="66" text-anchor="middle" fill="rgba(201,168,76,0.6)" font-size="8"
+    <text x="195" y="66" text-anchor="middle" fill="rgba(148,163,184,0.7)" font-size="8"
       opacity="0" style="animation:fadeIn 0.3s 1.1s both">200 PV</text>
 
     <!-- FL2 — midten høyre -->
-    <circle cx="208" cy="115" r="24" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1.8"
+    <circle cx="208" cy="115" r="24" fill="rgba(148,163,184,0.12)" stroke="#94a3b8" stroke-width="1.8"
       opacity="0" style="animation:popIn 0.45s 1.2s both"/>
-    <text x="208" y="111" text-anchor="middle" fill="#C9A84C" font-size="10" font-weight="700"
+    <text x="208" y="111" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="700"
       opacity="0" style="animation:fadeIn 0.3s 1.3s both">FL2</text>
-    <text x="208" y="123" text-anchor="middle" fill="rgba(201,168,76,0.6)" font-size="8"
+    <text x="208" y="123" text-anchor="middle" fill="rgba(148,163,184,0.7)" font-size="8"
       opacity="0" style="animation:fadeIn 0.3s 1.3s both">200 PV</text>
 
     <!-- FL3 — ned-høyre -->
-    <circle cx="195" cy="172" r="24" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1.8"
+    <circle cx="195" cy="172" r="24" fill="rgba(148,163,184,0.12)" stroke="#94a3b8" stroke-width="1.8"
       opacity="0" style="animation:popIn 0.45s 1.4s both"/>
-    <text x="195" y="168" text-anchor="middle" fill="#C9A84C" font-size="10" font-weight="700"
+    <text x="195" y="168" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="700"
       opacity="0" style="animation:fadeIn 0.3s 1.5s both">FL3</text>
-    <text x="195" y="180" text-anchor="middle" fill="rgba(201,168,76,0.6)" font-size="8"
+    <text x="195" y="180" text-anchor="middle" fill="rgba(148,163,184,0.7)" font-size="8"
       opacity="0" style="animation:fadeIn 0.3s 1.5s both">200 PV</text>
 
     <!-- Linjer FL → L2 -->
-    <line x1="218" y1="44" x2="244" y2="26" stroke="rgba(100,149,237,0.35)" stroke-width="1.5"
+    <line x1="218" y1="44" x2="244" y2="26" stroke="rgba(148,163,184,0.35)" stroke-width="1.5"
       opacity="0" style="animation:fadeIn 0.3s 1.6s both"/>
-    <line x1="232" y1="115" x2="256" y2="115" stroke="rgba(100,149,237,0.35)" stroke-width="1.5"
+    <line x1="232" y1="115" x2="256" y2="115" stroke="rgba(148,163,184,0.35)" stroke-width="1.5"
       opacity="0" style="animation:fadeIn 0.3s 1.8s both"/>
-    <line x1="218" y1="186" x2="244" y2="204" stroke="rgba(100,149,237,0.35)" stroke-width="1.5"
+    <line x1="218" y1="186" x2="244" y2="204" stroke="rgba(148,163,184,0.35)" stroke-width="1.5"
       opacity="0" style="animation:fadeIn 0.3s 2.0s both"/>
 
     <!-- L2-1 -->
-    <circle cx="262" cy="20" r="18" fill="rgba(100,149,237,0.1)" stroke="#6495ED" stroke-width="1.5"
+    <circle cx="262" cy="20" r="18" fill="rgba(148,163,184,0.1)" stroke="#94a3b8" stroke-width="1.5"
       opacity="0" style="animation:popIn 0.4s 1.7s both"/>
-    <text x="262" y="17" text-anchor="middle" fill="#6495ED" font-size="9" font-weight="700"
+    <text x="262" y="17" text-anchor="middle" fill="#94a3b8" font-size="9" font-weight="700"
       opacity="0" style="animation:fadeIn 0.3s 1.8s both">L2</text>
-    <text x="262" y="28" text-anchor="middle" fill="rgba(100,149,237,0.6)" font-size="7"
+    <text x="262" y="28" text-anchor="middle" fill="rgba(148,163,184,0.6)" font-size="7"
       opacity="0" style="animation:fadeIn 0.3s 1.8s both">200 PV</text>
 
     <!-- L2-2 -->
-    <circle cx="274" cy="115" r="18" fill="rgba(100,149,237,0.1)" stroke="#6495ED" stroke-width="1.5"
+    <circle cx="274" cy="115" r="18" fill="rgba(148,163,184,0.1)" stroke="#94a3b8" stroke-width="1.5"
       opacity="0" style="animation:popIn 0.4s 1.9s both"/>
-    <text x="274" y="112" text-anchor="middle" fill="#6495ED" font-size="9" font-weight="700"
+    <text x="274" y="112" text-anchor="middle" fill="#94a3b8" font-size="9" font-weight="700"
       opacity="0" style="animation:fadeIn 0.3s 2.0s both">L2</text>
-    <text x="274" y="123" text-anchor="middle" fill="rgba(100,149,237,0.6)" font-size="7"
+    <text x="274" y="123" text-anchor="middle" fill="rgba(148,163,184,0.6)" font-size="7"
       opacity="0" style="animation:fadeIn 0.3s 2.0s both">200 PV</text>
 
     <!-- L2-3 -->
-    <circle cx="262" cy="210" r="18" fill="rgba(100,149,237,0.1)" stroke="#6495ED" stroke-width="1.5"
+    <circle cx="262" cy="210" r="18" fill="rgba(148,163,184,0.1)" stroke="#94a3b8" stroke-width="1.5"
       opacity="0" style="animation:popIn 0.4s 2.1s both"/>
-    <text x="262" y="207" text-anchor="middle" fill="#6495ED" font-size="9" font-weight="700"
+    <text x="262" y="207" text-anchor="middle" fill="#94a3b8" font-size="9" font-weight="700"
       opacity="0" style="animation:fadeIn 0.3s 2.2s both">L2</text>
-    <text x="262" y="218" text-anchor="middle" fill="rgba(100,149,237,0.6)" font-size="7"
+    <text x="262" y="218" text-anchor="middle" fill="rgba(148,163,184,0.6)" font-size="7"
       opacity="0" style="animation:fadeIn 0.3s 2.2s both">200 PV</text>
   </svg>`;
 }
@@ -1600,11 +1690,11 @@ function drawS8a(){
       </marker>
     </defs>
     <!-- Amway — helt til venstre -->
-    <circle cx="44" cy="110" r="38" fill="rgba(201,168,76,0.15)" stroke="#C9A84C" stroke-width="2"
+    <circle cx="44" cy="110" r="38" fill="rgba(45,212,191,0.15)" stroke="#2dd4bf" stroke-width="2"
       opacity="0" style="animation:popIn 0.5s 0.2s both"/>
-    <text x="44" y="106" text-anchor="middle" fill="#C9A84C" font-size="11" font-weight="700"
+    <text x="44" y="106" text-anchor="middle" fill="#2dd4bf" font-size="11" font-weight="700"
       opacity="0" style="animation:fadeIn 0.4s 0.3s both">Amway</text>
-    <text x="38" y="40" text-anchor="middle" fill="rgba(45,212,191,0.6)" font-size="8"
+    <text x="44" y="118" text-anchor="middle" fill="rgba(45,212,191,0.6)" font-size="8"
       opacity="0" style="animation:fadeIn 0.4s 0.3s both">Nettbutikk</text>
     <!-- Pil fra ABO til Amway -->
     <line x1="155" y1="110" x2="84" y2="110" stroke="rgba(201,168,76,0.7)" stroke-width="2"
@@ -1650,20 +1740,20 @@ function drawGrowthTree(){
     </div>`;
   });
   const fl6 = [30,78,126,174,222,270].map((x,i)=>`
-    <line x1="${x}" y1="60" x2="${x}" y2="74" stroke="rgba(100,149,237,0.3)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s ${0.5+i*0.07}s both"/>
-    <circle cx="${x}" cy="84" r="14" fill="rgba(100,149,237,0.1)" stroke="#6495ED" stroke-width="1.5" opacity="0" style="animation:popIn 0.4s ${0.55+i*0.07}s both"/>
-    <text x="${x}" y="81" text-anchor="middle" fill="#6495ED" font-size="6.5" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${0.6+i*0.07}s both">FL${i+1}</text>
-    <text x="${x}" y="92" text-anchor="middle" fill="rgba(100,149,237,0.6)" font-size="6" opacity="0" style="animation:fadeIn 0.3s ${0.6+i*0.07}s both">200PV</text>`).join('');
+    <line x1="${x}" y1="60" x2="${x}" y2="74" stroke="rgba(148,163,184,0.3)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s ${0.5+i*0.07}s both"/>
+    <circle cx="${x}" cy="84" r="14" fill="rgba(148,163,184,0.12)" stroke="#94a3b8" stroke-width="1.5" opacity="0" style="animation:popIn 0.4s ${0.55+i*0.07}s both"/>
+    <text x="${x}" y="81" text-anchor="middle" fill="#94a3b8" font-size="6.5" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${0.6+i*0.07}s both">FL${i+1}</text>
+    <text x="${x}" y="92" text-anchor="middle" fill="rgba(148,163,184,0.6)" font-size="6" opacity="0" style="animation:fadeIn 0.3s ${0.6+i*0.07}s both">200PV</text>`).join('');
   // 4 L2 under FL1 — god horisontal luft
   const l2 = [-10,12,34,56].map((x,i)=>`
-    <line x1="${x+11}" y1="108" x2="${x+11}" y2="116" stroke="rgba(74,222,128,0.3)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s ${1.1+i*0.08}s both"/>
-    <circle cx="${x+11}" cy="128" r="11" fill="rgba(34,197,94,0.1)" stroke="#4ade80" stroke-width="1.5" opacity="0" style="animation:popIn 0.4s ${1.15+i*0.08}s both"/>
-    <text x="${x+11}" y="131" text-anchor="middle" fill="#4ade80" font-size="6" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${1.2+i*0.08}s both">L2</text>`).join('');
+    <line x1="${x+11}" y1="108" x2="${x+11}" y2="116" stroke="rgba(148,163,184,0.3)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s ${1.1+i*0.08}s both"/>
+    <circle cx="${x+11}" cy="128" r="11" fill="rgba(148,163,184,0.12)" stroke="#94a3b8" stroke-width="1.5" opacity="0" style="animation:popIn 0.4s ${1.15+i*0.08}s both"/>
+    <text x="${x+11}" y="131" text-anchor="middle" fill="#94a3b8" font-size="6" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${1.2+i*0.08}s both">L2</text>`).join('');
   // 2 L3 — vertikale linjer kun fra første L2 (x=1)
   const l3 = [1,16].map((x,i)=>`
-    <line x1="${x}" y1="139" x2="${x}" y2="154" stroke="rgba(251,191,36,0.3)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s ${1.6+i*0.1}s both"/>
-    <circle cx="${x}" cy="164" r="9" fill="rgba(245,158,11,0.1)" stroke="#fbbf24" stroke-width="1.5" opacity="0" style="animation:popIn 0.4s ${1.65+i*0.1}s both"/>
-    <text x="${x}" y="167" text-anchor="middle" fill="#fbbf24" font-size="5.5" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${1.7+i*0.1}s both">L3</text>`).join('');
+    <line x1="${x}" y1="139" x2="${x}" y2="154" stroke="rgba(148,163,184,0.3)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s ${1.6+i*0.1}s both"/>
+    <circle cx="${x}" cy="164" r="9" fill="rgba(148,163,184,0.12)" stroke="#94a3b8" stroke-width="1.5" opacity="0" style="animation:popIn 0.4s ${1.65+i*0.1}s both"/>
+    <text x="${x}" y="167" text-anchor="middle" fill="#94a3b8" font-size="5.5" font-weight="700" opacity="0" style="animation:fadeIn 0.3s ${1.7+i*0.1}s both">L3</text>`).join('');
 
   el.style.cssText='display:flex;flex-direction:column;align-items:center;width:100%;gap:8px;';
   el.innerHTML=`
@@ -1673,12 +1763,12 @@ function drawGrowthTree(){
       <text x="150" y="19" text-anchor="middle" fill="#C9A84C" font-size="8" font-weight="700" opacity="0" style="animation:fadeIn 0.4s 0.2s both">ABO1</text>
       <text x="150" y="30" text-anchor="middle" fill="rgba(201,168,76,0.6)" font-size="7" opacity="0" style="animation:fadeIn 0.4s 0.2s both">200 PV</text>
       <line x1="150" y1="42" x2="150" y2="56" stroke="rgba(201,168,76,0.3)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s 0.45s both"/>
-      <line x1="30" y1="56" x2="270" y2="56" stroke="rgba(100,149,237,0.4)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.4s 0.48s both"/>
+      <line x1="30" y1="56" x2="270" y2="56" stroke="rgba(148,163,184,0.4)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.4s 0.48s both"/>
       ${fl6}
-      <line x1="30" y1="98" x2="30" y2="108" stroke="rgba(74,222,128,0.3)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s 1.0s both"/>
-      <line x1="1" y1="108" x2="67" y2="108" stroke="rgba(74,222,128,0.3)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s 1.05s both"/>
+      <line x1="30" y1="98" x2="30" y2="108" stroke="rgba(148,163,184,0.3)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s 1.0s both"/>
+      <line x1="1" y1="108" x2="67" y2="108" stroke="rgba(148,163,184,0.3)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s 1.05s both"/>
       ${l2}
-      <line x1="1" y1="139" x2="17" y2="139" stroke="rgba(245,158,11,0.3)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s 1.55s both"/>
+      <line x1="1" y1="139" x2="17" y2="139" stroke="rgba(148,163,184,0.3)" stroke-width="1.5" opacity="0" style="animation:fadeIn 0.3s 1.55s both"/>
       ${l3}
       <text x="150" y="182" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="7.5" opacity="0" style="animation:fadeIn 0.5s 2.0s both">× 6 ben = 79 ABOer totalt · 15 800 PV · 21%</text>
     </svg>
@@ -1842,18 +1932,19 @@ function animIn(idx){
     el.style.opacity='';
   });
   // special draws
-  if(idx===8)  setTimeout(drawNetDiag, 400); // s5d
-  if(idx===9)  setTimeout(drawOrg,     350); // s6
-  if(idx===9)  setTimeout(animScale,      500); // s7
-  if(idx===10) setTimeout(drawGrowthTree, 350); // s7b
-  if(idx===11) setTimeout(drawS8a, 350); // s8a steg1
-  if(idx===12) setTimeout(drawS8b, 350); // s8b steg2
-  if(idx===13) setTimeout(drawS8c, 350); // s8c steg3
-  if(idx===14) setTimeout(drawS8d, 350); // s8d steg4
-  if(idx===15) setTimeout(drawS8e, 350); // s8e ruby
-  if(idx===16) setTimeout(drawS8f, 350); // s8f emerald
-  if(idx===17) setTimeout(drawS8g, 350); // s8g diamond
-  if(idx===18) setTimeout(drawS8h, 350); // s8h edc
+  if(idx===9)  setTimeout(drawNetDiag, 400); // s5d
+  if(idx===10) setTimeout(drawOrg,     350); // s6
+  if(idx===11) setTimeout(animScale,      500); // s7
+  if(idx===12) setTimeout(drawGrowthTree, 350); // s7b
+  if(idx===13) setTimeout(drawS8a, 350); // s8a steg1
+  // idx 14 = s8b2 Path to Bronze (ingen SVG-diagram)
+  if(idx===15) setTimeout(drawS8b, 350); // s8b steg2 (Bronze Foundation)
+  if(idx===16) setTimeout(drawS8c, 350); // s8c steg3
+  if(idx===17) setTimeout(drawS8d, 350); // s8d steg4
+  if(idx===18) setTimeout(drawS8e, 350); // s8e ruby
+  if(idx===19) setTimeout(drawS8f, 350); // s8f emerald
+  if(idx===20) setTimeout(drawS8g, 350); // s8g diamond
+  if(idx===21) setTimeout(drawS8h, 350); // s8h edc
 }
 
 function go(idx){
